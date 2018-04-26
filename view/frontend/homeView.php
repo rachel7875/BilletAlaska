@@ -15,9 +15,9 @@
 <p><a href="">Accès au dernier chapitre</a> </p>
 
 <h2>Retrouvez tous les chapitres et leurs résumés</h2>
-<p><a href="">Accès à tous les chapitres </a> </p>
+<p><a href="index.php?action=listChapters"> Accès à tous les chapitres </a> </p>
 
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('template.php'); ?> 

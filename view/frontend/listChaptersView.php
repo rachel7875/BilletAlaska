@@ -2,7 +2,10 @@
 
 <?php ob_start(); ?>
 <h1>Liste des chapitres</h1>
-<p>Retrouvez votre chapitre en cours !</p>
+<p>Retrouvez tous les chapitres et leurs résumés
+    <br/>
+    <br/>
+</p>
 
 
 <?php
@@ -15,7 +18,10 @@ foreach ($posts as $data)
         <p>
             <?= nl2br(htmlspecialchars($data['summary'])) ?>
             <br />
-            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Accès au chapitre</a></em>
+            <br />
+            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire le chapitre</a></em>
+            <br />
+            <br />
         </p>
     </div>
 <?php

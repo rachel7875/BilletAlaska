@@ -3,7 +3,7 @@ require('controller/frontend.php');
 
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
+        if ($_GET['action'] == 'listChapters') {
             listPosts();
         }
         elseif ($_GET['action'] == 'post') {
