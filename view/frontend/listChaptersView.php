@@ -1,4 +1,4 @@
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
+<?php $title = 'Liste des chapitres'; ?>
 
 <?php ob_start(); ?>
 <h1>Liste des chapitres</h1>
@@ -12,7 +12,7 @@
 foreach ($posts as $data)
 {
 ?>
-    <div class="chapter">
+    <div class="summarychapter">
         <h2> Chapitre <?= htmlspecialchars($data['id']) ?> : <?= htmlspecialchars($data['title']) ?> </h2>
         <p> <em>publié le <?= $data['creationDate_fr'] ?></em> </p>
         <p>

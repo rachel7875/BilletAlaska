@@ -2,7 +2,7 @@
 
 // Chargement des classes
 require_once('model/PostManager.php');
-//require_once('model/CommentManager.php');
+require_once('model/CommentManager.php');
 
 function home()
 {
@@ -16,6 +16,14 @@ function listPosts()
 
     require('view/frontend/listChaptersView.php');
 }
+
+//function listComments()
+//{
+   // $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+   // $comments = $commentManager->getComments();
+
+  //  require('view/frontend/chapterView.php');
+//}
 
 function post()
 {
