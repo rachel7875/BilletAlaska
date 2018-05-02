@@ -17,14 +17,6 @@ function listPosts()
     require('view/frontend/listChaptersView.php');
 }
 
-//function listComments()
-//{
-   // $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-   // $comments = $commentManager->getComments();
-
-  //  require('view/frontend/chapterView.php');
-//}
-
 function post()
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
@@ -34,6 +26,17 @@ function post()
     $comments = $commentManager->getComments($_GET['id']);
 
     require('view/frontend/chapterView.php');
+}
+
+function reportComment($commentId)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+    $reportedComment = $commentManager->reportComment($_GET['id']);
+
+    $comment = $commentManager->getReportedComment($commentId);
+
+    header('Location: index.php?action=post&id=' . $comment['postId']);
 }
 
 function addComment($postId, $author, $comment)

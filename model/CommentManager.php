@@ -7,16 +7,6 @@ require_once("model/Manager.php");
 class CommentManager extends Manager
 {
    
-   // public function getComments()
-   // {
-   //     $db = $this->dbConnect();
-   //     $req = $db->query('SELECT commentId, author, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin%ss\') AS commentDate_fr FROM comments ORDER BY commentDate LIMIT 0, 10');
-    //    $result=$req->fetchAll();
-     //   $req->closeCursor();
-        
-    //    return $result;
-   // }
-   
     public function getComments($postId)
     {
         $db = $this->dbConnect();
@@ -28,6 +18,26 @@ class CommentManager extends Manager
 
         return $result;
     }
+
+    public function reportComment($commentId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE comments SET stage = "reported" WHERE commentId = ?');
+        $result = $req->execute(array($commentId));
+
+        return $result;
+    }
+        
+    public function getReportedComment($commentId)
+    {
+        $db = $this->dbConnect();
+        $req= $db->prepare('SELECT commentId, postId FROM comments WHERE commentId = ? ');
+        $req->execute(array($commentId));
+        $result = $req->fetch();
+
+        return $result;   
+    }
+
 
     public function postComment($postId, $author, $comment)
     {
