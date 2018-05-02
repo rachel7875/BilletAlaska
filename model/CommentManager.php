@@ -42,10 +42,10 @@ class CommentManager extends Manager
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
-        $affectedLines = $comments->execute(array($postId, $author, $comment));
+        $req = $db->prepare('INSERT INTO comments(postId, author, comment, commentDate, stage) VALUES(?, ?, ?, NOW(), \'initial\')');
+        $result = $req->execute(array($postId, $author, $comment));
 
-        return $affectedLines;
+        return $result;
     }
 
     public function getComment($id)
