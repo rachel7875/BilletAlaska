@@ -53,31 +53,14 @@ function addComment($postId, $author, $comment)
     }
 }
 
-function rectifyFormComment($id)
+function nbLastPost()
 {
-    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-    $comment=$commentManager->getComment($id);
-  
-    require('view/frontend/commentView.php');
-}
+    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
 
+    $numLastPost = $postManager->getNbLastPost();
 
+    header('Location: index.php?action=post&id=' . $numLastPost['maxId'] );
 
-
-function rectifyComment($id, $new_author, $new_comment)
-{
-    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-
-    $affectedComment = $commentManager->modifyComment($id, $new_author,$new_comment);
-  	// $affectedComment = true si update ok false sinon
-
-    if ($affectedComment === false) {
-        throw new Exception('Impossible de modifier le commentaire !');
-    }
-    else {
-      	$comment = $commentManager->getComment($id);
-        header('Location: index.php?action=post&id=' . $comment['post_id']);
-    }
 }
 
 function contact()

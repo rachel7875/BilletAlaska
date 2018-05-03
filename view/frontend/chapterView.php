@@ -25,24 +25,26 @@ foreach ($comments as $data)
         <p> <strong><?= htmlspecialchars($data['author']) ?></strong> le <?= $data['commentDate_fr'] ?> </p>
 
         <p> <?= nl2br(htmlspecialchars($data['comment'])) ?> </p>
-        <p> <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>">Report</a></em></p>
+        <p> <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>">Signaler</a></em></p>
         
     </div>
 <?php
 }
 ?>
 
+
+<h2>Ajoutez un commentaire ! </h2>
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     <div>
-        <label for="author">Auteur</label><br />
+        <label for="author">Votre pseudo</label><br />
         <input type="text" id="author" name="author" />
     </div>
     <div>
-        <label for="comment">Commentaire</label><br />
+        <label for="comment">Votre commentaire</label><br />
         <textarea id="comment" name="comment"></textarea>
     </div>
     <div>
-        <input type="submit" />
+        <input type="submit" value="Envoyer"/>
     </div>
 </form>
 

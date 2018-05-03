@@ -17,17 +17,6 @@ class PostManager extends Manager
         return $result;
     }
 
-    public function getLastPost()
-    {
-        $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, summary, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr FROM posts ORDER BY creationDate DESC LIMIT 0, 1');
-        $result=$req->fetch();
-        
-        return $result;
-    }
-  
-
-
     public function getPost($postId)
     {
         $db = $this->dbConnect();
@@ -37,4 +26,14 @@ class PostManager extends Manager
 
         return $post;
     }
+
+    public function getNbLastPost()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT MAX(id) AS maxId FROM posts');
+        $result=$req->fetch();
+        
+        return $result;
+    }
+
 }

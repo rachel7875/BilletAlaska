@@ -35,6 +35,10 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'nbLastPost') {
+            nbLastPost();
+            }
+
     }
     else {
         home();
