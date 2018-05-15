@@ -25,9 +25,11 @@ foreach ($posts as $data)
         </p>
     </div>
 <?php
+
 }
 
 ?>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

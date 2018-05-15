@@ -63,24 +63,3 @@ function nbLastPost()
 
 }
 
-function contact()
-{
-
-    require('view/frontend/contactView.php');
-} 
-
-
-function postMessage ($subject, $sender, $message_content)
-{
-    $contactManager = new \OpenClassrooms\Blog\Model\ContactManager();
-
-    $affectedMessage= $contactManager->addMessage($subject, $sender, $message_content);
-
-    if ($affectedMessage === false) {
-        throw new Exception('Impossible d\'envoyer le message !');
-    }
-    else {
-        header('Location: index.php');
-    }
-}
-
