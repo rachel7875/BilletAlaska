@@ -13,13 +13,13 @@ foreach ($postsAdm as $data)
 {
 ?>
     <div class="chapter">
-        <h3> Chapitre <?= htmlspecialchars($data['id']) ?> : <?= htmlspecialchars($data['title']) ?> </h3>
+        <h3> Chapitre <?= htmlspecialchars($data['numChapter']) ?> : <?= htmlspecialchars($data['title']) ?> </h3>
         <p> <em>Créé le : <?= $data['creationDate_fr'] ?></em> </p>
         <p> <em>Dernière modification le : <?= $data['modifDate_fr'] ?></em> </p>
         <p>
             <em><a href="index.php?action=viewPostAdm&amp;id=<?= $data['id'] ?>">Visualiser le chapitre</a></em>
             <em><a href="index.php?action=rectifyFormPost&amp;id=<?= $data['id'] ?>">Modifier le chapitre</a></em>
-            <em><a href="index.php?action= ?>">Supprimer le chapitre</a></em>
+            <em><a href="index.php?action=deletePost&amp;id=<?= $data['id'] ?>">Supprimer le chapitre</a></em>
             <br />
             <br />
         </p>

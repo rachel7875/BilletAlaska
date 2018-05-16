@@ -13,7 +13,7 @@ foreach ($posts as $data)
 {
 ?>
     <div class="summarychapter">
-        <h2> Chapitre <?= htmlspecialchars($data['id']) ?> : <?= htmlspecialchars($data['title']) ?> </h2>
+        <h2> Chapitre <?= htmlspecialchars($data['numChapter']) ?> : <?= htmlspecialchars($data['title']) ?> </h2>
         <p> <em>publié le <?= $data['creationDate_fr'] ?></em> </p>
         <p>
             <?= nl2br(htmlspecialchars($data['summary'])) ?>

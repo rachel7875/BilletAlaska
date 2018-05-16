@@ -32,11 +32,11 @@ function rectifyFormPost($id)
     require('view/backend/postRectifyFormView.php');
 }
 
-function rectifyPost($id, $new_title,$new_content, $new_summary)
+function rectifyPost($id, $new_numChapter, $new_title,$new_content, $new_summary)
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
 
-    $modifiedPost=$postManager->modifyPost($id, $new_title,$new_content, $new_summary);
+    $modifiedPost=$postManager->modifyPost($id, $new_numChapter, $new_title, $new_content, $new_summary);
 
     if ($modifiedPost === false) {
         throw new Exception('Impossible de modifier le chapitre !');
@@ -44,5 +44,13 @@ function rectifyPost($id, $new_title,$new_content, $new_summary)
     else {
         header('Location: index.php?action=viewPostAdm&id=' . $id);
     }
-}    
+} 
+
+function deletePost($id)
+{
+    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+    $deletedPost = $postManager->deletePost($id);
+
+    header('Location: index.php?action=administration');
+}
 

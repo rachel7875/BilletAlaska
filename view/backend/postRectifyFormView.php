@@ -5,9 +5,13 @@
 
 <p><a href="index.php?action=administration">Retour à l'accueil de l'espace administration</a></p>
 
-<h2>Chapitre à modifier : chapitre <?= htmlspecialchars($postToModify['id']) ;?> </h2>
+<h2>Chapitre à modifier : chapitre <?= htmlspecialchars($postToModify['numChapter']) ;?> </h2>
 
 <form action="index.php?action=rectifySavePost&amp;id=<?= $id ?>" method="post">
+    <div>
+        <label for="new_numChapter">Nouveau numéro de chapitre</label><br />
+        <input type="text" id="new_numChapter" value="<?= htmlspecialchars($postToModify['numChapter']);?> "  name="new_numChapter" />
+    </div>
     <div>
         <label for="new_title">Nouveau titre de chapitre</label><br />
         <input type="text" id="new_title" value="<?= htmlspecialchars($postToModify['title']);?> "  name="new_title" />

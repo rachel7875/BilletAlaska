@@ -65,8 +65,8 @@ try {
         elseif ($_GET['action'] == 'rectifySavePost') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                
-                if (!empty($_POST['new_title']) && !empty($_POST['new_content']) && !empty($_POST['new_summary'])) {
-                    rectifyPost($_GET['id'], $_POST['new_title'], $_POST['new_content'], $_POST['new_summary']);
+                if (!empty($_POST['new_numChapter']) && !empty($_POST['new_title']) && !empty($_POST['new_content']) && !empty($_POST['new_summary'])) {
+                    rectifyPost($_GET['id'], $_POST['new_numChapter'], $_POST['new_title'], $_POST['new_content'], $_POST['new_summary']);
                 }
                 else {
                     throw new Exception('Tous les champs ne sont pas remplis  !');
@@ -75,7 +75,17 @@ try {
              else {
                 throw new Exception('Aucun identifiant de chapitre envoyé');
             }
-        }   
+        } 
+        
+        elseif ($_GET['action'] == 'deletePost') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deletePost($_GET['id']);
+             }
+             else {
+                throw new Exception('Aucun identifiant de chapitre envoyé');
+            }
+        }    
+
  
     }
    

@@ -7,7 +7,7 @@
 
 
     <div class="chapterAdm">
-        <h2> Chapitre <?= htmlspecialchars($postAdm['id']) ?> : <?= htmlspecialchars($postAdm['title']) ?> </h2>
+        <h2> Chapitre <?= htmlspecialchars($postAdm['numChapter']) ?> : <?= htmlspecialchars($postAdm['title']) ?> </h2>
         <p> <em>Créé le : <?= $postAdm['creationDate_fr'] ?></em> </p>
         <p> <em>Dernière modification le : <?= $postAdm['modifDate_fr'] ?></em> </p>
         <p>
