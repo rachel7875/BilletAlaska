@@ -80,20 +80,30 @@ try {
         elseif ($_GET['action'] == 'deletePost') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deletePost($_GET['id']);
-             }
-             else {
+            }
+            else {
                 throw new Exception('Aucun identifiant de chapitre envoyé');
             }
         }    
 
- 
-    }
-   
-     
-        
-        else {
-        home();
+        elseif ($_GET['action'] == 'addFormPost') {
+            addFormPost();
         }
+
+        elseif ($_GET['action'] == 'addPost') {
+            if (!empty($_POST['numChapter']) && !empty($_POST['title']) && !empty($_POST['summary']) && !empty($_POST['content'])) {
+                addPost($_POST['numChapter'], $_POST['title'], $_POST['content'], $_POST['summary']);
+            }
+            else {
+                throw new Exception('Tous les champs ne sont pas remplis !');
+            }
+        }
+
+    }     
+    else {
+        home();
+    }
+        
 }
 catch(Exception $e) {
  echo 'Erreur : ' . $e->getMessage();

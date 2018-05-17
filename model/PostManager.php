@@ -80,4 +80,12 @@ class PostManager extends Manager
         return $post;
     }
   
+    public function sendPost($numChapter, $title, $content, $summary)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('INSERT INTO posts(numChapter, title, content, summary, creationDate) VALUES(?, ?, ?, ?, NOW())');
+        $result = $req->execute(array($numChapter, $title, $content, $summary));
+
+        return $result;
+    }
 }

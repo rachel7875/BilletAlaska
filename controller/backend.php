@@ -54,3 +54,20 @@ function deletePost($id)
     header('Location: index.php?action=administration');
 }
 
+function addFormPost()
+{
+    require('view/backend/chapterAddFormView.php');
+}
+
+function addPost($numChapter, $title, $content, $summary)
+{
+    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+    $post = $postManager->sendPost($numChapter, $title, $content, $summary);
+
+    if ($post === false) {
+        throw new Exception('Impossible d\'ajouter le chapitre !');
+    }
+    else {
+        header('Location: index.php?action=administration');
+    }
+}

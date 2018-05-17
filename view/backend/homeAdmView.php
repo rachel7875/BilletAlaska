@@ -6,7 +6,7 @@
 
 <h2>Gestion des chapitres</h2>
 
-<p><a href="index.php?action=addPost">Ajouter un chapitre</a> </p>
+<p><a href="index.php?action=addFormPost">Ajouter un chapitre</a> </p>
 
 <?php
 foreach ($postsAdm as $data)
