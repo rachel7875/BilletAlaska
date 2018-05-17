@@ -1,7 +1,7 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); ?>
-<h1>Chapitre <?= htmlspecialchars($post['id']) ?> : <?= htmlspecialchars($post['title']) ?> </h1>
+<h1>Chapitre <?= htmlspecialchars($post['numChapter']) ?> : <?= htmlspecialchars($post['title']) ?> </h1>
 <p><a href="index.php?action=listChapters">Retour à la liste des chapitres</a></p>
 
 <div class="wholechapter">

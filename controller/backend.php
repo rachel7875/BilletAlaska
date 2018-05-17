@@ -5,13 +5,13 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
 
-function listPostsAdm()
-{
-    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-    $postsAdm = $postManager->getPostsAdm();
+//function listPostsAdm()
+//{
+  //  $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+   // $postsAdm = $postManager->getPostsAdm();
 
-    require('view/backend/homeAdmView.php');
-}
+   // require('view/backend/homeAdmView.php');
+//}
 
 
 function viewPost($id)
@@ -70,4 +70,23 @@ function addPost($numChapter, $title, $content, $summary)
     else {
         header('Location: index.php?action=administration');
     }
+}
+
+//function listCommentsAdm()
+//{
+    //$commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    //$commentsAdm = $commentManager->getCommentsAdm();
+
+   // require('view/backend/homeAdmView.php');
+//}
+
+function listsAdm()
+{
+    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+    $postsAdm = $postManager->getPostsAdm();
+    $commentsAdm = $commentManager->getCommentsAdm();
+
+    require('view/backend/homeAdmView.php');
 }

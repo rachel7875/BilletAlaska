@@ -40,9 +40,14 @@ try {
             nbLastPost();
         }
 
+      //  elseif ($_GET['action'] == 'administration') {
+       //    listPostsAdm();
+       //     listCommentsAdm();
+       // }
+
         elseif ($_GET['action'] == 'administration') {
-            listPostsAdm();
-        }
+            listsAdm();
+        }    
 
         elseif ($_GET['action'] == 'rectifyFormPost') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -99,6 +104,7 @@ try {
             }
         }
 
+        
     }     
     else {
         home();

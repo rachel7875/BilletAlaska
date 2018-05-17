@@ -29,7 +29,31 @@ foreach ($postsAdm as $data)
 }
 ?>
 
+<h2>Gestion des commentaires</h2>
 
+<?php
+foreach ($commentsAdm as $data)
+{
+?>
+    <div class="commment">
+        <h3> Commentaire :  </h3>
+       
+        <p> <em>Date du commentaire : <?= $data['commentDate_fr'] ?></em> </p>
+        <p> <em>Auteur : <?= htmlspecialchars($data['author']) ?></em> </p>
+        <p> <em>Chapitre concerné : chapitre <?= htmlspecialchars($data['numChapter']) ?> - <?= htmlspecialchars($data['title']) ?> </em> </p>
+        <p> <em>Statut : <?= htmlspecialchars($data['stage']) ?></em> </p>
+        <p> <em>Texte du commentaire : <?= nl2br(htmlspecialchars($data['comment'])) ?></em> </p>
+        <p>
+            <em><a href="index.php?action=rectifyFormPost&amp;id=<?= $data['commentId'] ?>">Modérer le commentaire</a></em>
+            <em><a href="index.php?action=deletePost&amp;id=<?= $data['commentId'] ?>">Effacer le commentaire du site web public</a></em>
+            <br />
+            <br />
+        </p>
+    </div>
+
+<?php
+}
+?>
 
 <?php $content = ob_get_clean(); ?>
 

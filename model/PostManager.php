@@ -10,7 +10,7 @@ class PostManager extends Manager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, numChapter, title, summary, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr FROM posts ORDER BY creationDate');
+        $req = $db->query('SELECT id, numChapter, title, summary, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr FROM posts ORDER BY numChapter');
         $result=$req->fetchAll();
         $req->closeCursor();
         
@@ -20,7 +20,7 @@ class PostManager extends Manager
     public function getPostsAdm()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, numChapter, title, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr, DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modifDate_fr FROM posts ORDER BY id');
+        $req = $db->query('SELECT id, numChapter, title, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr, DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modifDate_fr FROM posts ORDER BY numChapter');
         $result=$req->fetchAll();
         $req->closeCursor();
         

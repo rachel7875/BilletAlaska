@@ -22,7 +22,7 @@ class CommentManager extends Manager
     public function reportComment($commentId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE comments SET stage = "reported" WHERE commentId = ?');
+        $req = $db->prepare('UPDATE comments SET stage = "signalé" WHERE commentId = ?');
         $result = $req->execute(array($commentId));
 
         return $result;
@@ -48,7 +48,19 @@ class CommentManager extends Manager
         return $result;
     }
 
+    public function getCommentsAdm()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT c.commentId commentId, c.author author, c.comment comment, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin%ss\') AS commentDate_fr, c.stage stage, p.numChapter numChapter, p.title title
+        FROM comments c INNER JOIN posts p 
+        ON c.postId = p.id
+        ORDER BY stage DESC, commentDate DESC');
+        $result=$req->fetchAll();
+        $req->closeCursor();
+        //c.DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin%ss\') commentDate_fr
 
+        return $result;
+    }
 
 
 }
