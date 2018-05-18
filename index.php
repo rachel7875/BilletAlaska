@@ -104,7 +104,38 @@ try {
             }
         }
 
+        elseif ($_GET['action'] == 'moderateFormComment') {
+            if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                moderateFormComment($_GET['commentId']);
+             }
+             else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        } 
         
+        elseif ($_GET['action'] == 'rectifySaveComment') {
+            if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+               
+                if (!empty($_POST['new_author']) && !empty($_POST['new_comment'])) {
+                    rectifyComment($_GET['commentId'], $_POST['new_author'], $_POST['new_comment']);
+                }
+                else {
+                    throw new Exception('Tous les champs ne sont pas remplis  !');
+                }
+            }
+             else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        } 
+        
+        elseif ($_GET['action'] == 'deletePublicComment') {
+            if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                deletePublicComment($_GET['commentId']);
+            }
+            else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        }  
     }     
     else {
         home();

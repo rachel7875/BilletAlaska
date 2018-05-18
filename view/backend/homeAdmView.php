@@ -44,8 +44,8 @@ foreach ($commentsAdm as $data)
         <p> <em>Statut : <?= htmlspecialchars($data['stage']) ?></em> </p>
         <p> <em>Texte du commentaire : <?= nl2br(htmlspecialchars($data['comment'])) ?></em> </p>
         <p>
-            <em><a href="index.php?action=rectifyFormPost&amp;id=<?= $data['commentId'] ?>">Modérer le commentaire</a></em>
-            <em><a href="index.php?action=deletePost&amp;id=<?= $data['commentId'] ?>">Effacer le commentaire du site web public</a></em>
+            <em><a href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer le commentaire</a></em>
+            <em><a href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">Effacer le commentaire du site web public</a></em>
             <br />
             <br />
         </p>

@@ -90,3 +90,34 @@ function listsAdm()
 
     require('view/backend/homeAdmView.php');
 }
+
+function moderateFormComment($commentId)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+    $commentToModify=$commentManager->getCommentAdm($commentId);
+
+    require('view/backend/commentModerateFormView.php');
+}
+
+function rectifyComment($commentId, $new_author, $new_comment)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+    $modifiedComment = $commentManager->modifyComment($commentId, $new_author, $new_comment);
+
+    if ($modifiedComment === false) {
+        throw new Exception('Impossible de modifier le commentaire !');
+    }
+    else {
+        header('Location: index.php?action=administration');
+    }
+} 
+
+function deletePublicComment($commentId)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    $deletedPublicComment = $commentManager->deletePublicComment($commentId);
+
+    header('Location: index.php?action=administration');
+}
