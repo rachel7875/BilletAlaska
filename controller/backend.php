@@ -5,15 +5,6 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
 
-//function listPostsAdm()
-//{
-  //  $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-   // $postsAdm = $postManager->getPostsAdm();
-
-   // require('view/backend/homeAdmView.php');
-//}
-
-
 function viewPost($id)
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
@@ -72,14 +63,6 @@ function addPost($numChapter, $title, $content, $summary)
     }
 }
 
-//function listCommentsAdm()
-//{
-    //$commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-    //$commentsAdm = $commentManager->getCommentsAdm();
-
-   // require('view/backend/homeAdmView.php');
-//}
-
 function listsAdm()
 {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
@@ -118,6 +101,14 @@ function deletePublicComment($commentId)
 {
     $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
     $deletedPublicComment = $commentManager->deletePublicComment($commentId);
+
+    header('Location: index.php?action=administration');
+}
+
+function restorePublicComment($commentId)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    $restoredPublicComment = $commentManager->restorePublicComment($commentId);
 
     header('Location: index.php?action=administration');
 }

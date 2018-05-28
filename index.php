@@ -136,6 +136,15 @@ try {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
         }  
+          
+        elseif ($_GET['action'] == 'restorePublicComment') {
+            if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                restorePublicComment($_GET['commentId']);
+            }
+            else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        }  
     }     
     else {
         home();

@@ -42,7 +42,7 @@ class CommentManager extends Manager
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO comments(postId, author, comment, commentDate, stage) VALUES(?, ?, ?, NOW(), \'initial\')');
+        $req = $db->prepare('INSERT INTO comments(postId, author, comment, commentDate, stage) VALUES(?, ?, ?, NOW(), \'original\')');
         $result = $req->execute(array($postId, $author, $comment));
 
         return $result;
@@ -51,13 +51,12 @@ class CommentManager extends Manager
     public function getCommentsAdm()
     {
         $db = $this->dbConnect();
-        $req= $db->query('SELECT c.commentId commentId, c.author author, c.comment comment, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin%ss\') AS commentDate_fr, c.stage stage, p.numChapter numChapter, p.title title
+        $req= $db->query('SELECT c.commentId commentId, c.author author, c.comment comment, c.visibility visibility, DATE_FORMAT(c.commentDate, \'%d/%m/%Y à %Hh%imin%ss\') AS commentDate_fr, DATE_FORMAT(c.moderationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS moderationDate_fr, c.stage stage, p.numChapter numChapter, p.title title
         FROM comments c INNER JOIN posts p 
         ON c.postId = p.id
-        ORDER BY stage DESC, commentDate DESC');
+        ORDER BY visibility DESC, stage DESC, commentDate DESC');
         $result=$req->fetchAll();
         $req->closeCursor();
-        //c.DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin%ss\') commentDate_fr
 
         return $result;
     }
@@ -78,7 +77,7 @@ class CommentManager extends Manager
     public function modifyComment($commentId, $new_author, $new_comment)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE comments SET author =:new_author, comment =:new_comment, stage = "modéré", commentDate = NOW() WHERE commentId = :commentId');
+        $req = $db->prepare('UPDATE comments SET author =:new_author, comment =:new_comment, stage = "modéré", visibility=1, moderationDate = NOW() WHERE commentId = :commentId');
         $result = $req->execute(array(
             'new_author' => $new_author,
             'new_comment' => $new_comment,
@@ -90,8 +89,20 @@ class CommentManager extends Manager
     public function deletePublicComment($commentId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE comments SET stage = "effacé du site public"  WHERE commentId = ?');
+        $req = $db->prepare('UPDATE comments SET visibility = 0 WHERE commentId = ?');
         $result = $req->execute(array($commentId));
+
         return $result;
     }
+    
+    public function restorePublicComment($commentId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE comments SET visibility=1  WHERE commentId = ?');
+        $result = $req->execute(array($commentId));
+
+        return $result;
+    }
+
+
 }

@@ -31,22 +31,36 @@ foreach ($postsAdm as $data)
 
 <h2>Gestion des commentaires</h2>
 
+  <p> Les commentaires apparaissant en gris ne sont pas visibles sur le site web public. </p>
+
 <?php
 foreach ($commentsAdm as $data)
 {
 ?>
-    <div class="commment">
+    <div class="<?= ($data['visibility']==0)?'grey':'' ?>" >
         <h3> Commentaire :  </h3>
-       
-        <p> <em>Date du commentaire : <?= $data['commentDate_fr'] ?></em> </p>
-        <p> <em>Auteur : <?= htmlspecialchars($data['author']) ?></em> </p>
+        
         <p> <em>Chapitre concerné : chapitre <?= htmlspecialchars($data['numChapter']) ?> - <?= htmlspecialchars($data['title']) ?> </em> </p>
+        <p> <em>Auteur : <?= htmlspecialchars($data['author']) ?></em> </p>
+        <p> <em>Date de création du commentaire : <?= $data['commentDate_fr'] ?></em> </p>
         <p> <em>Statut : <?= htmlspecialchars($data['stage']) ?></em> </p>
+        <p> <em><?php if ($data['stage']=="modéré"){?>Date de modération : <?= $data['moderationDate_fr']; }?></em> </p>
+
         <p> <em>Texte du commentaire : <?= nl2br(htmlspecialchars($data['comment'])) ?></em> </p>
         <p>
-            <em><a href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer le commentaire</a></em>
-            <em><a href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">Effacer le commentaire du site web public</a></em>
-            <br />
+            <em>
+                <a class="<?= ($data['stage']=="modéré" OR $data['visibility']==0)?'hidden':'' ?>" 
+                href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer le commentaire</a>
+            </em>
+            <em>
+                <a class="<?php if ($data['visibility']==0){?>hidden<?php }?>" 
+                href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">Effacer le commentaire du site web public</a></em>
+            <em>
+                <a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
+                href="index.php?action=restorePublicComment&amp;commentId=<?= $data['commentId'] ?>">Restaurer le commentaire sur le site web public</a></em>
+            <em>
+                <a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
+                href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer et Restaurer le commentaire sur le site web public</a></em>
             <br />
         </p>
     </div>
