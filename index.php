@@ -145,6 +145,29 @@ try {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
         }  
+        
+        elseif ($_GET['action'] == 'addFormComment') {
+            addFormComment();
+        }
+        
+        elseif ($_GET['action'] == 'addCommentAdm') {
+            if (isset($_POST['numChapter']) && $_POST['numChapter'] > 0) {
+                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                    addCommentAdm($_POST['author'], $_POST['comment'], $_POST['numChapter']);
+                }
+                else {
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            }
+            else {
+                throw new Exception('Aucun identifiant de chapitre envoyé');
+            }
+        }
+
+        elseif ($_GET['action'] == 'mentionsLegales') {
+            mentionsLegales();
+        }
+        
     }     
     else {
         home();

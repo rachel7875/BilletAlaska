@@ -1,3 +1,49 @@
+/* BASIC STYLES
+-------------------------------------------------- */
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+}
+
+#content
+{
+	padding-bottom: 150px;
+}
+
+/*Style for the footer*/
+.footer
+{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #222;
+    height: 120px;
+    padding-top: 20px;
+    color : rgb(73, 98, 167);
+    font-size: 0.75em;
+
+}
+
+/*Margin taking into account the navigation bar*/ 
+.main_content 
+  {
+    padding-top: 60px;
+  }
+  
+/*Style for the header*/
+#logo  img
+{
+        width: 80px;
+        height: 60px;
+        width: 100%;
+}
+/*Style for the comments targeted by the classes*/ 
 .grey
 {
     color : grey;
@@ -6,4 +52,113 @@
 .hidden
 {
     display : none ;
+}
+
+
+/*Style for the callouts on the homepage*/
+
+.image {
+  background-size: cover;
+  height: 200px;
+  background-position: center center;
+  }
+
+.textcaption h2, .textcaption p{
+  min-height: 70px;
+}  
+
+.caption{
+  max-height: 230px;
+}  
+
+
+@media only screen and (min-width : 480px){
+  .table-row-equal {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      border-spacing: 30px 0px;
+      word-wrap: break-word;
+  }
+  .table-row-equal .thumbnail {
+      float: none;
+      display: table-cell;
+      vertical-align: top;
+      width: 1%;
+  }
+}
+
+
+/*Style for the page Mentions légales*/
+.mentions 
+{
+  margin-bottom: 30px;
+}
+
+/*Style for the page Liste des chapitres*/
+.summarychapter.row
+{
+  margin-bottom: 50px;
+}
+
+.jumbotron.entete {
+  color:white; 
+  background-image: url("anchorage.jpg");
+}
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel 
+  {
+    height: 200px;
+    margin-bottom: 60px;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption 
+  {
+    z-index: 10;
+  }
+  
+  /* Declare heights because of positioning of img element */
+  .carousel item 
+  {
+    height: 200px;
+    background-color: #777;
+  }
+  .carousel item > img
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 100%;
+  }
+
+  
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+/* Styles for the smartphones*/
+
+
+
+/* Styles for the tablets*/
+@media (min-width: 768px) 
+{
+  .navbar-brand 
+  {
+      margin : 0 100px;
+  }
+}
+
+/* Styles for the desktop computers*/
+@media (min-width: 992px) 
+{
+  .navbar-brand 
+  {
+      margin : 0 300px;
+  }
 }

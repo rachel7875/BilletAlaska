@@ -112,3 +112,21 @@ function restorePublicComment($commentId)
 
     header('Location: index.php?action=administration');
 }
+
+function addFormComment()
+{
+    require('view/backend/commentAddFormView.php');
+}
+
+function addCommentAdm($author, $comment, $numChapter)
+{
+    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    $addedCommentAdm = $commentManager->postCommentAdm($author, $comment, $numChapter);
+
+    if ($addedCommentAdm === false) {
+        throw new Exception('Impossible d\'ajouter le commentaire !');
+    }
+    else {
+        header('Location: index.php?action=administration');
+    }
+}

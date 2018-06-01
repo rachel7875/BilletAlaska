@@ -63,3 +63,7 @@ function nbLastPost()
 
 }
 
+function mentionsLegales()
+{
+    require('view/frontend/mentionsLegalesView.php');
+}

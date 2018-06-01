@@ -104,5 +104,18 @@ class CommentManager extends Manager
         return $result;
     }
 
+    public function postCommentAdm($author, $comment, $numChapter)
+    {
+        $db = $this->dbConnect();
 
+        $req = $db->prepare('INSERT INTO comments(postId, author, comment, commentDate, stage) SELECT id AS postId, :author, :comment, NOW(), \'original\' FROM posts WHERE numChapter = :numChapter');
+        $result = $req->execute(array(
+                    'author' => $author,
+                    'comment' => $comment,
+                    'numChapter' => $numChapter));
+
+        return $result;
+        }     
+
+    
 }

@@ -31,8 +31,12 @@ foreach ($postsAdm as $data)
 
 <h2>Gestion des commentaires</h2>
 
-  <p> Les commentaires apparaissant en gris ne sont pas visibles sur le site web public. </p>
-
+  <p> Vous pouvez gérer les commentaires postés par les internautes. Vous avez plusieurs possibilités : modérer, effacer du site web public, restaurer après avoir éventuellement modérer. <br/>
+  L'ensemble des commentaires sont listés ci-dessous. Les commentaires apparaissant en gris ne sont pas visibles sur le site web public. </p>
+  <P> Vous pouvez également envoyer un commentaire sur la page d'un chapitre, soit à partir du bouton ci-dessous, soit à partir d'un bouton figurant dans la liste des commentaires. </p>
+  <p>
+            <em>
+                <a href="index.php?action=addFormComment">Envoyer un commentaire</a>
 <?php
 foreach ($commentsAdm as $data)
 {
@@ -54,13 +58,16 @@ foreach ($commentsAdm as $data)
             </em>
             <em>
                 <a class="<?php if ($data['visibility']==0){?>hidden<?php }?>" 
-                href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">Effacer le commentaire du site web public</a></em>
+                href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">Effacer le commentaire du site web public</a>
+            </em>
             <em>
                 <a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
-                href="index.php?action=restorePublicComment&amp;commentId=<?= $data['commentId'] ?>">Restaurer le commentaire sur le site web public</a></em>
+                href="index.php?action=restorePublicComment&amp;commentId=<?= $data['commentId'] ?>">Restaurer le commentaire sur le site web public</a>
+            </em>
             <em>
                 <a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
-                href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer et Restaurer le commentaire sur le site web public</a></em>
+                href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer et Restaurer le commentaire sur le site web public</a>
+            </em>
             <br />
         </p>
     </div>
