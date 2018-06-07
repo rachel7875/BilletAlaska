@@ -3,57 +3,61 @@
 <?php ob_start(); ?>
 
 
-<div class="main_content">
-    <div class="container-fluid">
-        <div id="myCarousel" class="carousel slide row" data-ride="carousel">
-            <div class="col-lg-12">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" >
-                    <div class="item active">
-                        <img class="first-slide" src="public/images/denali_national_park.jpg" alt="Photo du parc national de Denali en Alaska">
-                        <div class="container">
-                        <div class="carousel-caption text-left">
-                            <h1>BILLET SIMPLE POUR L'ALASKA.</h1>
-                            <p>Découvrez le dernier roman de Jean Forteroche.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Lire le synopsis</a></p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="second-slide" src="public/images/mountain_whale.jpg" alt="Photo d'une baleine avec les montagnes en arrière-plan">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>BILLET SIMPLE POUR L'ALASKA.</h1>
-                                <p>Retrouvez les dernières aventures de Lucas</p>
-                                <p><a class="btn btn-lg btn-primary" href="index.php?action=nbLastPost" role="button">Lire le dernier chapitre paru</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="third-slide" src="public/images/author.jpg" alt="Photo de Jean Forteroche en Alaska">
-                        <div class="container">
-                            <div class="carousel-caption text-right">
-                                <h1>Jean FORTEROCHE.</h1>
-                                <p>Un auteur aux nombreux livres...</p>
-                                <p><a class="btn btn-lg btn-primary" href="#" role="button">L'auteur</a></p>
-                            </div>
-                        </div>
+
+    
+<div id="myCarousel" class="carousel slide " data-ride="carousel">
+    
+
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" >
+            <div class="item active">
+                <img class="first-slide " src="public/images/denali_national_park.jpg"  alt="Photo du parc national de Denali en Alaska">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1>BILLET SIMPLE POUR L'ALASKA.</h1>
+                        <p>Découvrez le dernier roman de Jean Forteroche.</p>
+                        <p><a class="btn btn-lg btn-custom" href="#" role="button">Le synopsis</a>    <a class="btn btn-lg btn-warning" href="index.php?action=post&amp;id=1>" role="button">Commencez !</a></p>
                     </div>
                 </div>
+            </div>
+            <div class="item">
+                <img class="second-slide " src="public/images/mountain_whale.jpg"  alt="Photo d'une baleine avec les montagnes en arrière-plan">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>BILLET SIMPLE POUR L'ALASKA.</h1>
+                        <p>Retrouvez les dernières aventures de Lucas</p>
+                        <p><a class="btn btn-lg btn-custom" href="index.php?action=nbLastPost" role="button">Lire le dernier chapitre paru</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="third-slide " src="public/images/author.jpg"  alt="Photo de Jean Forteroche en Alaska">
+                <div class="container">
+                    <div class="carousel-caption text-right">
+                        <h1>Jean FORTEROCHE.</h1>
+                        <p>Un auteur aux nombreux livres...</p>
+                        <p><a class="btn btn-lg btn-custom" href="#" role="button">L'auteur</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
-            </div>
-        </div>
+</div>
 
-        <section class="row ">
+       
+
+<div class="main_content">
+    <div class="container-fluid">
+        <section class="welcome row ">
             <div class="col-lg-offset-2 col-lg-8">
 
                 <h1 class="text-center" >Bienvenue sur le blog de mon dernier roman "Billet simple pour l'Alaska"</h1>
@@ -86,7 +90,7 @@
                                 <h2>Commencez le livre</h2>
                                 <p>Jetez un oeil au premier chapitre : vous allez avoir envie de connaître toute l'histoire !</p>
                             </div>        
-                            <p><a href="index.php?action=post&amp;id=1>" class="btn btn-primary" role="button">Lire &raquo;</a> </p>
+                            <p><a href="index.php?action=post&amp;id=1>" class="btn btn-custom" role="button">Lire &raquo;</a> </p>
                         </div>
                     </div>
                    
@@ -97,7 +101,7 @@
                                 <h2>Dernier chapitre paru ! </h2>
                                 <p>Retrouvez les dernières aventures de Lucas <br/></p>
                             </div>     
-                            <p><a href="index.php?action=nbLastPost" class="btn btn-primary" role="button">Lire &raquo;</a> </p>
+                            <p><a href="index.php?action=nbLastPost" class="btn btn-custom" role="button">Lire &raquo;</a> </p>
                         </div>
                     </div>    
                  
@@ -109,7 +113,7 @@
                                 <p>Retrouvez tous les chapitres et leurs résumés<br /></p>
                             </div>  
                             <div class="linkcaption">    
-                             <p ><a href="index.php?action=listChapters" class="btn btn-primary" role="button">Les chapitres &raquo;</a> </p>
+                             <p ><a href="index.php?action=listChapters" class="btn btn-custom" role="button">Les chapitres &raquo;</a> </p>
                              </div> 
                         </div>
                     </div>    

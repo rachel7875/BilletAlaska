@@ -24,6 +24,7 @@ function post()
 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
+    $nbComments = $commentManager->getNbComments($_GET['id']);
 
     require('view/frontend/chapterView.php');
 }

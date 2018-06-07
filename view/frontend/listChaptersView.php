@@ -14,6 +14,7 @@
         </div>
     </div>  
 
+
     <section class="container">
         <?php
         foreach ($posts as $data)

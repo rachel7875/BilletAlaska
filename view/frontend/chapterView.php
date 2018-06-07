@@ -3,53 +3,75 @@
 <?php ob_start(); ?>
 
 <div class="main_content">
-    <h1>Chapitre <?= htmlspecialchars($post['numChapter']) ?> : <?= htmlspecialchars($post['title']) ?> </h1>
-    <p><a href="index.php?action=listChapters">Retour à la liste des chapitres</a></p>
 
-    <div class="wholechapter">
-        <h3>
-            <em>le <?= $post['creationDate_fr'] ?></em>
-        </h3>
+    <div class="jumbotron text-center entete">
+        <div class="container">
+            <h1>Chapitre <?= htmlspecialchars($post['numChapter']) ?>  <br/>
+            <?= htmlspecialchars($post['title']) ?> </h1>
+        </div>
+    </div>  
+
+    <div class="container">
+    
         
-        <p>
-            <?= nl2br(htmlspecialchars($post['content'])) ?>
-        </p>
-    </div>
 
-
-    <h2>Commentaires </h2>
-
-    <?php
-    foreach ($comments as $data)
-    {
-    ?>
-        <div class="comment">
-            <p> <strong><?= htmlspecialchars($data['author']) ?></strong> le <?= $data['commentDate_fr'] ?> </p>
-
-            <p> <?= nl2br(htmlspecialchars($data['comment'])) ?> </p>
-            <p> <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>">Signaler</a></em></p>
+        <section class="wholechapter text-justify">
+            <p>
+                <em><strong>le <?= $post['creationDate_fr'] ?></strong></em>
+            </p>
             
-        </div>
-    <?php
-    }
-    ?>
+            <p>
+                <?= nl2br(htmlspecialchars($post['content'])) ?>
+            </p>
+        </section>
 
+        <section>
+            <p><a href="index.php?action=listChapters">Retour à la liste des chapitres</a></p>
+           
+        </section>
 
-    <h2>Ajoutez un commentaire ! </h2>
-    <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-        <div>
-            <label for="author">Votre pseudo</label><br />
-            <input type="text" id="author" name="author" />
-        </div>
-        <div>
-            <label for="comment">Votre commentaire</label><br />
-            <textarea id="comment" name="comment"></textarea>
-        </div>
-        <div>
-            <input type="submit" value="Envoyer"/>
-        </div>
-    </form>
+        <section class="chaptercomments row"> 
+            <h2 class="col-sm-12 "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <?= $nbComments['nbComments'] ?> Commentaires </h2>
+            
+            <div class="formulaire col-sm-12 "> 
+              
+                <p><strong>Ajoutez un commentaire ! </strong></p>
+                <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+                    <div>
+                        <label for="author">Votre pseudo</label><br />
+                        <input type="text" id="author" name="author" />
+                    </div>
+                    <div>
+                        <label for="comment">Votre commentaire</label><br />
+                        <textarea id="comment" name="comment" rows="8" cols="45"></textarea>
+                    </div>
+                    <div>
+                        <input class="btn btn-custom" type="button" value="Envoyer"/><br />
+                        <br />
+                    </div>
+                </form>
+            </div>
+                
+            <div id="comments_list" class="col-sm-12 ">
+                <?php
+                foreach ($comments as $data)
+                {
+                    ?>
+                    <div class="comment">
+                        <p> <strong><?= htmlspecialchars($data['author']) ?></strong> - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['commentDate_fr'] ?> </p>
 
+                        <p> <?= nl2br(htmlspecialchars($data['comment'])) ?> </p>
+                        <p> <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>"> <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Signaler</a></em>  </p>
+
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+         
+
+        </section>
+    </div>
 </div>
 
 <?php $content = ob_get_clean(); ?>

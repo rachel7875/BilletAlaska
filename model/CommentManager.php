@@ -10,14 +10,25 @@ class CommentManager extends Manager
     public function getComments($postId)
     {
         $db = $this->dbConnect();
-        $req= $db->prepare('SELECT commentId, author, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%imin%ss\') AS commentDate_fr FROM comments WHERE postId = ? AND stage NOT IN ("effacé du site public") ORDER BY commentDate DESC');
+        $req= $db->prepare('SELECT commentId, author, comment, DATE_FORMAT(commentDate, \'%d/%m/%Y à %Hh%i\') AS commentDate_fr FROM comments WHERE postId = ? AND  visibility = 1  ORDER BY commentDate DESC');
         $req->execute(array($postId));
         $result=$req->fetchAll();
         $req->closeCursor();
         
-
         return $result;
     }
+    
+    public function getNbComments($postId)
+    {
+        $db = $this->dbConnect();
+        $req= $db->prepare('SELECT COUNT(*) AS nbComments FROM comments WHERE postId = ? AND  visibility = 1 ');
+        $req->execute(array($postId));
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }    
+
 
     public function reportComment($commentId)
     {
@@ -117,5 +128,5 @@ class CommentManager extends Manager
         return $result;
         }     
 
-    
+
 }
