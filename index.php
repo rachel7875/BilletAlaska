@@ -14,7 +14,9 @@ try {
     $ctrl->$method(array_merge($_GET, $_POST));
     }
     else {
-        home();
+        $control = new \OpenClassrooms\Blog\Controller\FrontController();
+        $control->home();   
+        
     }
 }
 catch(Exception $e) {

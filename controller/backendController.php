@@ -10,12 +10,12 @@ require_once('model/CommentManager.php');
 class BackController { 
 
     
-    public function __construct()
-    {
-        if (! isset($_SESSION['user'])) {
-        throw new Exception('Non autorisé'); 
-        }  
-    }
+// public function __construct()
+  //  {
+  //      if (! isset($_SESSION['user'])) {
+   //     throw new Exception('Non autorisé'); 
+   //     }  
+   // }
   
 
     public function viewPost($request)
@@ -176,13 +176,13 @@ class BackController {
         require('view/backend/commentAddFormView.php');
     }
 
-    public function addCommentAdm($author, $comment, $numChapter)
+    public function addCommentAdm($request)
     {
         
-        if (isset($_POST['numChapter']) && $_POST['numChapter'] > 0) {
-            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+        if (isset($request['numChapter']) && $request['numChapter'] > 0) {
+            if (!empty($request['author']) && !empty($request['comment'])) {
                 $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-                $addedCommentAdm = $commentManager->postCommentAdm($author, $comment, $numChapter);
+                $addedCommentAdm = $commentManager->postCommentAdm($request['author'], $request['comment'], $request['numChapter']);
                 if ($addedCommentAdm === false) {
                     throw new Exception('Impossible d\'ajouter le commentaire !');
                 }

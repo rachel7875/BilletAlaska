@@ -7,7 +7,7 @@
 
 <h2>Commentaire à modifier relatif au chapitre <?= htmlspecialchars($commentToModify['numChapter']);?> - <?= htmlspecialchars($commentToModify['title']);?> </h2>
 
-<form action="index.php?action=rectifySaveComment&amp;commentId=<?= $commentId ?>" method="post">
+<form action="index.php?action=rectifySaveComment&amp;commentId=<?= $request['commentId'] ?>" method="post">
     <div>
         <label for="new_author">Nouveau nom de l'auteur</label><br />
         <input type="text" id="new_author" value="<?= htmlspecialchars($commentToModify['author']);?> "  name="new_author" />

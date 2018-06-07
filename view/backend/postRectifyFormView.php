@@ -7,7 +7,7 @@
 
 <h2>Chapitre à modifier : chapitre <?= htmlspecialchars($postToModify['numChapter']) ;?> </h2>
 
-<form action="index.php?action=rectifySavePost&amp;id=<?= $id ?>" method="post">
+<form action="index.php?action=rectifySavePost&amp;id=<?= $postToModify['id'] ?>" method="post">
     <div>
         <label for="new_numChapter">Nouveau numéro de chapitre</label><br />
         <input type="text" id="new_numChapter" value="<?= htmlspecialchars($postToModify['numChapter']);?> "  name="new_numChapter" />

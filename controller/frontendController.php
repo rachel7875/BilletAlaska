@@ -22,7 +22,7 @@ class FrontController {
         require('view/frontend/listChaptersView.php');
     }
 
-    public function post()
+    public function post($request)
     {
         if (isset($request['id']) && $request['id'] > 0) {
             $postManager = new \OpenClassrooms\Blog\Model\PostManager();
@@ -30,6 +30,7 @@ class FrontController {
 
             $post = $postManager->getPost($request['id']);
             $comments = $commentManager->getComments($request['id']);
+            $nbComments = $commentManager->getNbComments($request['id']);
 
             require('view/frontend/chapterView.php');
         }

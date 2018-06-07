@@ -2,80 +2,80 @@
   function getRoutes() {
   	return [
       'listChapters' => [
-        'controller' => 'FrontController',
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
         'action' => 'listPosts'
       ],
       'post' => [
-        'controller' => 'FrontController',
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
         'action' => 'post'
       ],
       'reportComment' => [
-        'controller' => 'FrontController',
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
         'action' => 'reportComment'
       ],
       'addComment' => [
-        'controller' => 'FrontController',
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
         'action' => 'addComment'
       ],
       'nbLastPost' => [
-        'controller' => 'FrontController',
-        'action' => 'nbLastPost()'
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
+        'action' => 'nbLastPost'
       ],
       'mentionsLegales' => [
-        'controller' => 'FrontController',
-        'action' => 'mentionsLegales()'
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
+        'action' => 'mentionsLegales'
       ],
       'administration' => [
-        'controller' => 'BackController',
-        'action' => 'listsAdm()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'listsAdm'
       ], 
       'rectifyFormPost' => [
-        'controller' => 'BackController',
-        'action' => 'rectifyFormPost()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'rectifyFormPost'
       ], 
       'viewPostAdm' => [
-        'controller' => 'BackController',
-        'action' => 'viewPost()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'viewPost'
       ],
       'rectifySavePost' => [
-        'controller' => 'BackController',
-        'action' => 'rectifyPost()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'rectifyPost'
       ],
       'deletePost' => [
-        'controller' => 'BackController',
-        'action' => 'deletePost()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'deletePost'
       ],
       'addFormPost' => [
-        'controller' => 'BackController',
-        'action' => 'addFormPost()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'addFormPost'
       ],
       'addPost' => [
-        'controller' => 'BackController',
-        'action' => 'addPost()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'addPost'
       ],
       'moderateFormComment' => [
-        'controller' => 'BackController',
-        'action' => 'moderateFormComment()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'moderateFormComment'
       ],
       'rectifySaveComment' => [
-        'controller' => 'BackController',
-        'action' => 'rectifyComment()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'rectifyComment'
       ],
       'deletePublicComment' => [
-        'controller' => 'BackController',
-        'action' => 'deletePublicComment()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'deletePublicComment'
       ],
       'restorePublicComment' => [
-        'controller' => 'BackController',
-        'action' => 'restorePublicComment()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'restorePublicComment'
       ],
       'addFormComment' => [
-        'controller' => 'BackController',
-        'action' => 'addFormComment()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'addFormComment'
       ],
       'addCommentAdm' => [
-        'controller' => 'BackController',
-        'action' => 'addCommentAdm()'
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'addCommentAdm'
       ],
     ];
 	}
