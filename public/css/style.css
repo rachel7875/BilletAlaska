@@ -15,6 +15,12 @@ body {
 	padding-bottom: 150px;
 }
 
+a
+{
+  color : #DB6E71;
+}
+
+
 /*Style for the footer*/
 .footer
 {
@@ -25,10 +31,12 @@ body {
     background-color: #222;
     height: 120px;
     padding-top: 20px;
-    color : rgb(73, 98, 167);
+    color : #DB6E71;
     font-size: 0.75em;
 
 }
+
+
 
 /*Margin taking into account the navigation bar*/ 
 .main_content 
@@ -45,10 +53,15 @@ body {
 }
 
 #navbar a
-  {
+{
+  color : #DB6E71;
+}
 
-  }
 
+#navbar a:hover
+{
+  color :#f2ac57 !important;
+}
 
 /*Style for the comments targeted by the classes (administration homepage)*/ 
 .grey
@@ -85,12 +98,7 @@ body {
   color : #d84145;
 }
 
-.main_content h2
-{
-  color : #DB6E71;
-}
-
-.main_content a
+.main_content h2, .main_content h3
 {
   color : #DB6E71;
 }
@@ -159,6 +167,11 @@ body {
   padding-top: 30px;
 }
 
+#comments_list h3
+{
+  padding-bottom: 15px;
+}
+
 label
 {
   padding-top: 15px;
@@ -169,7 +182,21 @@ label
   padding-bottom: 15px;
 }
 
+.comment a:visited
+{
+  color: grey;
+}
 
+aside img
+{
+  margin : 30px 1px 30px 1px;
+}
+
+aside 
+{
+  line-height : 40px;
+  color : #DB6E71;
+}
 
 
 /* CUSTOMIZE THE CAROUSEL
