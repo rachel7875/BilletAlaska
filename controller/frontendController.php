@@ -43,8 +43,8 @@ class FrontController {
     {
         if (isset($request['id']) && $request['id'] > 0) {
             $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-            $reportedComment = $commentManager->reportComment($_GET['id']); 
-            $comment = $commentManager->getReportedComment($_GET['id']);
+            $reportedComment = $commentManager->reportComment($request['id']); 
+            $comment = $commentManager->getReportedComment($request['id']);
             header('Location: index.php?action=post&id=' . $comment['postId']);
         }
         else {
