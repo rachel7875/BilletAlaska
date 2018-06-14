@@ -10,219 +10,157 @@ body {
   min-height: 100%;
 }
 
-#content
-{
+#content{
 	padding-bottom: 150px;
 }
 
-a
-{
+a{
   color : #DB6E71;
 }
 
 
-/*Style for the footer*/
-.footer
-{
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    background-color: #222;
-    height: 120px;
-    padding-top: 20px;
+  /*STYLE FOR THE FOOTER*/
+  .footer{
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      background-color: #222;
+      height: 120px;
+      padding-top: 20px;
+      color : #DB6E71;
+      font-size: 0.75em;
+  }
+
+    
+  /*STYLE FOR THE HEADER*/
+  #logo  img {
+          width: 80px;
+          height: 60px;
+          width: 100%;
+  }
+
+  #navbar a{
     color : #DB6E71;
-    font-size: 0.75em;
+  }
 
-}
+  #navbar a:hover{
+    color :#f2ac57 !important;
+  }
 
 
+  /*STYLE FOR THE CUSTOM BUTTONS AND FOR THE MAIN_CONTENT*/
 
-/*Margin taking into account the navigation bar*/ 
-.main_content 
-  {
-    padding-top: 60px;
+    /*Margin taking into account the navigation bar*/ 
+    .main_content {
+      padding-top: 60px;
+    }
+
+  .btn-custom {
+    background-color: hsl(0, 69%, 22%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#DB6E71", endColorstr="#d84145");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#DB6E71), to(#d84145));
+    background-image: -moz-linear-gradient(top, #DB6E71, #d84145);
+    background-image: -ms-linear-gradient(top, #DB6E71, #d84145);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #B090D1), color-stop(100%, #d84145));
+    background-image: -webkit-linear-gradient(top, #DB6E71, #d84145);
+    background-image: -o-linear-gradient(top, #DB6E71, #d84145);
+    background-image: linear-gradient(#DB6E71, #d84145);
+    border-color: #DB6E71 #d84145 hsl(0, 69%, 17%);
+    color: #fff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .main_content h1 {
+    color : #d84145;
+  }
+
+  .main_content h2, .main_content h3 {
+    color : #DB6E71;
+  }
+
+  .jumbotron.entete {
+    color:#d84145; 
+    background-image: url("nightauroran.jpg"); 
+    background-size: cover;
   }
   
-/*Style for the header*/
-#logo  img
-{
-        width: 80px;
-        height: 60px;
-        width: 100%;
-}
-
-#navbar a
-{
-  color : #DB6E71;
-}
-
-
-#navbar a:hover
-{
-  color :#f2ac57 !important;
-}
-
-/*Style for the comments targeted by the classes (administration homepage)*/ 
-.grey
-{
-    color : grey;
-}
-
-.hidden
-{
-    display : none ;
-}
-
-/*Style for the custom buttons and for the main_content*/
-
-.btn-custom {
-  background-color: hsl(0, 69%, 22%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#DB6E71", endColorstr="#d84145");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#DB6E71), to(#d84145));
-  background-image: -moz-linear-gradient(top, #DB6E71, #d84145);
-  background-image: -ms-linear-gradient(top, #DB6E71, #d84145);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #B090D1), color-stop(100%, #d84145));
-  background-image: -webkit-linear-gradient(top, #DB6E71, #d84145);
-  background-image: -o-linear-gradient(top, #DB6E71, #d84145);
-  background-image: linear-gradient(#DB6E71, #d84145);
-  border-color: #DB6E71 #d84145 hsl(0, 69%, 17%);
-  color: #fff !important;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
-  -webkit-font-smoothing: antialiased;
-}
-
-.main_content h1
-{
-  color : #d84145;
-}
-
-.main_content h2, .main_content h3
-{
-  color : #DB6E71;
-}
-
-
-
-/*Style for the callouts on the homepage*/
-
-.image {
-  background-size: cover;
-  height: 200px;
-  background-position: center center;
+  .jumbotron.entete .jumbotron_adm {
+    font-size: 42px;
   }
 
-.textcaption h2, .textcaption p{
-  min-height: 70px;
-}  
 
-.caption{
-  max-height: 230px;
-}  
-
-
-@media only screen and (min-width : 480px){
-  .table-row-equal {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-      border-spacing: 30px 0px;
-      word-wrap: break-word;
-  }
-  .table-row-equal .thumbnail {
-      float: none;
-      display: table-cell;
-      vertical-align: top;
-      width: 1%;
-  }
-}
-
-
-/*Style for the page Mentions légales*/
-.mentions 
-{
-  margin-bottom: 30px;
-}
-
-/*Style for the pages Liste des chapitres et Chapitre*/
-.jumbotron.entete {
-  color:#d84145; 
-  background-image: url("nightauroran.jpg"); 
-  background-size: cover;
-}
-
-.summarychapter.row
-{
-  margin-bottom: 50px;
-}
-
-.chaptercomments
-{
-  padding-top: 50px;
-}
-
-#comments_list, .chaptercomments .formulaire
-{
-  padding-top: 30px;
-}
-
-#comments_list h3
-{
-  padding-bottom: 15px;
-}
-
-label
-{
-  padding-top: 15px;
-}
-
-.comment
-{
-  padding-bottom: 15px;
-}
-
-.comment a:visited
-{
-  color: grey;
-}
-
-aside img
-{
-  margin : 30px 1px 30px 1px;
-}
-
-aside 
-{
-  line-height : 40px;
-  color : #DB6E71;
-}
-
-
-/* CUSTOMIZE THE CAROUSEL
+/*STYLE FOR THE ADMINISTRATION HOMEPAGE
 -------------------------------------------------- */
 
-/* Carousel base class */
-.carousel 
-  {
-    height: 1080px;
-    margin-bottom: 60px;
+  /*STYLE FOR THE COMMENTS TARGETED BY THE CLASSES (ADMINISTRATION HOMEPAGE)*/ 
+  .grey{
+      color : grey;
   }
+
+  .hidden{
+      display : none ;
+  }
+
+
+/*STYLE FOR THE PUBLIC HOMEPAGE
+-------------------------------------------------- */
+
+  /*STYLE FOR THE CALLOUTS ON THE HOMEPAGE*/
+
+  .image {
+    background-size: cover;
+    height: 200px;
+    background-position: center center;
+    }
+
+  .textcaption h2, .textcaption p{
+    min-height: 70px;
+  }  
+
+  .caption{
+    max-height: 230px;
+  }  
+
+
+  @media only screen and (min-width : 480px){
+    .table-row-equal {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        border-spacing: 30px 0px;
+        word-wrap: break-word;
+    }
+    .table-row-equal .thumbnail {
+        float: none;
+        display: table-cell;
+        vertical-align: top;
+        width: 1%;
+    }
+  }
+
+/* CUSTOMIZE THE CAROUSEL */
+
+  /* Carousel base class */
+  .carousel {
+      height: 1080px;
+      margin-bottom: 60px;
+    }
+
   /* Since positioning the image, we need to help out the caption */
-  .carousel-caption 
-  {
+  .carousel-caption {
     z-index: 10;
   }
   
   /* Declare heights because of positioning of img element */
-  .carousel .item 
-  {
+  .carousel .item {
     height: 1080px;
     background-color: #777;
   }
   
-  .carousel-inner > .item > img
-  {
+  .carousel-inner > .item > img{
     position: absolute;
     top: 0;
     left: 0;
@@ -231,7 +169,80 @@ aside
   }
 
 
+/*STYLE FOR THE PAGE MENTIONS LEGALES
+-------------------------------------------------- */
+.mentions {
+  margin-bottom: 30px;
+}
 
+/*STYLE FOR THE PAGES RELATIVES AUX CHAPITRES (Liste des chapitres, Chapitre, Visualisation de chapitre, ajout de chapitre et modification de chapitre)
+-------------------------------------------------- */
+
+  /*PAGE LISTE DES CHAPITRES*/
+  .summarychapter.row{
+    margin-bottom: 50px;
+  }
+
+  /*PAGE CHAPITRE*/
+  .chaptercomments{
+    padding-top: 50px;
+  }
+
+  #comments_list, .chaptercomments .formulaire{
+    padding-top: 30px;
+  }
+
+  #comments_list h3{
+    padding-bottom: 15px;
+  }
+
+  .chaptercomments label{
+    padding-top: 15px;
+  }
+
+  .comment{
+    padding-bottom: 15px;
+  }
+
+  .comment a:visited{
+    color: grey;
+  }
+
+  /*STYLE FOR THE ASIDES*/
+  aside img{
+    margin : 30px 1px 30px 1px;
+  }
+
+  .public_aside {
+    line-height : 40px;
+    color : #DB6E71;
+  }
+
+  .adm_aside {
+    color : #DB6E71;
+    padding-top: 30px;
+  }
+
+  .adm_aside .glyphicon.glyphicon-time{
+  font-size: 1.5em;
+  }
+
+  /*FORMS FOR THE CHAPTERS*/
+  legend {
+    margin-top: 20px;
+  }
+
+  #col_photo label {
+    margin-top: 5px;
+  }
+  form .btn {
+    margin-top: 40px;
+  }
+
+  .help-block {
+    margin-top: 0px;
+  }
+  
   
 /* RESPONSIVE CSS
 -------------------------------------------------- */

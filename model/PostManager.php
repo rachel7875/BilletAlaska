@@ -30,7 +30,7 @@ class PostManager extends Manager
     public function getPost($postId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, numChapter, title, content, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, numChapter, title, content, photoLink, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
 
@@ -40,7 +40,7 @@ class PostManager extends Manager
     public function getPostAdm($id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, numChapter, title, summary, content, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr,  DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modifDate_fr  FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, numChapter, title, summary, content, photoLink, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr,  DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modifDate_fr  FROM posts WHERE id = ?');
         $req->execute(array($id));
         $post = $req->fetch();
 
@@ -56,19 +56,25 @@ class PostManager extends Manager
         return $result;
     }
 
-    public function modifyPost($id, $new_numChapter, $new_title, $new_content, $new_summary)
+    public function modifyPost($new_numChapter, $new_title, $new_content, $new_summary, $new_photoLink, $id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE posts SET numChapter =:new_numChapter, title =:new_title, content =:new_content, summary = :new_summary, modifDate = NOW() WHERE id = :id');
-        $result = $req->execute(array(
-            'new_numChapter' => $new_numChapter,
-            'new_title' => $new_title,
-            'new_content'=> $new_content,
-            'new_summary'=> $new_summary,
-            'id' => $id
-        ));
+        $req = $db->prepare('UPDATE posts SET numChapter = ?, title = ?, content = ?, summary = ?, photoLink = ?, modifDate = NOW() WHERE id = ?');
+        $result = $req->execute(array($new_numChapter, $new_title, $new_content, $new_summary, $new_photoLink, $id));
+       
         return $result;
     }
+
+    public function getPresentPhoto($id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT photoLink FROM posts WHERE id = ?');
+        $req->execute(array($id));
+        $photo = $req->fetch();
+    
+        return $photo;
+    }
+
 
     public function deletePost($id)
     {
@@ -80,11 +86,11 @@ class PostManager extends Manager
         return $post;
     }
   
-    public function sendPost($numChapter, $title, $content, $summary)
+    public function sendPost($numChapter, $title, $content, $summary, $photoLink)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO posts(numChapter, title, content, summary, creationDate) VALUES(?, ?, ?, ?, NOW())');
-        $result = $req->execute(array($numChapter, $title, $content, $summary));
+        $req = $db->prepare('INSERT INTO posts(numChapter, title, content, summary, photoLink, creationDate) VALUES(?, ?, ?, ?, ?, NOW())');
+        $result = $req->execute(array($numChapter, $title, $content, $summary, $photoLink));
 
         return $result;
     }

@@ -14,7 +14,7 @@
     <section class="container-fluid">
         <div class="row">
     
-            <aside class="col-sm-3 text-center " >
+            <aside class="public_aside col-sm-3 text-center " >
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-10 " >
                         <p>
@@ -34,7 +34,7 @@
             </aside>
 
             <article class="col-sm-7 " >
-                <div class="wholechapter  text-justify">            
+                <div class="text-justify">            
                     <p>
                         <?= nl2br(htmlspecialchars($post['content'])) ?>
                     </p>

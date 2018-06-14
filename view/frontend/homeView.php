@@ -110,7 +110,7 @@
                         <div class="caption">
                             <div class="textcaption">
                                 <h2>Liste des chapitres</h2>
-                                <p>Retrouvez tous les chapitres et leurs résumés<br /></p>
+                                <p>Retrouvez tous les chapitres parus et leurs résumés<br /></p>
                             </div>  
                             <div class="linkcaption">    
                              <p ><a href="index.php?action=listChapters" class="btn btn-custom" role="button">Les chapitres &raquo;</a> </p>

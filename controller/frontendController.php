@@ -35,7 +35,7 @@ class FrontController {
             require('view/frontend/chapterView.php');
         }
         else {
-            throw new Exception('Aucun identifiant de billet envoyé');
+            throw new \Exception('Aucun identifiant de billet envoyé');
         }
     }
 
@@ -48,7 +48,7 @@ class FrontController {
             header('Location: index.php?action=post&id=' . $comment['postId']);
         }
         else {
-            throw new Exception('Aucun identifiant de commentaire envoyé');
+            throw new \Exception('Aucun identifiant de commentaire envoyé');
         }
     }
 
@@ -59,16 +59,16 @@ class FrontController {
                 $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
                 $affectedLines = $commentManager->postComment($request['id'], $request['author'], $request['comment']);
                 if ($affectedLines === false) {
-                    throw new Exception('Impossible d\'ajouter le commentaire !');
+                    throw new \Exception('Impossible d\'ajouter le commentaire !');
                 }
                 else {
                     header('Location: index.php?action=post&id=' . $request['id']);
                 }    
             } else {
-            throw new Exception('Tous les champs ne sont pas remplis !');
+            throw new \Exception('Tous les champs ne sont pas remplis !');
             }
         } else {
-         throw new Exception('Aucun identifiant de billet envoyé'); 
+         throw new \Exception('Aucun identifiant de billet envoyé'); 
         }
     }
 
