@@ -39,11 +39,11 @@
                     <legend>Contenu & Résumé </legend>  
                     <div class="form-group">
                         <label for="new_content">Nouveau contenu du chapitre :</label>
-                        <textarea id="new_content"  name="new_content" rows="25" class="form-control"> <?= htmlspecialchars($postToModify['content']);?> </textarea>
+                        <textarea id="new_content"  name="new_content" rows="45" class="form-control"> <?= htmlspecialchars($postToModify['content']);?> </textarea>
                     </div>
                     <div class="form-group">
                         <label for="new_summary">Nouveau résumé du chapitre :</label>
-                        <textarea id="new_summary"  name="new_summary" rows="6" class="form-control"> <?= htmlspecialchars($postToModify['summary']);?> </textarea>
+                        <textarea id="new_summary"  name="new_summary" rows="4" class="form-control"> <?= htmlspecialchars($postToModify['summary']);?> </textarea>
                     </div>
                 </fieldset>  
                 

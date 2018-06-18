@@ -35,11 +35,11 @@
                         <legend>Contenu & Résumé </legend>  
                         <div class="form-group">
                             <label for="content">Contenu du nouveau chapitre</label>
-                            <textarea id="content"  name="content" rows="25" class="form-control">  </textarea>
+                            <textarea id="content"  name="content" rows="45" class="form-control">  </textarea>
                         </div>
                         <div class="form-group">
                             <label for="summary">Résumé du nouveau chapitre</label>
-                            <textarea id="summary"  name="summary" rows="6" class="form-control"> </textarea>
+                            <textarea id="summary"  name="summary" rows="4" class="form-control"> </textarea>
                         </div>
                     </fieldset>
 

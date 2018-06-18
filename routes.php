@@ -27,7 +27,15 @@
       ],
       'administration' => [
         'controller' => '\OpenClassrooms\Blog\Controller\BackController',
-        'action' => 'listsAdm'
+        'action' => 'adm'
+      ], 
+      'listPostsAdm' => [
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'listPostsAdm'
+      ], 
+      'listCommentsAdm' => [
+        'controller' => '\OpenClassrooms\Blog\Controller\BackController',
+        'action' => 'listCommentsAdm'
       ], 
       'rectifyFormPost' => [
         'controller' => '\OpenClassrooms\Blog\Controller\BackController',

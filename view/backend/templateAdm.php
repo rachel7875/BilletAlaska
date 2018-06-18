@@ -20,6 +20,8 @@
     </head>
         
     <body>
+        <?php include("headerAdm.php"); ?>   
+
         <?= $content ?>
 
         <script src="public/js/jquery-3.3.1.min.js"></script>

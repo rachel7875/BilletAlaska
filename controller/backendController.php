@@ -43,52 +43,13 @@ class BackController {
         }
     }
 
+
+
     public function rectifyPost($request)
     {
         if (isset($request['id']) && $request['id'] > 0) { 
-
-            // Let's test if the photo file has been sent and there is no error
-            if (isset($_FILES['new_chapterPhoto']) AND $_FILES['new_chapterPhoto']['error'] == 0)
+            $new_photoLink=$this->upload($_FILES['new_chapterPhoto']);
     
-            {
-                // Let's test if the file is less than 1.2 Mo
-                if ($_FILES['new_chapterPhoto']['size'] <= 1200000)
-                {
-                        // Let's test if the extension is allowed and if the orientation is in landscape mode
-                        $infosfichier = pathinfo($_FILES['new_chapterPhoto']['name']);
-                        $extension_upload =strtolower(  $infosfichier['extension']);
-                        $extensions_authorised = array('jpg', 'jpeg', 'gif', 'png');
-
-                        $image = imagecreatefromstring(file_get_contents($_FILES['new_chapterPhoto']['tmp_name']));
-                        $exif = exif_read_data($_FILES['new_chapterPhoto']['tmp_name']);
-                        $ort = $exif['Orientation'] ?? null;
-                        if (!in_array($extension_upload, $extensions_authorised))
-                        {
-                            throw new \Exception('Ce type de fichier n\'est pas autorisé (mauvaise extension).');
-                        }
-
-                        if ($exif['COMPUTED']['Height'] > $exif['COMPUTED']['Width']) 
-                        {
-                            throw new \Exception('L\'orientation de la photo doit être en paysage.');
-                        }
-                    
-                        if ($ort == 3) 
-                        {
-                            $image = imagerotate($image, 180, 0);
-                        }
-
-                        //The file can be validated and stored permanently 
-                        $nom = md5(uniqid(rand(), true));
-                        move_uploaded_file($_FILES['new_chapterPhoto']['tmp_name'], 'D:/wamp64/www/BilletAlaska/public/images/'. $nom);
-                        $new_photoLink='public/images/'. $nom;
-                       
-                        
-                }
-                else {
-                    throw new \Exception('La taille dépasse la limite autorisée de 1.2 Mo.');
-                }
-        }
-
             
             if (!empty($request['new_numChapter']) && !empty($request['new_title']) && !empty($request['new_content']) && !empty($request['new_summary'])) {
                 if(!isset($_FILES['new_chapterPhoto']) OR $_FILES['new_chapterPhoto']['error'] !== 0){
@@ -121,7 +82,7 @@ class BackController {
         if (isset($request['id']) && $request['id'] > 0) {
             $postManager = new \OpenClassrooms\Blog\Model\PostManager();
             $deletedPost = $postManager->deletePost($request['id']);
-            header('Location: index.php?action=administration');
+            header('Location: index.php?action=listPostsAdm');
         }
         else {
             throw new \Exception('Aucun identifiant de chapitre envoyé');
@@ -134,48 +95,15 @@ class BackController {
     }
 
     public function addPost($request)
-    {
-         // Let's test if the photo file has been sent and there is no error
-        if (isset($_FILES['chapterPhoto']) AND $_FILES['chapterPhoto']['error'] == 0)
+    {   
+        $photoLink=$this->upload($_FILES['chapterPhoto']);
+
+        if ($_FILES['chapterPhoto']==1)
         {
-            // Let's test if the file is less than 1.2 Mo
-
-            if ($_FILES['chapterPhoto']['size'] <= 1200000)
-            {
-                    // Let's test if the extension is allowed and if the orientation is in landscape mode
-                    $infosfichier = pathinfo($_FILES['chapterPhoto']['name']);
-                    $extension_upload =strtolower(  $infosfichier['extension']);
-                    $extensions_authorised = array('jpg', 'jpeg', 'gif', 'png');
-
-                    $image = imagecreatefromstring(file_get_contents($_FILES['chapterPhoto']['tmp_name']));
-                    $exif = exif_read_data($_FILES['chapterPhoto']['tmp_name']);
-                    $ort = $exif['Orientation'] ?? null;
-                    if (!in_array($extension_upload, $extensions_authorised))
-                    {
-                        throw new \Exception('Ce type de fichier n\'est pas autorisé (mauvaise extension).');
-                    }
-
-                    if ($exif['COMPUTED']['Height'] > $exif['COMPUTED']['Width']) 
-                    {
-                        throw new \Exception('L\'orientation de la photo doit être en paysage.');
-                    }
-                
-                    if ($ort == 3) 
-                    {
-                        $image = imagerotate($image, 180, 0);
-                    }
-
-                    //The file can be validated and stored permanently 
-                    $nom = md5(uniqid(rand(), true));
-                    move_uploaded_file($_FILES['chapterPhoto']['tmp_name'], 'D:/wamp64/www/BilletAlaska/public/images/'. $nom);
-                    $photoLink='public/images/'. $nom;
-                       
-            }
-            else {
-                throw new \Exception('La taille dépasse la limite autorisée de 1.2 Mo.');
-            }
-        }
-
+            throw new \Exception('La taille du fichier est trop importante.');
+        }            
+        
+        
         if (!empty($request['numChapter']) && !empty($request['title']) && !empty($request['summary']) && !empty($request['content']) && 
         (isset($_FILES['chapterPhoto']) AND $_FILES['chapterPhoto']['error'] == 0)  ) 
         {
@@ -185,7 +113,11 @@ class BackController {
                 throw new \Exception('Impossible d\'ajouter le chapitre !');
             }
             else {
-                header('Location: index.php?action=administration');
+                $lastpost=$postManager->getNbLastPost();
+            
+                header('Location: index.php?action=viewPostAdm&id='.$lastpost['maxId']); 
+                //XXXX MODIFIER CHEMIN
+              
             }
         }
         else {
@@ -193,16 +125,27 @@ class BackController {
         }
     }
 
+    public function adm()
+    {
+        require('view/backend/homeAdmView.php');
+    }
 
-    public function listsAdm()
+    public function listPostsAdm()
     {
         $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+        
+        $postsAdm = $postManager->getPostsAdm();
+     
+        require('view/backend/postsMgtAdmView.php');
+    }
+
+    public function listCommentsAdm()
+    {
         $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
 
-        $postsAdm = $postManager->getPostsAdm();
         $commentsAdm = $commentManager->getCommentsAdm();
 
-        require('view/backend/homeAdmView.php');
+        require('view/backend/commentsMgtAdmView.php');
     }
 
     public function moderateFormComment($request)
@@ -290,6 +233,50 @@ class BackController {
         }
         else {
             throw new \Exception('Aucun identifiant de chapitre envoyé');
+        }
+    }
+
+    private function upload($file) 
+    {
+        // Let's test if the photo file has been sent and there is no error
+        if (isset($file) AND $file['error'] == 0)
+            
+        {
+            // Let's test if the file is less than 1.2 Mo
+            if ($file['size'] <= 1200000)
+            {
+                    // Let's test if the extension is allowed and if the orientation is in landscape mode
+                    $infosfichier = pathinfo($file['name']);
+                    $extension_upload =strtolower(  $infosfichier['extension']);
+                    $extensions_authorised = array('jpg', 'jpeg', 'gif', 'png');
+
+                    $image = imagecreatefromstring(file_get_contents($file['tmp_name']));
+                    $exif = exif_read_data($file['tmp_name']);
+                    $ort = $exif['Orientation'] ?? null;
+                    if (!in_array($extension_upload, $extensions_authorised))
+                    {
+                        throw new \Exception('Ce type de fichier n\'est pas autorisé (mauvaise extension).');
+                    }
+
+                    if ($exif['COMPUTED']['Height'] > $exif['COMPUTED']['Width']) 
+                    {
+                        throw new \Exception('L\'orientation de la photo doit être en paysage.');
+                    }
+                    if ($ort == 3) 
+                    {
+                        $image = imagerotate($image, 180, 0);
+                    }
+
+                    //The file can be validated and stored permanently 
+                    $nom = md5(uniqid(rand(), true));
+                    move_uploaded_file($file['tmp_name'], __DIR__ .'/../public/images/'. $nom);
+                    return 'public/images/'. $nom;
+                    
+                    
+            }
+            else {
+                throw new \Exception('La taille dépasse la limite autorisée de 1.2 Mo.');
+            }
         }
     }
 
