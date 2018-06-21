@@ -19,13 +19,13 @@
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-10 " >
                         <p>
-                        <em><strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Publié le <?= $post['creationDate_fr'] ?></strong></em> </br>
+                        <em><strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Publié le <?= $post['publicationDateSmall'] ?></strong></em> </br>
                        
                         <?= $nbComments['nbComments'] ?> <span class="glyphicon glyphicon-comment" aria-hidden="true">
                         </p>
                         <div class="row">
                             <div class="col-sm-12">   
-                                <img src="public/images/alaska.jpg" class="img-responsive">
+                                <img src="<?= $post['photoLink']?> " class="img-responsive">
                             </div>
                         </div>    
                        
@@ -73,8 +73,12 @@
                                 <p> <strong><?= htmlspecialchars($data['author']) ?></strong> - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['commentDate_fr'] ?> </p>
 
                                 <p> <?= nl2br(htmlspecialchars($data['comment'])) ?> </p>
-                                <p> <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>"> <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Signaler</a></em>  </p>
-
+                                <p> <?php if($data['stage']=="modéré"){?><em>Modéré par l'auteur    -   </em><?php }
+                                            if($data['stage']=="signalé") 
+                                            {?><em>Déjà signalé   </em><?php } 
+                                            else { ?>  <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>"> 
+                                                    <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Signaler</a></em><?php }?> 
+                                            
                             </div>
                             <?php
                         }

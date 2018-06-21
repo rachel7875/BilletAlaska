@@ -30,7 +30,7 @@
 
                         <div class="col-sm-7">
                             <h2> Chapitre <?= htmlspecialchars($data['numChapter']) ?> : <?= htmlspecialchars($data['title']) ?> </h2>
-                            <p> <em><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['creationDate_fr'] ?></em> </p>
+                            <p> <em><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['publicationDateSmall'] ?></em> </p>
                             <p>
                                 <?= nl2br(htmlspecialchars($data['summary'])) ?>
                                 <br />

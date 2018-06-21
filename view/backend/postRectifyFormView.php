@@ -15,8 +15,6 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <p><a href="index.php?action=administration">Retour à l'accueil de l'espace administration</a></p>
-
             <h2>Chapitre à modifier : chapitre <?= htmlspecialchars($postToModify['numChapter']) ;?> </h2>
 
             <form class="well" action="index.php?action=rectifySavePost&amp;id=<?= $postToModify['id'] ?>" method="post" enctype="multipart/form-data">

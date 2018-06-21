@@ -21,14 +21,14 @@
                         <p> <em><strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span></em></strong> <br />
                         <em>Créé le : <?= $postAdm['creationDate_fr'] ?></em> </p>
                         <p> <em>Dernière modification le : <?= $postAdm['modifDate_fr'] ?></em> </p>
+                        <p> <em>Date de publication : <?= $postAdm['publicationDateSmall'] ?></em> </p>
                         <p>
-                            <em><a href="index.php?action=rectifyFormPost&amp;id=<?= $postAdm['id'] ?>">Modifier le chapitre</a></em>
-                            <em><a href="index.php?action= ?>">Supprimer le chapitre</a></em>
-                            <br />
-                            <a href="index.php?action=administration">Retour à l'accueil de l'espace administration</a>
-                            <br />
+                            <em><a class="btn btn-customTer" href="index.php?action=rectifyFormPost&amp;id=<?= $postAdm['id'] ?>">
+                            <span class="glyphicon glyphicon-pencil"></span> Modifier le chapitre</a></em>
+                            <em><a class="btn btn-custom" href="index.php?action=deletePost&amp;id=<?= $postAdm['id'] ?>">
+                            <span class="glyphicon glyphicon-remove-sign"></span> Supprimer le chapitre</a></em>
                         </p>
-
+                      
                         <div class="row">
                             <div class="col-sm-12">   
                                     <img src="<?= $postAdm['photoLink'] ?>" class="img-responsive">

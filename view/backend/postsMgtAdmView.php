@@ -21,7 +21,7 @@
                 </ul>
 
                         
-                <p><a class="btn btn-customTer navbar-btn " href="index.php?action=addFormPost"><strong><span class="glyphicon glyphicon-pencil big"></span>Ajouter un chapitre</strong></a></p>
+                <p><a class="btn btn-customTer" href="index.php?action=addFormPost"><strong><span class="glyphicon glyphicon-pencil big"></span>Ajouter un chapitre</strong></a></p>
 
                 <table class="table table-bordered table-striped text-center">
                     <tr>
