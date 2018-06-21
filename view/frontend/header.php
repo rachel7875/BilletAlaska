@@ -20,7 +20,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"></span>  Accueil</a></li>
             <li><a href="index.php?action=listChapters">Les chapitres</a></li>
-            <li><a href="#contact">L'auteur</a></li>
+            <li><a href="index.php?action=author" >L'auteur</a></li>
           </ul>
         </div>
       </div>

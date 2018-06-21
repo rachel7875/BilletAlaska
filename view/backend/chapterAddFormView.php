@@ -14,9 +14,7 @@
     <section class="container">
         <div class="row">
             <div class="col-sm-12">
-                <p><a href="index.php?action=administration">Retour à l'accueil de l'espace administration</a></p>
-
-
+            
                 <form class="well" action="index.php?action=addPost" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <legend>Identification </legend>
@@ -49,6 +47,15 @@
                             <label for="chapterPhoto">Photo du nouveau chapitre</label>
                             <p class="help-block">(Photo max 1.2 Mo |.jpg .jpeg .gif .png)</p> 
                             <input type="file" name="chapterPhoto" id="chapterPhoto" />
+                        </div>
+                    </fieldset>
+
+                    <fieldset>  
+                        <legend>Publication </legend>
+                        <div class="form-group">
+                            <label for="publicationDateSimple">Date de publication : </label>
+                            <p class="help-block">Le chapitre est publié le jour de cette date. Ne remplir ce champ que si vous êtes sûr. </p> 
+                            <input type="date" name="publicationDateSimple" id="publicationDateSimple" />
                         </div>
                     </fieldset>
 

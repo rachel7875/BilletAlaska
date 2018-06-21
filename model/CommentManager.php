@@ -59,10 +59,72 @@ class CommentManager extends Manager
         return $result;
     }
 
+    //Methods for obtaining data about the comments for the administration homepage
+    public function getNbCommentsAdm()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbCommentsAdm FROM comments');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+    
+    public function getNbVisibleComments()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbVisibleComments FROM comments WHERE visibility=1');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+    
+    public function getNbVisibleReportedComments()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbVisibleReportedComments FROM comments WHERE visibility=1 AND stage= "signalé"  ');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+    
+    public function getNbVisibleOriginalComments()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbVisibleOriginalComments FROM comments WHERE visibility=1 AND stage= "original"  ');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+    
+    public function getNbVisibleModeratedComments()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbVisibleModeratedComments FROM comments WHERE visibility=1 AND stage= "modéré"  ');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+    
+    public function getNbVisibleAuthorComments()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbVisibleAuthorComments FROM comments WHERE visibility=1 AND author= "Jean FORTEROCHE"  ');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+    //End of the methods for obtaining data about the comments for the administration homepage
+
     public function getCommentsAdm()
     {
         $db = $this->dbConnect();
-        $req= $db->query('SELECT c.commentId commentId, c.author author, c.comment comment, c.visibility visibility, DATE_FORMAT(c.commentDate, \'%d/%m/%Y à %Hh%imin%ss\') AS commentDate_fr, DATE_FORMAT(c.moderationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS moderationDate_fr, c.stage stage, p.numChapter numChapter, p.title title
+        $req= $db->query('SELECT c.commentId commentId, c.author author, c.comment comment, c.visibility visibility, DATE_FORMAT(c.commentDate, \'%d/%m/%Y à %Hh%i\') AS commentDate_fr, DATE_FORMAT(c.moderationDate, \'%d/%m/%Y à %Hh%i\') AS moderationDate_fr, c.stage stage, p.numChapter numChapter, p.title title
         FROM comments c INNER JOIN posts p 
         ON c.postId = p.id
         ORDER BY visibility DESC, stage DESC, commentDate DESC');

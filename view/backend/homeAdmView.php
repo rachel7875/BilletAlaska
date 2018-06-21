@@ -12,15 +12,69 @@
     </div>  
 
     <section class="container">
-        <div class="row text-center">
-            <div class="col-sm-5">
-                <p>Vous pouvez ajouter, modifier <br />et supprimer les chapitres. </p>
-                <a class="btn btn-customBis navbar-btn btn-block" href="index.php?action=listPostsAdm"><strong>Gestion des <br />CHAPITRES </strong></a>
+        <div class="row ">
+            <div class="col-sm-5 ">
+                <div class="text-center">
+                    <p><strong>Vous pouvez ajouter, modifier <br />et supprimer les chapitres.</strong> </p>
+                    <a class="btn btn-customTer navbar-btn btn-block" href="index.php?action=listPostsAdm"><strong>Gestion des <br />CHAPITRES </strong></a>
+                </div>
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-10 ">
+                        <div class="panel panel-default stat">
+                            <div class="panel-heading">
+                                <h3 class="panel-title text-center">Données sur les chapitres</h3>
+                            </div>
+
+                            <ul class=" list-group ">
+                                <li class="list-group-item"><span class="badge "><?=$nbchapters['nbChapters'] ?> </span>Total</li>
+                                <li class="list-group-item"><span class="badge"><?=$nbPublishedChapters['nbPublishedChapters']?></span>Publiés </li>
+                                <li class="list-group-item"><span class="badge"><?=$nbChaptersPlannedPublication['nbChaptersPlannedPublication'] + 
+                                $nbChaptersUnplannedPublication['nbChaptersUnplannedPublication'] ?></span>Non publiés 
+                                    <ul >
+                                        <li class="orange">Publication prévue <span class="badge pull-right orange_back"><?=$nbChaptersPlannedPublication['nbChaptersPlannedPublication'] ?></span></li>
+                                        <li class="orange">Publication non prévue<span class="badge pull-right orange_back"><?=$nbChaptersUnplannedPublication['nbChaptersUnplannedPublication'] ?></span> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
             </div>
             <div class="col-sm-offset-1 col-sm-5">
-                <p>Vous pouvez aussi ajouter ou modérer un commentaire, <br />le supprimer et le restaurer sur le site public. </p>
-                <a class="btn btn-custom navbar-btn btn-block" href="index.php?action=listCommentsAdm"><strong>Gestion des <br />COMMENTAIRES </strong></a>
-            </div>  
+                <div class="text-center">
+                    <p><strong>Vous pouvez aussi ajouter ou modérer un commentaire, <br />le supprimer et le restaurer sur le site public. </strong></p>
+                    <a class="btn btn-custom navbar-btn btn-block" href="index.php?action=listCommentsAdm"><strong>Gestion des <br />COMMENTAIRES </strong></a>
+                </div> 
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-10 ">
+                        <div class="panel panel-default stat">
+                            <div class="panel-heading ">
+                                <h3 class="panel-title text-center">Données sur les commentaires</h3>
+                            </div>
+
+                            <ul class=" list-group ">
+                                <li class="list-group-item"><span class="badge "><?= $nbCommentsAdm['nbCommentsAdm'] ?> </span>Total</li>
+                                <li class="list-group-item"><span class="badge"><?=$nbVisibleComments['nbVisibleComments']  ?></span>Visibles sur le site public 
+                                    <ul >
+                                        <li>Selon leurs statuts :</li>
+                                            <ul >
+                                                <li class="orange">Signalés<span class="badge pull-right orange_back"><?=$nbVisibleReportedComments['nbVisibleReportedComments'] ?></span></li>
+                                                <li>Originaux<span class="badge pull-right"><?=$nbVisibleOriginalComments['nbVisibleOriginalComments'] ?></span> </li>
+                                                <li>Modérés<span class="badge pull-right"><?=$nbVisibleModeratedComments['nbVisibleModeratedComments'] ?></span> </li>
+                                            </ul>
+                                        <li>Selon leurs auteurs :</li>
+                                            <ul >
+                                                <li>Ecrits par J. Forteroche<span class="badge pull-right"><?=$nbVisibleAuthorComments ['nbVisibleAuthorComments'] ?></span></li>
+                                                <li>Ecrits par les visiteurs<span class="badge pull-right"><?=$nbVisibleComments['nbVisibleComments']-$nbVisibleAuthorComments ['nbVisibleAuthorComments']  ?></span> </li>
+                                            </ul>
+                                    </ul>
+                                </li>
+                                <li class="list-group-item"><span class="badge"><?=$nbCommentsAdm['nbCommentsAdm']-$nbVisibleComments['nbVisibleComments'] ?></span>Invisibles sur le site public </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+            </div>
         </div> 
     </section > 
 </div>         

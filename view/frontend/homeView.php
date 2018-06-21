@@ -1,4 +1,5 @@
 <?php $title = 'Billet simple pour l\'Alaska - Accueil'; ?>
+<?php $metaDescription ='Billet simple pour l\'Alaska, le dernier roman de Jean Forteroche à lire en ligne !' ?> 
 
 <?php ob_start(); ?>
 
@@ -20,7 +21,7 @@
                     <div class="carousel-caption text-left">
                         <h1>BILLET SIMPLE POUR L'ALASKA.</h1>
                         <p>Découvrez le dernier roman de Jean Forteroche.</p>
-                        <p><a class="btn btn-lg btn-custom" href="#" role="button">Le synopsis</a>    <a class="btn btn-lg btn-warning" href="index.php?action=post&amp;id=1>" role="button">Commencez !</a></p>
+                        <p><a class="btn btn-lg btn-custom" href="index.php?#synopsis" role="button">Le synopsis</a>    <a class="btn btn-lg btn-customTer" href="index.php?action=post&amp;id=1>" role="button">Commencez !</a></p>
                     </div>
                 </div>
             </div>
@@ -40,7 +41,7 @@
                     <div class="carousel-caption text-right">
                         <h1>Jean FORTEROCHE.</h1>
                         <p>Un auteur aux nombreux livres...</p>
-                        <p><a class="btn btn-lg btn-custom" href="#" role="button">L'auteur</a></p>
+                        <p><a class="btn btn-lg btn-custom" href="index.php?action=author" role="button">L'auteur</a></p>
                     </div>
                 </div>
             </div>
@@ -71,7 +72,7 @@
                 </div>
 
                 <div class="jumbotron text-center">
-                    <h2>Synopsis </h2>
+                    <h2 id="synopsis">Synopsis </h2>
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
                     <p> "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
                 </div>
@@ -90,7 +91,7 @@
                                 <h2>Commencez le livre</h2>
                                 <p>Jetez un oeil au premier chapitre : vous allez avoir envie de connaître toute l'histoire !</p>
                             </div>        
-                            <p><a href="index.php?action=post&amp;id=1>" class="btn btn-custom" role="button">Lire &raquo;</a> </p>
+                            <p><a href="index.php?action=post&amp;id=1>" class="btn btn-customTer" role="button">Lire &raquo;</a> </p>
                         </div>
                     </div>
                    
@@ -101,7 +102,7 @@
                                 <h2>Dernier chapitre paru ! </h2>
                                 <p>Retrouvez les dernières aventures de Lucas <br/></p>
                             </div>     
-                            <p><a href="index.php?action=nbLastPost" class="btn btn-custom" role="button">Lire &raquo;</a> </p>
+                            <p><a href="index.php?action=nbLastPost" class="btn btn-customTer" role="button">Lire &raquo;</a> </p>
                         </div>
                     </div>    
                  
@@ -113,7 +114,7 @@
                                 <p>Retrouvez tous les chapitres parus et leurs résumés<br /></p>
                             </div>  
                             <div class="linkcaption">    
-                             <p ><a href="index.php?action=listChapters" class="btn btn-custom" role="button">Les chapitres &raquo;</a> </p>
+                             <p ><a href="index.php?action=listChapters" class="btn btn-customTer" role="button">Les chapitres &raquo;</a> </p>
                              </div> 
                         </div>
                     </div>    

@@ -25,6 +25,10 @@
         'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
         'action' => 'mentionsLegales'
       ],
+      'author' => [
+          'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
+          'action' => 'author'
+      ],
       'administration' => [
         'controller' => '\OpenClassrooms\Blog\Controller\BackController',
         'action' => 'adm'

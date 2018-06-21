@@ -8,9 +8,10 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
            <!--  <meta name="description" content=""-->
             <meta name="author" content="Jean FORTEROCHE ">
-            <link rel="icon" href="public/images/favicon.ico">
+            <link rel="icon" type="image/png" href="public/images/logo_jf_nn.png">
 
         <title><?= $title ?></title>
+        <meta name="description" content=<?= $metaDescription ?> />
 
         <!-- Bootstrap core CSS -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">

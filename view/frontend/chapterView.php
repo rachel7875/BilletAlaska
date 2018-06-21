@@ -1,4 +1,5 @@
 <?php $title = htmlspecialchars($post['title']); ?>
+<?php $metaDescription ='Chapitre ' . htmlspecialchars($post['numChapter']) . ': ' . htmlspecialchars($post['title']) . 'de Billet simple pour l\'Alaska'  ?>
 
 <?php ob_start(); ?>
 

@@ -25,7 +25,7 @@
         </div>
         
         <div class="nav navbar-nav navbar-right  ">
-          <a class="btn btn-success btn-xs navbar-btn" href="index.php">SITE PUBLIC</a>
+          <a class="btn btn-customTer btn-xs navbar-btn" href="index.php">SITE PUBLIC</a>
         </div>
 
       </div>

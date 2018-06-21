@@ -1,4 +1,5 @@
 <?php $title = 'Liste des chapitres'; ?>
+<?php $metaDescription ='Liste des chapitres du dernier roman en ligne de Jean Forteroche Billet simple pour l\'Alaska' ?> 
 
 <?php ob_start(); ?>
 
@@ -24,7 +25,7 @@
 
                 
                         <div class="col-sm-5 text-center"> 
-                            <img src="public/images/juneau.jpg" alt="photo du chapitre correspondant" width="310" height="190">
+                            <img src="<?= $data['photoLink']?> " alt="photo du chapitre correspondant" width="310" height="190">
                         </div> 
 
                         <div class="col-sm-7">

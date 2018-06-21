@@ -54,13 +54,24 @@ class BackController {
             if (!empty($request['new_numChapter']) && !empty($request['new_title']) && !empty($request['new_content']) && !empty($request['new_summary'])) {
                 if(!isset($_FILES['new_chapterPhoto']) OR $_FILES['new_chapterPhoto']['error'] !== 0){
                     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-                    $presentPhoto=$postManager->getPresentPhoto($request['id']);
+                    $presentPhoto=$postManager->getPresentPhotoPublication($request['id']);
 
                     $new_photoLink=$presentPhoto['photoLink'];
 
                 }
+                if(!empty($request['new_publicationDateSimple'])){
+                    $new_publicationDate=$request['new_publicationDateSimple'] . ' 00:00:00';
+                }
+                else {
+                    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+                    $presentPublicationDate=$postManager->getPresentPhotoPublication($request['id']);
+
+                    $new_publicationDate=$presentPublicationDate['publicationDate'];  
+                }
+                
+
                 $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-                $modifiedPost=$postManager->modifyPost($request['new_numChapter'], $request['new_title'], $request['new_content'], $request['new_summary'], $new_photoLink, $request['id']);
+                $modifiedPost=$postManager->modifyPost($request['new_numChapter'], $request['new_title'], $request['new_content'], $request['new_summary'], $new_photoLink, $new_publicationDate, $request['id']);
                 if ($modifiedPost === false) {
                     throw new \Exception('Impossible de modifier le chapitre !');
                 }
@@ -107,16 +118,27 @@ class BackController {
         if (!empty($request['numChapter']) && !empty($request['title']) && !empty($request['summary']) && !empty($request['content']) && 
         (isset($_FILES['chapterPhoto']) AND $_FILES['chapterPhoto']['error'] == 0)  ) 
         {
+           // $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+           // $existingNumChapters = $postManager->listNumChapters();
+           
+          //  if (in_array($request['numChapter'], array($existingNumChapters) ))
+         //   {
+                
+          //      throw new \Exception('Ce numéro de chapitre existe déjà.');
+         //   }
+          
+           
+            $publicationDate=!empty($request['publicationDateSimple']) ? $request['publicationDateSimple'] . ' 00:00:00' :  NULL;
             $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-            $post = $postManager->sendPost($request['numChapter'], $request['title'], $request['content'], $request['summary'], $photoLink);
+            $post = $postManager->sendPost($request['numChapter'], $request['title'], $request['content'], $request['summary'], $photoLink, $publicationDate);
             if ($post === false) {
                 throw new \Exception('Impossible d\'ajouter le chapitre !');
             }
             else {
-                $lastpost=$postManager->getNbLastPost();
+                $lastpostadm=$postManager->getNbLastPostAdm();
             
-                header('Location: index.php?action=viewPostAdm&id='.$lastpost['maxId']); 
-                //XXXX MODIFIER CHEMIN
+                header('Location: index.php?action=viewPostAdm&id='.$lastpostadm['maxId']); 
+               
               
             }
         }
@@ -127,6 +149,21 @@ class BackController {
 
     public function adm()
     {
+        $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+        $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+        $nbchapters = $postManager->getNbChapters();
+        $nbPublishedChapters= $postManager->getNbPublishedChapters();
+        $nbChaptersPlannedPublication= $postManager->getNbChaptersPlannedPublication();
+        $nbChaptersUnplannedPublication= $postManager->getNbChaptersUnplannedPublication();
+        
+        $nbCommentsAdm= $commentManager->getNbCommentsAdm();
+        $nbVisibleComments= $commentManager->getNbVisibleComments();
+        $nbVisibleReportedComments= $commentManager->getNbVisibleReportedComments();
+        $nbVisibleOriginalComments= $commentManager->getNbVisibleOriginalComments();
+        $nbVisibleModeratedComments= $commentManager->getNbVisibleModeratedComments();
+        $nbVisibleAuthorComments= $commentManager->getNbVisibleAuthorComments();
+
         require('view/backend/homeAdmView.php');
     }
 

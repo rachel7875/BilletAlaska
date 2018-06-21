@@ -65,6 +65,15 @@
                     </div>
                 </fieldset> 
 
+                <fieldset>  
+                        <legend>Publication </legend>
+                        <div class="form-group">
+                            <label for="new_publicationDateSimple">Date de publication : </label>
+                            <p class="help-block">Le chapitre est publié le jour de cette date. Ne remplir ce champ que si vous êtes sûr. </p> 
+                            <input type="date" name="new_publicationDateSimple" id="new_publicationDateSimple" value="<?= $postToModify['publicationDateSmall'];?> " />
+                        </div>
+                    </fieldset>
+
                 <div class="form-group">
                     <input class="btn btn-lg btn-custom" type="submit" />
                 </div>

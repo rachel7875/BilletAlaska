@@ -22,14 +22,14 @@
                     <li>les restaurer après les avoir éventuellement modérés. </li>
                 </ul> 
                 </p>   
-                <p>L'ensemble des commentaires sont listés ci-dessous. Les commentaires apparaissant en rouge vif ne sont pas visibles sur le site web public. </p>
+                <p>L'ensemble des commentaires sont listés ci-dessous. Les commentaires apparaissant sur fond rouge clair  ne sont pas visibles sur le site web public. </p>
                 <p> L'envoi d'un commentaire de votre part sur la page d'un chapitre s'effectue :</p>
                 <ul>
                     <li>soit à partir d'un bouton figurant dans la liste des commentaires, </li>
                     <li>soit à partir du bouton ci-dessous. </li>
                 </ul> 
     
-                <p><a class="btn btn-customBis navbar-btn " href="index.php?action=addFormComment"><strong>
+                <p><a class="btn btn-customTer navbar-btn " href="index.php?action=addFormComment"><strong>
                     <span class="glyphicon glyphicon-pencil big"></span>Envoyer un commentaire</strong></a></p>
             
                 <table class="table table-bordered table-striped text-center">
@@ -50,15 +50,17 @@
                     foreach ($commentsAdm as $data)
                     {
                     ?>
-                    
-                    <tr class="<?= ($data['visibility']==0)?'red':'' ?>" >
+                    <!-- tr class=" ($data['visibility']==0)?'danger':'' ?>" -->
+                    <tr class="<?= ($data['visibility']==0)?'danger':' ' ?>" >
+                       
+               
                         <td><em>chapitre <?= htmlspecialchars($data['numChapter']) ?> - <?= htmlspecialchars($data['title']) ?> </em> </td>
                         <td><em><?= htmlspecialchars($data['author']) ?></em> </td>
                         <td><em><?= $data['commentDate_fr'] ?></em> </td>
-                        <td><em> <?= htmlspecialchars($data['stage']) ?></em> </td>
+                        <td class="<?= ($data['stage']=="signalé")?'orange':' ' ?>" ><em> <?= htmlspecialchars($data['stage']) ?></em> </td>
                         <td><em><?php if ($data['stage']=="modéré"){?> <?= $data['moderationDate_fr']; }?></em> </td>
-                        <td><em><?= nl2br(htmlspecialchars($data['comment'])) ?></em> </td>
-                        <td><em><a class="<?= ($data['stage']=="modéré" OR $data['visibility']==0)?'hidden':'' ?>" 
+                        <td class="<?= ($data['stage']=="signalé")?'orange':' ' ?>" ><em><?= nl2br(htmlspecialchars($data['comment'])) ?></em> </td>
+                        <td><em><a class="<?= ($data['visibility']==0)?'hidden':'' ?>" 
                             href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer</a></em> </td>
                         <td><em><a class="<?php if ($data['visibility']==0){?>hidden<?php }?>" 
                             href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">Effacer</a></em> </td>

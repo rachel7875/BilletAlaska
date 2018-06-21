@@ -10,17 +10,59 @@ class PostManager extends Manager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, numChapter, title, summary, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr FROM posts ORDER BY numChapter');
+        $req = $db->query('SELECT id, numChapter, title, summary, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDate_fr, photoLink FROM posts WHERE publicationDate <= NOW() ORDER BY numChapter');
         $result=$req->fetchAll();
         $req->closeCursor();
         
         return $result;
     }
     
+    public function getNbChapters()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbChapters FROM posts');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+
+    public function getNbPublishedChapters()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbPublishedChapters FROM posts WHERE publicationDate <= NOW()  ');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+    
+    public function getNbChaptersPlannedPublication()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbChaptersPlannedPublication FROM posts WHERE publicationDate > NOW()  ');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+
+    public function getNbChaptersUnplannedPublication()
+    {
+        $db = $this->dbConnect();
+        $req= $db->query('SELECT COUNT(*) AS nbChaptersUnplannedPublication FROM posts WHERE publicationDate is NULL  ');
+        $result=$req->fetch();
+        $req->closeCursor();
+        
+        return $result;
+    }
+
+
     public function getPostsAdm()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, numChapter, title, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr, DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modifDate_fr FROM posts ORDER BY numChapter');
+        $req = $db->query('SELECT id, numChapter, title, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr, DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, 
+        DATE_FORMAT(publicationDate, \'%d/%m/%Y à %Hh%i\') AS publicationDate_fr FROM posts ORDER BY numChapter');
         $result=$req->fetchAll();
         $req->closeCursor();
         
@@ -30,7 +72,7 @@ class PostManager extends Manager
     public function getPost($postId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, numChapter, title, content, photoLink, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, numChapter, title, content, photoLink, DATE_FORMAT(creationDate, \'%d/%m/%Y\') AS creationDate_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
 
@@ -40,7 +82,8 @@ class PostManager extends Manager
     public function getPostAdm($id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, numChapter, title, summary, content, photoLink, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate_fr,  DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%imin%ss\') AS modifDate_fr  FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, numChapter, title, summary, content, photoLink, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr,  
+        DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, DATE_FORMAT(publicationDate, \'%d/%m/%Y\') AS publicationDateSmall  FROM posts WHERE id = ?');
         $req->execute(array($id));
         $post = $req->fetch();
 
@@ -50,30 +93,49 @@ class PostManager extends Manager
     public function getNbLastPost()
     {
         $db = $this->dbConnect();
+        $req = $db->query('SELECT MAX(id) AS maxId FROM posts WHERE publicationDate <= NOW()');
+        $result=$req->fetch();
+        
+        return $result;
+    }
+
+    public function getNbLastPostAdm()
+    {
+        $db = $this->dbConnect();
         $req = $db->query('SELECT MAX(id) AS maxId FROM posts');
         $result=$req->fetch();
         
         return $result;
     }
 
-    public function modifyPost($new_numChapter, $new_title, $new_content, $new_summary, $new_photoLink, $id)
+    public function modifyPost($new_numChapter, $new_title, $new_content, $new_summary, $new_photoLink, $new_publicationDate, $id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE posts SET numChapter = ?, title = ?, content = ?, summary = ?, photoLink = ?, modifDate = NOW() WHERE id = ?');
-        $result = $req->execute(array($new_numChapter, $new_title, $new_content, $new_summary, $new_photoLink, $id));
+        $req = $db->prepare('UPDATE posts SET numChapter = ?, title = ?, content = ?, summary = ?, photoLink = ?, publicationDate = ?, modifDate = NOW() WHERE id = ?');
+        $result = $req->execute(array($new_numChapter, $new_title, $new_content, $new_summary, $new_photoLink, $new_publicationDate,$id));
        
         return $result;
     }
 
-    public function getPresentPhoto($id)
+    public function getPresentPhotoPublication($id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT photoLink FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT photoLink, publicationDate FROM posts WHERE id = ?');
         $req->execute(array($id));
-        $photo = $req->fetch();
+        $result = $req->fetch();
     
-        return $photo;
+        return $result;
     }
+
+ //   public function listNumChapters()
+   // {
+    //    $db = $this->dbConnect();
+    //    $req = $db->query('SELECT numChapter FROM posts');
+    //    $result=$req->fetchAll();
+     //   $req->closeCursor();
+        
+      //  return $result;
+   // }
 
 
     public function deletePost($id)
@@ -86,11 +148,22 @@ class PostManager extends Manager
         return $post;
     }
   
-    public function sendPost($numChapter, $title, $content, $summary, $photoLink)
+    public function sendPost($numChapter, $title, $content, $summary, $photoLink, $publicationDate)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO posts(numChapter, title, content, summary, photoLink, creationDate) VALUES(?, ?, ?, ?, ?, NOW())');
-        $result = $req->execute(array($numChapter, $title, $content, $summary, $photoLink));
+       // $req = $db->prepare('INSERT INTO posts(numChapter, title, content, summary, photoLink, publicationDate, creationDate) VALUES(?, ?, ?, ?, ?, ?, NOW())');
+       // $result = $req->execute(array($numChapter, $title, $content, $summary, $photoLink, $publicationDate));
+
+        $req = $db->prepare('INSERT INTO posts(numChapter, title, content, summary, photoLink, publicationDate, creationDate) VALUES(:numChapter, :title, :content, :summary,
+        :photoLink, :publicationDate, NOW())');
+        $result = $req->execute(array(
+            'numChapter' => $numChapter,
+            'title'=> $title,
+            'content'=> $content,
+            'summary'=> $summary,
+            'photoLink'=> $photoLink,
+            'publicationDate'=> $publicationDate
+            ));
 
         return $result;
     }

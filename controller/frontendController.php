@@ -85,4 +85,9 @@ class FrontController {
         require('view/frontend/mentionsLegalesView.php');
     }
 
+    public function author()
+    {
+        require('view/frontend/authorView.php');
+    }
+
 }

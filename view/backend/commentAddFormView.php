@@ -1,28 +1,42 @@
-<?php $title = "Ajout d'un commentaire"; ?>
+<?php $title = "Ajout d'un commentaire par l'auteur"; ?>
 
 <?php ob_start(); ?>
-<h1>Formulaire de saisie du commentaire</h1>
 
-<p><a href="index.php?action=administration">Retour à l'accueil de l'espace administration</a></p>
+<div class="main_content">
 
+    <div class="jumbotron text-center entete">
+        <div class="container">
+            <h1 >Formulaire de saisie <br />
+            de commentaire</h1>
+        </div>
+    </div>  
 
-<form action="index.php?action=addCommentAdm" method="post">
-    <div>
-        <label for="numChapter">Numéro du chapitre concerné</label><br />
-        <input type="text" id="numChapter"   name="numChapter" />
-    </div>
-    <div>
-        <label for="comment">Votre commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
-    </div>
+    <section class="container">
+        <div class="row">
+            <div class="col-sm-12">
 
-        <input type="hidden" name="author" value="Jean FORTEROCHE" />   
+                <form class="well" action="index.php?action=addCommentAdm" method="post">
+                    <div class="form-group">
+                        <label for="numChapter">Numéro du chapitre concerné</label><br />
+                        <input type="text" id="numChapter"   name="numChapter" />
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Votre commentaire</label><br />
+                        <textarea id="comment" name="comment" rows="8"  class="form-control"></textarea>
+                    </div>
 
-    <div>
-        <input type="submit" value="Envoyer"/>
-    </div>
-</form>
+                        <input type="hidden" name="author" value="Jean FORTEROCHE" />   
 
+                    <div class="form-group">
+                        <input class="btn btn-lg btn-custom" type="submit" value="Envoyer"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section >
+
+</div>  
 
 <?php $content = ob_get_clean(); ?>
 
