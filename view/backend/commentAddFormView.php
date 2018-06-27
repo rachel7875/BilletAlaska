@@ -18,7 +18,7 @@
                 <form class="well" action="index.php?action=addCommentAdm" method="post">
                     <div class="form-group">
                         <label for="numChapter">Numéro du chapitre concerné</label><br />
-                        <input type="text" id="numChapter"   name="numChapter" />
+                        <input type="number" min=1 id="numChapter"   name="numChapter" />
                     </div>
                     <div class="form-group">
                         <label for="comment">Votre commentaire</label><br />

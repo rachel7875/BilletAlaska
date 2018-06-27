@@ -20,7 +20,7 @@
                         <legend>Identification </legend>
                         <div class="form-group">
                             <label for="numChapter">Numéro du nouveau chapitre</label><br />
-                            <input type="text" id="numChapter"   name="numChapter" />
+                            <input type="number" min=1 id="numChapter"   name="numChapter" />
                         </div>
                         <div class="form-group">
                             <label for="title">Titre du nouveau chapitre</label>

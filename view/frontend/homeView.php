@@ -85,18 +85,18 @@
             <div class="row">
                 <div class="table-row-equal">
                     <div class="thumbnail">
-                        <div class="image" style="background-image:url(public/images/paris.jpg)"></div>
+                        <div class="image" style="background-image:url(<?=$photoFirstPost['photoLink']?> )"></div>
                         <div class="caption">
                             <div class="textcaption">
                                 <h2>Commencez le livre</h2>
                                 <p>Jetez un oeil au premier chapitre : vous allez avoir envie de connaître toute l'histoire !</p>
                             </div>        
-                            <p><a href="index.php?action=post&amp;id=1>" class="btn btn-customTer" role="button">Lire &raquo;</a> </p>
+                            <p><a href="index.php?action=firstPost" class="btn btn-customTer" role="button">Lire &raquo;</a> </p>
                         </div>
                     </div>
                    
                     <div class="thumbnail">
-                        <div class="image" style="background-image:url(public/images/glacier_bay.jpg)"></div>
+                        <div class="image" style="background-image:url(<?=$photoLastPost['photoLink']?> )"></div>
                         <div class="caption">
                             <div class="textcaption">
                                 <h2>Dernier chapitre paru ! </h2>
@@ -105,7 +105,7 @@
                             <p><a href="index.php?action=nbLastPost" class="btn btn-customTer" role="button">Lire &raquo;</a> </p>
                         </div>
                     </div>    
-                 
+                   
                     <div class="thumbnail">
                         <div class="image" style="background-image:url(public/images/glacier_bay.jpg)"></div>
                         <div class="caption">

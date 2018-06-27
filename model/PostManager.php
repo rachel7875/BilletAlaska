@@ -17,6 +17,8 @@ class PostManager extends Manager
         return $result;
     }
     
+    //Methods for obtaining data about the comments for the administration homepage
+
     public function getNbChapters()
     {
         $db = $this->dbConnect();
@@ -56,18 +58,30 @@ class PostManager extends Manager
         
         return $result;
     }
+    //End of Methods for obtaining data about the comments for the administration homepage
 
 
     public function getPostsAdm()
     {
         $db = $this->dbConnect();
         $req = $db->query('SELECT id, numChapter, title, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr, DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, 
-        DATE_FORMAT(publicationDate, \'%d/%m/%Y à %Hh%i\') AS publicationDate_fr FROM posts ORDER BY numChapter');
+        publicationDate,DATE_FORMAT(publicationDate, \'%d/%m/%Y à %Hh%i\') AS publicationDate_fr FROM posts ORDER BY numChapter');
         $result=$req->fetchAll();
         $req->closeCursor();
         
         return $result;
     }
+    
+    public function testId($id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT COUNT(*) FROM posts WHERE id = ?');
+        $req->execute(array($id));
+        $test = $req->fetch();
+
+        return $test;
+    }
+
 
     public function getPost($postId)
     {
@@ -83,7 +97,7 @@ class PostManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, numChapter, title, summary, content, photoLink, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr,  
-        DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, DATE_FORMAT(publicationDate, \'%d/%m/%Y\') AS publicationDateSmall  FROM posts WHERE id = ?');
+        DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, DATE_FORMAT(publicationDate, \'%d-%m-%Y\') AS publicationDateSmall  FROM posts WHERE id = ?');
         $req->execute(array($id));
         $post = $req->fetch();
 
@@ -93,12 +107,20 @@ class PostManager extends Manager
     public function getNbLastPost()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT MAX(id) AS maxId FROM posts WHERE publicationDate <= NOW()');
+        $req = $db->query('SELECT id, numChapter, photoLink FROM posts WHERE publicationDate <= NOW() ORDER BY numChapter DESC LIMIT 0, 1  ');
         $result=$req->fetch();
         
         return $result;
     }
-
+    
+    public function getFirstPost()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, numChapter, photoLink FROM posts WHERE publicationDate <= NOW() ORDER BY numChapter ASC LIMIT 0, 1 ');
+        $result=$req->fetch();
+        
+        return $result;
+    }
     public function getNbLastPostAdm()
     {
         $db = $this->dbConnect();
@@ -107,7 +129,7 @@ class PostManager extends Manager
         
         return $result;
     }
-
+    
     public function modifyPost($new_numChapter, $new_title, $new_content, $new_summary, $new_photoLink, $new_publicationDate, $id)
     {
         $db = $this->dbConnect();
@@ -117,27 +139,26 @@ class PostManager extends Manager
         return $result;
     }
 
-    public function getPresentPhotoPublication($id)
+    public function getPresentItems($id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT photoLink, publicationDate FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT numChapter, photoLink, publicationDate FROM posts WHERE id = ?');
         $req->execute(array($id));
         $result = $req->fetch();
     
         return $result;
     }
 
- //   public function listNumChapters()
-   // {
-    //    $db = $this->dbConnect();
-    //    $req = $db->query('SELECT numChapter FROM posts');
-    //    $result=$req->fetchAll();
-     //   $req->closeCursor();
+    public function testNumChapter($numChapter)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT COUNT(*) FROM posts WHERE numChapter = ? ');
+        $req->execute(array($numChapter));
+        $test = $req->fetch();
         
-      //  return $result;
-   // }
-
-
+        return $test;
+    }
+   
     public function deletePost($id)
     {
         $db = $this->dbConnect();
@@ -151,9 +172,6 @@ class PostManager extends Manager
     public function sendPost($numChapter, $title, $content, $summary, $photoLink, $publicationDate)
     {
         $db = $this->dbConnect();
-       // $req = $db->prepare('INSERT INTO posts(numChapter, title, content, summary, photoLink, publicationDate, creationDate) VALUES(?, ?, ?, ?, ?, ?, NOW())');
-       // $result = $req->execute(array($numChapter, $title, $content, $summary, $photoLink, $publicationDate));
-
         $req = $db->prepare('INSERT INTO posts(numChapter, title, content, summary, photoLink, publicationDate, creationDate) VALUES(:numChapter, :title, :content, :summary,
         :photoLink, :publicationDate, NOW())');
         $result = $req->execute(array(

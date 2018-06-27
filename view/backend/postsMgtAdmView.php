@@ -41,7 +41,7 @@
                         <td class="redCustom">Chapitre <?= htmlspecialchars($data['numChapter']) ?> :<br/> <?= htmlspecialchars($data['title']) ?></td>
                         <td> <em><?= $data['creationDate_fr'] ?></em> </td>
                         <td> <em> <?= $data['modifDate_fr'] ?></em> </td>
-                        <td> <em> <?= $data['publicationDate_fr'] ?></em> </td>
+                        <td class="<?= ($data['publicationDate']> date("Y-m-d H:i:s") OR empty($data['publicationDate_fr']))?'orange':' ' ?>" > <em> <?=(!empty($data['publicationDate_fr']) ) ? $data['publicationDate_fr'] : 'Date à déterminer' ?></em> </td>
                         <td ><em><a  href="index.php?action=viewPostAdm&amp;id=<?= $data['id'] ?>"><span class="glyphicon glyphicon-eye-open big"></span></</a></em></td>
                         <td ><em><a href="index.php?action=rectifyFormPost&amp;id=<?= $data['id'] ?>"><span class="glyphicon glyphicon-pencil big"></span></a></em></td>
                         <td ><em><a href="index.php?action=deletePost&amp;id=<?= $data['id'] ?>">

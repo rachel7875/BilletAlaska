@@ -2,6 +2,7 @@
 require('routes.php');
 require('controller/frontendController.php');
 require('controller/backendController.php');
+require('controller/logController.php');
 
 $routes = getRoutes();
 

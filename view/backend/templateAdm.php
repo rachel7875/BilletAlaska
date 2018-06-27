@@ -1,3 +1,11 @@
+<?php
+
+if(!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])){
+    header('Location: index.php?action=login');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

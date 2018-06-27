@@ -21,6 +21,10 @@
         'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
         'action' => 'nbLastPost'
       ],
+      'firstPost' => [
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
+        'action' => 'firstPost'
+      ],
       'mentionsLegales' => [
         'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
         'action' => 'mentionsLegales'
@@ -29,6 +33,14 @@
           'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
           'action' => 'author'
       ],
+      'adminLoginForm' => [
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
+        'action' => 'adminLoginForm'
+      ], 
+      'login' => [
+        'controller' => '\OpenClassrooms\Blog\Controller\LogController',
+        'action' => 'login'
+      ], 
       'administration' => [
         'controller' => '\OpenClassrooms\Blog\Controller\BackController',
         'action' => 'adm'

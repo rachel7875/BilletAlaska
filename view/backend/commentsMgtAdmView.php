@@ -50,7 +50,7 @@
                     foreach ($commentsAdm as $data)
                     {
                     ?>
-                    <!-- tr class=" ($data['visibility']==0)?'danger':'' ?>" -->
+                   
                     <tr class="<?= ($data['visibility']==0)?'danger':' ' ?>" >
                        
                

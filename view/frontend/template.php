@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <p><a href="index.php?action=mentionsLegales">Mentions légales   </a>   |   © Jean Forteroche - 2018 </p>
-                    <p><a href="index.php?action=administration">Administration du site</a> </p>
+                    <p><a href="index.php?action=adminLoginForm">Administration du site</a> </p>
                     <p>Sité réalisé par Rachel Mabire dans le cadre <br />
                     de la formation "Chef de projet - Développement" </p>
                 <div/>

@@ -17,17 +17,17 @@
 
             <h2>Chapitre à modifier : chapitre <?= htmlspecialchars($postToModify['numChapter']) ;?> </h2>
 
-            <form class="well" action="index.php?action=rectifySavePost&amp;id=<?= $postToModify['id'] ?>" method="post" enctype="multipart/form-data">
+            <form class="well" action="index.php?action=rectifySavePost&amp;id=<?=$postToModify['id']?>" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Identification </legend> 
                         <div class="form-group">
                             <label for="new_numChapter">Nouveau numéro de chapitre :</label><br />
-                            <input type="text" id="new_numChapter" value="<?= htmlspecialchars($postToModify['numChapter']);?> "  name="new_numChapter" />
+                            <input type="number" min=1 id="new_numChapter" value="<?=$postToModify['numChapter'];?>"  name="new_numChapter" />
                         </div>
                         <div class="form-group">
                             <label for="new_title">Nouveau titre de chapitre :</label>
                             <p class="help-block">(100 caractères max.)</p> 
-                            <input type="text" id="new_title" value="<?= htmlspecialchars($postToModify['title']);?> "  name="new_title" class="form-control" />
+                            <input type="text" id="new_title" value="<?=htmlspecialchars($postToModify['title']);?>"  name="new_title" class="form-control" />
                             
                         </div>
                        
@@ -37,11 +37,11 @@
                     <legend>Contenu & Résumé </legend>  
                     <div class="form-group">
                         <label for="new_content">Nouveau contenu du chapitre :</label>
-                        <textarea id="new_content"  name="new_content" rows="45" class="form-control"> <?= htmlspecialchars($postToModify['content']);?> </textarea>
+                        <textarea id="new_content"  name="new_content" rows="45" class="form-control"> <?=htmlspecialchars($postToModify['content']);?> </textarea>
                     </div>
                     <div class="form-group">
                         <label for="new_summary">Nouveau résumé du chapitre :</label>
-                        <textarea id="new_summary"  name="new_summary" rows="4" class="form-control"> <?= htmlspecialchars($postToModify['summary']);?> </textarea>
+                        <textarea id="new_summary"  name="new_summary" rows="4" class="form-control"> <?=htmlspecialchars($postToModify['summary']);?> </textarea>
                     </div>
                 </fieldset>  
                 
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="col-sm-5">  
                                 <p><strong>Photo actuelle : </strong> </p> 
-                                <img src="<?= $postToModify['photoLink']?>" class="img-responsive"> 
+                                <img src="<?=$postToModify['photoLink']?>" class="img-responsive"> 
                             </div>
                             <div id="col_photo" class="col-sm-7">  
                                 <label for="new_chapterPhoto">Nouvelle photo du chapitre : </label>
@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label for="new_publicationDateSimple">Date de publication : </label>
                             <p class="help-block">Le chapitre est publié le jour de cette date. Ne remplir ce champ que si vous êtes sûr. </p> 
-                            <input type="date" name="new_publicationDateSimple" id="new_publicationDateSimple" value="<?= $postToModify['publicationDateSmall'];?> " />
+                            <input type="date" name="new_publicationDateSimple" id="new_publicationDateSimple" value="<?=$postToModify['publicationDateSmall'];?>" />
                         </div>
                     </fieldset>
 

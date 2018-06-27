@@ -11,6 +11,10 @@ class FrontController {
 
     public function home()
     {
+        $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+        $photoFirstPost = $postManager->getFirstPost();
+        $photoLastPost = $postManager->getNbLastPost();
+        
         require('view/frontend/homeView.php');
     }
 
@@ -24,10 +28,15 @@ class FrontController {
 
     public function post($request)
     {
-        if (isset($request['id']) && $request['id'] > 0) {
+        if (isset($request['id']) && $request['id'] > 0 ){
             $postManager = new \OpenClassrooms\Blog\Model\PostManager();
             $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
 
+            $test = $postManager->testId($request['id']);
+
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant de billet envoyé n\'existe pas.');
+            }
             $post = $postManager->getPost($request['id']);
             $comments = $commentManager->getComments($request['id']);
             $nbComments = $commentManager->getNbComments($request['id']);
@@ -77,7 +86,15 @@ class FrontController {
         $postManager = new \OpenClassrooms\Blog\Model\PostManager();
         $numLastPost = $postManager->getNbLastPost();
     
-        header('Location: index.php?action=post&id=' . $numLastPost['maxId'] );
+        header('Location: index.php?action=post&id=' . $numLastPost['id'] );
+    }
+
+    public function firstPost()
+    {
+        $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+        $numFirstPost = $postManager->getFirstPost();
+    
+        header('Location: index.php?action=post&id=' . $numFirstPost['id'] );
     }
 
     public function mentionsLegales()
@@ -89,5 +106,9 @@ class FrontController {
     {
         require('view/frontend/authorView.php');
     }
-
+    
+    public function adminLoginForm()
+    {
+        require('view/frontend/adminLoginFormView.php');
+    }
 }
