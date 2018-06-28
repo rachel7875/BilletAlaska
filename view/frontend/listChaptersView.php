@@ -25,7 +25,8 @@
 
                 
                         <div class="col-sm-5 text-center"> 
-                            <img src="<?= $data['photoLink']?> " alt="photo du chapitre correspondant" width="310" height="190">
+                          <a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><img src="<?= $data['photoLink']?> " 
+                            alt="photo du chapitre correspondant" width="310" height="190"></a>
                         </div> 
 
                         <div class="col-sm-7">

@@ -22,7 +22,7 @@
                     <legend>Identification </legend> 
                         <div class="form-group">
                             <label for="new_numChapter">Nouveau numéro de chapitre :</label><br />
-                            <input type="number" min=1 id="new_numChapter" value="<?=$postToModify['numChapter'];?>"  name="new_numChapter" />
+                            <input type="number" min=1 id="new_numChapter" value="<?=htmlspecialchars($postToModify['numChapter']);?>"  name="new_numChapter" />
                         </div>
                         <div class="form-group">
                             <label for="new_title">Nouveau titre de chapitre :</label>
@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label for="new_publicationDateSimple">Date de publication : </label>
                             <p class="help-block">Le chapitre est publié le jour de cette date. Ne remplir ce champ que si vous êtes sûr. </p> 
-                            <input type="date" name="new_publicationDateSimple" id="new_publicationDateSimple" value="<?=$postToModify['publicationDateSmall'];?>" />
+                            <input type="date" name="new_publicationDateSimple" id="new_publicationDateSimple" value="<?=htmlspecialchars($postToModify['publicationDateSmall']);?>" />
                         </div>
                     </fieldset>
 

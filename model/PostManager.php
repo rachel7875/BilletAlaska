@@ -97,7 +97,7 @@ class PostManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, numChapter, title, summary, content, photoLink, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr,  
-        DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, DATE_FORMAT(publicationDate, \'%d-%m-%Y\') AS publicationDateSmall  FROM posts WHERE id = ?');
+        DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, DATE_FORMAT(publicationDate, \'%Y-%m-%d\') AS publicationDateSmall, DATE_FORMAT(publicationDate, \'%d/%m/%Y\') AS publicationDateSmall_fr FROM posts WHERE id = ?');
         $req->execute(array($id));
         $post = $req->fetch();
 
@@ -116,7 +116,7 @@ class PostManager extends Manager
     public function getFirstPost()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, numChapter, photoLink FROM posts WHERE publicationDate <= NOW() ORDER BY numChapter ASC LIMIT 0, 1 ');
+        $req = $db->query('SELECT id, numChapter, photoLink FROM posts WHERE publicationDate <= NOW() AND numChapter=1');
         $result=$req->fetch();
         
         return $result;
@@ -144,6 +144,16 @@ class PostManager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT numChapter, photoLink, publicationDate FROM posts WHERE id = ?');
         $req->execute(array($id));
+        $result = $req->fetch();
+    
+        return $result;
+    }
+    
+    public function getNumChapter($numChapter)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT numChapter FROM posts WHERE numChapter = ?');
+        $req->execute(array($numChapter));
         $result = $req->fetch();
     
         return $result;
@@ -185,4 +195,6 @@ class PostManager extends Manager
 
         return $result;
     }
+    
+
 }

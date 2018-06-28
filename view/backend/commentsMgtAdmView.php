@@ -69,7 +69,7 @@
                         <td><em><a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
                             href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer et Restaurer</a></em> </td>
                         <td><em><a class="<?php if ($data['visibility']==0){?>hidden<?php }?>"
-                            href="index.php?action= ?>">Envoyer votre commentaire </a></em> </td>
+                            href="index.php?action=addFormComment&amp;numChapter=<?= $data['numChapter'] ?>">Envoyer votre commentaire </a></em> </td>
                     </tr>
                     <?php
                     }

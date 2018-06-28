@@ -41,6 +41,14 @@
         'controller' => '\OpenClassrooms\Blog\Controller\LogController',
         'action' => 'login'
       ], 
+      'logout' => [
+        'controller' => '\OpenClassrooms\Blog\Controller\LogController',
+        'action' => 'logout'
+      ], 
+      'adminLoginFormOut' => [
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
+        'action' => 'adminLoginFormOut'
+      ], 
       'administration' => [
         'controller' => '\OpenClassrooms\Blog\Controller\BackController',
         'action' => 'adm'

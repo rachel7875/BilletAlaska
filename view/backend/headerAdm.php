@@ -24,11 +24,14 @@
           </ul>
         </div>
         
-        <div class="nav navbar-nav navbar-right  ">
+        <div class="navbar-right">
+          <p class="navbar-text">Bonjour <?=$_SESSION['loginName'];?> </p>
+          <a class="btn btn-danger btn-xs navbar-btn" href="index.php?action=logout"><span class="glyphicon glyphicon-off"></span> </a>
           <a class="btn btn-customTer btn-xs navbar-btn" href="index.php">SITE PUBLIC</a>
+          
         </div>
 
-      </div>
+      </div> 
     </nav>
 
 

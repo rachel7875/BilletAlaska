@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-10 " >
                         <p>
-                        <em><strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Publié le <?= $post['publicationDateSmall'] ?></strong></em> </br>
+                        <strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Publié le <?= $post['publicationDateSmall'] ?></strong> </br>
                        
                         <?= $nbComments['nbComments'] ?> <span class="glyphicon glyphicon-comment" aria-hidden="true">
                         </p>
@@ -39,6 +39,8 @@
                     <p>
                         <?= nl2br(htmlspecialchars($post['content'])) ?>
                     </p>
+
+                   
                 </div>
 
                 <div class="chaptercomments row"> 

@@ -92,7 +92,6 @@ a{
     #navbarAdm {
       margin-top : 10px;
       font-size : 13px; 
-      
     }
  
     #navbarInvAdm, #navbarAdm .navbar-nav .active a  {
@@ -100,11 +99,17 @@ a{
       border-color: #584b6e;
     }
 
-    .navbar-btn {
-      margin: 0px 50px 0px 0px !important;
+    .navbar-right {
+      margin: 0px 30px 0px 0px;
     }
 
+    .navbar-right .navbar-btn, .navbar-right .navbar-text {
+      margin-top : 3px;
+    }
    
+    .navbar-text {
+      color: #9FA16A !important;
+    }
 
   /*STYLE FOR THE CUSTOM BUTTONS AND FOR THE MAIN_CONTENT*/
 
@@ -266,6 +271,10 @@ a{
     margin-bottom: 50px;
   }
 
+  .summarychapter h2 {
+    margin-top: 0px;
+  }
+
   /*PAGE CHAPITRE*/
   .chaptercomments{
     padding-top: 50px;
@@ -337,7 +346,11 @@ table {
   display : none ;
 }
 
-
+/*STYLE FOR THE PAGE FORMULAIRE DE CONNEXION A L'ESPACE D'ADMINISTRATION
+-------------------------------------------------- */
+#message {
+  margin : 30px 0 30px 0;  
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

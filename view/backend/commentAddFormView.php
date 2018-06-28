@@ -17,8 +17,9 @@
 
                 <form class="well" action="index.php?action=addCommentAdm" method="post">
                     <div class="form-group">
-                        <label for="numChapter">Numéro du chapitre concerné</label><br />
-                        <input type="number" min=1 id="numChapter"   name="numChapter" />
+                        <label for="numChapter">Numéro du chapitre concerné</label><br />   
+                        <input type="number" min=1 id="numChapter" 
+                        value="<?php if (!empty($numChapterforForm['numChapter'])){?><?=htmlspecialchars($numChapterforForm['numChapter']);}?>"  name="numChapter" />
                     </div>
                     <div class="form-group">
                         <label for="comment">Votre commentaire</label><br />

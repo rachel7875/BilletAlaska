@@ -21,7 +21,8 @@
                     <div class="carousel-caption text-left">
                         <h1>BILLET SIMPLE POUR L'ALASKA.</h1>
                         <p>Découvrez le dernier roman de Jean Forteroche.</p>
-                        <p><a class="btn btn-lg btn-custom" href="index.php?#synopsis" role="button">Le synopsis</a>    <a class="btn btn-lg btn-customTer" href="index.php?action=post&amp;id=1>" role="button">Commencez !</a></p>
+                        <p><a class="btn btn-lg btn-custom" href="index.php?#synopsis" role="button">Le synopsis</a>    
+                        <a class="btn btn-lg btn-customTer" href="index.php?action=firstPost" role="button">Commencez !</a></p>
                     </div>
                 </div>
             </div>

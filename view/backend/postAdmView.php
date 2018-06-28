@@ -18,10 +18,10 @@
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-10 " >
                         
-                        <p> <em><strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span></em></strong> <br />
-                        <em>Créé le : <?= $postAdm['creationDate_fr'] ?></em> </p>
-                        <p> <em>Dernière modification le : <?= $postAdm['modifDate_fr'] ?></em> </p>
-                        <p> <em>Date de publication : <?= $postAdm['publicationDateSmall'] ?></em> </p>
+                        <p> <strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span></strong> <br />
+                        <em>Créé le : <?= htmlspecialchars($postAdm['creationDate_fr'])?></em> </p>
+                        <p> <em>Dernière modification le : <?= htmlspecialchars($postAdm['modifDate_fr'])?></em> </p>
+                        <p> <em>Date de publication : <?= htmlspecialchars($postAdm['publicationDateSmall_fr']) ?></em> </p>
                         <p>
                             <em><a class="btn btn-customTer" href="index.php?action=rectifyFormPost&amp;id=<?= $postAdm['id'] ?>">
                             <span class="glyphicon glyphicon-pencil"></span> Modifier le chapitre</a></em>

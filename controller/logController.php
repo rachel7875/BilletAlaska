@@ -10,7 +10,6 @@ class LogController {
     
     public function login($request)
     {
-    
       $adminManager = new \OpenClassrooms\Blog\Model\AdminManager();
   
         if (!isset($request['loginName']) OR !isset($request['pass'])) { 
@@ -40,6 +39,20 @@ class LogController {
         }
         
     }
+
+
+    public function logout()
+    {
+        session_start();
+
+        // Removal of session variables and session
+        $_SESSION = array();
+        session_destroy();
+        
+        header('Location:index.php?action=adminLoginFormOut');
+    }    
+
+
 
 
 }

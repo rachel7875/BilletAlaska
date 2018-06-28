@@ -292,11 +292,26 @@ class BackController {
             throw new \Exception('Aucun identifiant de commentaire envoyé');
         }
     }
-
-    public function addFormComment()
+    
+    public function addFormComment($request)
     {
-        require('view/backend/commentAddFormView.php');
+        if (isset($request['numChapter']) && $request['numChapter'] > 0){
+            $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+            $test = $postManager->testNumChapter($request['numChapter']);
+
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('Le numéro de chapitre envoyé n\'existe pas.');
+            }
+            else {
+            $numChapterforForm=$postManager->getNumChapter($request['numChapter']);  
+            require('view/backend/commentAddFormView.php');  
+            }
+        }
+        else {
+            require('view/backend/commentAddFormView.php');
+        }
     }
+
 
     public function addCommentAdm($request)
     {

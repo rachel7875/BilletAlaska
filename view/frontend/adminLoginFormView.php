@@ -15,7 +15,10 @@
     <section class="container">
         <div class="row">
             <div class="col-sm-offset-3 col-sm-6">
-
+                <div class="orange text-center" id="message" >
+                    <p ><strong><?php if (!empty($message)){?><?=$message;}?></strong></p>
+                </div>
+           
                 <form class="well text-center" action="index.php?action=login" method="post">
                     <div class="form-group">
                         <label for="loginName">Votre identifiant :</label><br />
