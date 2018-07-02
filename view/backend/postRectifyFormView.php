@@ -57,7 +57,11 @@
                             <div id="col_photo" class="col-sm-7">  
                                 <label for="new_chapterPhoto">Nouvelle photo du chapitre : </label>
                                 <p class="help-block">(Photo max 1.2 Mo |.jpg .jpeg .gif .png)</p> 
-                                <input type="file" name="new_chapterPhoto" id="new_chapterPhoto"  />
+                                
+                                <input type="file" name="new_chapterPhoto" id="new_chapterPhoto" />
+
+
+                               
                             </div>
                         </div> 
                     </div>
@@ -73,7 +77,7 @@
                     </fieldset>
 
                 <div class="form-group">
-                    <input class="btn btn-lg btn-custom" type="submit" />
+                    <input class="btn btn-lg btn-custom" type="submit"  />
                 </div>
             </form>
         </div>

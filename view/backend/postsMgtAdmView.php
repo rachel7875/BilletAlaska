@@ -44,7 +44,7 @@
                         <td class="<?= ($data['publicationDate']> date("Y-m-d H:i:s") OR empty($data['publicationDate_fr']))?'orange':' ' ?>" > <em> <?=(!empty($data['publicationDate_fr']) ) ? $data['publicationDate_fr'] : 'Date à déterminer' ?></em> </td>
                         <td ><em><a  href="index.php?action=viewPostAdm&amp;id=<?= $data['id'] ?>"><span class="glyphicon glyphicon-eye-open big"></span></</a></em></td>
                         <td ><em><a href="index.php?action=rectifyFormPost&amp;id=<?= $data['id'] ?>"><span class="glyphicon glyphicon-pencil big"></span></a></em></td>
-                        <td ><em><a href="index.php?action=deletePost&amp;id=<?= $data['id'] ?>">
+                        <td ><em><a href="index.php?action=deletePost&amp;id=<?= $data['id'] ?>" onclick="return confirm('Êtes-vous certain de vouloir effacer définitivement ce chapitre ?')">
                         <span class="glyphicon glyphicon-remove-sign big"></span></a></em></td>
                     </tr>
                     <?php

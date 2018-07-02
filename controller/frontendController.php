@@ -9,10 +9,15 @@ require_once('model/CommentManager.php');
 
 class FrontController {  
 
+    public function __construct()
+    {
+    session_start(); 
+     }
+
     public function home()
     {
         $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-        $photoFirstPost = $postManager->getFirstPost();
+        $photoFirstPost = $postManager->getPostForNumchapter(1);
         $photoLastPost = $postManager->getNbLastPost();
         
         require('view/frontend/homeView.php');
@@ -40,6 +45,24 @@ class FrontController {
             $post = $postManager->getPost($request['id']);
             $comments = $commentManager->getComments($request['id']);
             $nbComments = $commentManager->getNbComments($request['id']);
+
+            $testNextNumChapter = $postManager->testNumChapter($post['numChapter']+1);
+            if ($testNextNumChapter['COUNT(*)']==1) {
+                $testPublication =$postManager->testPublication($post['numChapter']+1);
+                if ($testPublication['COUNT(*)']==1) { 
+                    $nextNumChapter=$post['numChapter']+1;
+                    $nextPost=$postManager->getPostForNumchapter($nextNumChapter);
+                }
+            }
+
+            $testPreviousNumChapter = $postManager->testNumChapter($post['numChapter']-1);
+            if ($testPreviousNumChapter['COUNT(*)']==1) {
+                $testPublication =$postManager->testPublication($post['numChapter']-1);
+                if ($testPublication['COUNT(*)']==1) { 
+                    $previousNumChapter=$post['numChapter']-1;
+                    $previousPost=$postManager->getPostForNumchapter($previousNumChapter);
+                }
+            }
 
             require('view/frontend/chapterView.php');
         }
@@ -92,7 +115,7 @@ class FrontController {
     public function firstPost()
     {
         $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-        $numFirstPost = $postManager->getFirstPost();
+        $numFirstPost = $postManager->getPostForNumchapter(1);
     
         header('Location: index.php?action=post&id=' . $numFirstPost['id'] );
     }

@@ -25,8 +25,20 @@ if(!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])){
         <!-- Custom styles for this template -->
         <link href="public/css/style.css" rel="stylesheet">
 
+        <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+        <script>
+            tinymce.init({
+                mode : "textareas",
+                editor_deselector : "mceNoEditor",
+                plugins: "print searchreplace visualblocks",
+                menubar: "file edit view",
+                toolbar: 'searchreplace | visualblocks | styleselect | bold italic alignleft aligncenter alignright alignjustify |   print  ',
+                visualblocks_default_state: true
+            });
+        </script>
+
     </head>
-        
+
     <body>
         <?php include("headerAdm.php"); ?>   
 
@@ -35,5 +47,7 @@ if(!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])){
         <script src="public/js/jquery-3.3.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         
+       
+
     </body>
 </html>

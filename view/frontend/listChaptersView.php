@@ -33,7 +33,7 @@
                             <h2> Chapitre <?= htmlspecialchars($data['numChapter']) ?> : <?= htmlspecialchars($data['title']) ?> </h2>
                             <p> <em><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['publicationDateSmall'] ?></em> </p>
                             <p>
-                                <?= nl2br(htmlspecialchars($data['summary'])) ?>
+                                <?= $data['summary']?>
                                 <br />
                                 <br />
                                 <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire le chapitre</a></em>

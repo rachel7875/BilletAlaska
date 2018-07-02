@@ -27,12 +27,16 @@ class BackController {
     {
         if (isset($request['id']) && $request['id'] > 0) {
             $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-
+            
             $test = $postManager->testId($request['id']);
-          
+            
             if ($test['COUNT(*)']!=1) {
                 throw new \Exception('L\'identifiant de billet envoyé n\'existe pas.');
             }
+
+            $message=$_SESSION['flash']??'';
+          
+            $_SESSION['flash']='';
 
             $postAdm=$postManager->getPostAdm($request['id']);
             require('view/backend/postAdmView.php');
@@ -68,6 +72,12 @@ class BackController {
         if (isset($request['id']) && $request['id'] > 0) { 
             $new_photoLink=$this->upload($_FILES['new_chapterPhoto']);
 
+            if ($_FILES['new_chapterPhoto']['error']==1)
+            {
+                $_SESSION['flash']='Taille du fichier de la nouvelle photo trop importante.';
+                
+            } 
+            
             if(!empty($request['new_numChapter'])){
                 $postManager = new \OpenClassrooms\Blog\Model\PostManager();
                 
@@ -88,11 +98,9 @@ class BackController {
                
                 else {
                     $new_numChapter=$request['new_numChapter']; 
-
                 }  
             
-
-            
+  
                 if (!empty($request['new_title']) && !empty($request['new_content']) && !empty($request['new_summary'])) {
                     if(!isset($_FILES['new_chapterPhoto']) OR $_FILES['new_chapterPhoto']['error'] !== 0){
                         $postManager = new \OpenClassrooms\Blog\Model\PostManager();
@@ -338,6 +346,7 @@ class BackController {
 
     private function upload($file) 
     {
+
         // Let's test if the photo file has been sent and there is no error
         if (isset($file) AND $file['error'] == 0)
             

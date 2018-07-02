@@ -37,10 +37,16 @@
             <article class="col-sm-7 " >
                 <div class="text-justify">            
                     <p>
-                        <?= nl2br(htmlspecialchars($post['content'])) ?>
+                        <?=$post['content']?>
                     </p>
-
-                   
+                    <ul class="pager ">
+                        <li class="<?= (empty($previousNumChapter))?'hidden':'previous'?>"><a href="index.php?action=post&amp;id=<?= $previousPost['id']?>">
+                        <span class="glyphicon glyphicon-backward"></span> Chapitre précédent </a></li>
+                        <li class="<?= (empty($nextNumChapter))?'hidden':'next'?>"><a href="index.php?action=post&amp;id=<?= $nextPost['id'] ?>"> 
+                        Chapitre suivant <span class="glyphicon glyphicon-forward"></span></a></li>
+                    </ul>
+                    
+                     
                 </div>
 
                 <div class="chaptercomments row"> 
@@ -78,7 +84,7 @@
                                 <p> <?php if($data['stage']=="modéré"){?><em>Modéré par l'auteur    -   </em><?php }
                                             if($data['stage']=="signalé") 
                                             {?><em>Déjà signalé   </em><?php } 
-                                            else { ?>  <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>"> 
+                                            else { ?>  <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>" onclick="alert('Vous avez signalé ce commentaire.'); "> 
                                                     <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Signaler</a></em><?php }?> 
                                             
                             </div>

@@ -24,7 +24,7 @@
           </ul>
         </div>
         
-        <div class="navbar-right">
+        <div class="navbar-right" id="menuRightAdm">
           <p class="navbar-text">Bonjour <?=$_SESSION['loginName'];?> </p>
           <a class="btn btn-danger btn-xs navbar-btn" href="index.php?action=logout"><span class="glyphicon glyphicon-off"></span> </a>
           <a class="btn btn-customTer btn-xs navbar-btn" href="index.php">SITE PUBLIC</a>

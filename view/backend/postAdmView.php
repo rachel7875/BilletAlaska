@@ -31,14 +31,23 @@
                       
                         <div class="row">
                             <div class="col-sm-12">   
-                                    <img src="<?= $postAdm['photoLink'] ?>" class="img-responsive">
+                                <img src="<?= $postAdm['photoLink'] ?>" class="img-responsive">
                             </div>
+                            <div class="col-sm-offset-1 col-sm-10 " >
+                                <div class="<?= (!empty($message))?' ':'hidden' ?>" >
+                                    <div class="alert alert-warning ">
+                                        <h4>Echec de chargement</h4>
+                                        <strong><?php  if (!empty($message)){?><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>  
+                                        <?=$message;}?></strong>
+                                    </div>
+                                </div>
+                            </div>    
                         </div> 
                     
                         <div class="resume">
                             <h3> Résumé du chapitre </h3>
                             <p>
-                            <?= nl2br(htmlspecialchars($postAdm['summary'])) ?>
+                            <?= $postAdm['summary'] ?>
                                 <br />
                             </p>
                         </div>
@@ -50,7 +59,7 @@
                 <div class="wholechapter  text-justify"> 
                     <h3> Contenu du chapitre </h3>           
                     <p>
-                    <?= nl2br(htmlspecialchars($postAdm['content'])) ?>
+                    <?= $postAdm['content'] ?>
                         <br />
                     </p>
                 </div>

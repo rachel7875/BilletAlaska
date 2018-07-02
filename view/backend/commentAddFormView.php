@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="comment">Votre commentaire</label><br />
-                        <textarea id="comment" name="comment" rows="8"  class="form-control"></textarea>
+                        <textarea class="mceNoEditor form-control" name="comment" rows="8"></textarea>
                     </div>
 
                         <input type="hidden" name="author" value="Jean FORTEROCHE" />   

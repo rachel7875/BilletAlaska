@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="new_comment">Nouveau contenu du commentaire</label><br />
-                        <textarea id="new_comment"  name="new_comment" rows="8"  class="form-control"> <?= htmlspecialchars($commentToModify['comment']);?> </textarea>
+                        <textarea id="new_comment"  name="new_comment" rows="8"  class="mceNoEditor form-control"> <?= htmlspecialchars($commentToModify['comment']);?> </textarea>
                     </div>
                     <div class="form-group">
                         <input class="btn btn-lg btn-custom" type="submit" />
