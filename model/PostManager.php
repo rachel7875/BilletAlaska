@@ -155,16 +155,6 @@ class PostManager extends Manager
         return $result;
     }
     
-    public function getNumChapter($numChapter)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('SELECT numChapter FROM posts WHERE numChapter = ?');
-        $req->execute(array($numChapter));
-        $result = $req->fetch();
-    
-        return $result;
-    }
-
     public function testNumChapter($numChapter)
     {
         $db = $this->dbConnect();

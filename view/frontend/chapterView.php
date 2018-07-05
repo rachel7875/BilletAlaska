@@ -84,7 +84,7 @@
                                 <p> <?php if($data['stage']=="modéré"){?><em>Modéré par l'auteur    -   </em><?php }
                                             if($data['stage']=="signalé") 
                                             {?><em>Déjà signalé   </em><?php } 
-                                            else { ?>  <em><a href="index.php?action=reportComment&amp;id=<?= $data['commentId'] ?>" onclick="alert('Vous avez signalé ce commentaire.'); "> 
+                                            else { ?>  <em><a href="index.php?action=reportComment&amp;commentId=<?= $data['commentId'] ?>" onclick="alert('Vous avez signalé ce commentaire.'); "> 
                                                     <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Signaler</a></em><?php }?> 
                                             
                             </div>

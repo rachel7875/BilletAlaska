@@ -40,7 +40,7 @@ class FrontController {
             $test = $postManager->testId($request['id']);
 
             if ($test['COUNT(*)']!=1) {
-                throw new \Exception('L\'identifiant de billet envoyé n\'existe pas.');
+                throw new \Exception('L\'identifiant de chapitre envoyé n\'existe pas.');
             }
             $post = $postManager->getPost($request['id']);
             $comments = $commentManager->getComments($request['id']);
@@ -67,16 +67,22 @@ class FrontController {
             require('view/frontend/chapterView.php');
         }
         else {
-            throw new \Exception('Aucun identifiant de billet envoyé');
+            throw new \Exception('Aucun identifiant de chapitre envoyé');
         }
     }
 
     public function reportComment($request)
     {
-        if (isset($request['id']) && $request['id'] > 0) {
+        if (isset($request['commentId']) && $request['commentId'] > 0) {
             $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
-            $reportedComment = $commentManager->reportComment($request['id']); 
-            $comment = $commentManager->getReportedComment($request['id']);
+            $test = $commentManager->testCommentId($request['commentId']);
+          
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant de commentaire envoyé n\'existe pas.');
+            }
+
+            $reportedComment = $commentManager->reportComment($request['commentId']); 
+            $comment = $commentManager->getReportedComment($request['commentId']);
             header('Location: index.php?action=post&id=' . $comment['postId']);
         }
         else {
@@ -86,9 +92,17 @@ class FrontController {
 
     public function addComment($request)
     {
+        $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+        $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
         if (isset($request['id']) && $request['id'] > 0) {
+            $test = $postManager->testId($request['id']);
+
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant de chapitre envoyé n\'existe pas.');
+            }
+
             if (!empty($request['author']) && !empty($request['comment'])) {
-                $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
                 $affectedLines = $commentManager->postComment($request['id'], $request['author'], $request['comment']);
                 if ($affectedLines === false) {
                     throw new \Exception('Impossible d\'ajouter le commentaire !');
@@ -100,7 +114,7 @@ class FrontController {
             throw new \Exception('Tous les champs ne sont pas remplis !');
             }
         } else {
-         throw new \Exception('Aucun identifiant de billet envoyé'); 
+         throw new \Exception('Aucun identifiant de chapitre envoyé'); 
         }
     }
 

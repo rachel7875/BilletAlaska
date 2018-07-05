@@ -3,7 +3,7 @@
     
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid" id="publicMenu">
-        <div class="navbar-header ">
+        <div class="navbar-header " >
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -28,7 +28,7 @@
         <div class="<?php if(!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])){?>hidden<?php }?> navbar-right" id="adminOnPublic">
             <p class="navbar-text">Bonjour <?=$_SESSION['loginName'];?> </p>
             <a class="btn btn-danger btn-xs navbar-btn" href="index.php?action=logout"><span class="glyphicon glyphicon-off"></span> </a>
-            <a class="btn btn-customTer btn-xs navbar-btn" id="text_admin" href="index.php?action=administration">Interface Administration</a>
+            <a class="btn btn-customTer btn-xs navbar-btn" id="text_admin" href="index.php?action=administration">Administration</a>
         </div>
 
       </div>

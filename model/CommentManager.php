@@ -29,6 +29,15 @@ class CommentManager extends Manager
         return $result;
     }    
 
+    public function testCommentId($commentId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT COUNT(*) FROM comments WHERE commentId = ?');
+        $req->execute(array($commentId));
+        $test = $req->fetch();
+
+        return $test;
+    }
 
     public function reportComment($commentId)
     {
@@ -180,7 +189,6 @@ class CommentManager extends Manager
     public function postCommentAdm($author, $comment, $numChapter)
     {
         $db = $this->dbConnect();
-
         $req = $db->prepare('INSERT INTO comments(postId, author, comment, commentDate, stage) SELECT id AS postId, :author, :comment, NOW(), \'original\' FROM posts WHERE numChapter = :numChapter');
         $result = $req->execute(array(
                     'author' => $author,
@@ -189,6 +197,8 @@ class CommentManager extends Manager
 
         return $result;
         }     
+
+
 
 
 }

@@ -1,5 +1,6 @@
 <?php $title = 'Billet simple pour l\'Alaska - Accueil'; ?>
-<?php $metaDescription ='Billet simple pour l\'Alaska, le dernier roman de Jean Forteroche à lire en ligne !' ?> 
+<?php $metaDescription ='Billet simple pour l\'Alaska, le dernier roman de Jean Forteroche à lire en ligne : 
+vivez une réelle aventure, pleine de mystères, au pays des ours et des glaciers  !' ?> 
 
 <?php ob_start(); ?>
 

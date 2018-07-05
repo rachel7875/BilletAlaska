@@ -31,7 +31,7 @@ class BackController {
             $test = $postManager->testId($request['id']);
             
             if ($test['COUNT(*)']!=1) {
-                throw new \Exception('L\'identifiant de billet envoyé n\'existe pas.');
+                throw new \Exception('L\'identifiant du chapitre envoyé n\'existe pas.');
             }
 
             $message=$_SESSION['flash']??'';
@@ -55,8 +55,9 @@ class BackController {
             $test = $postManager->testId($request['id']);
           
             if ($test['COUNT(*)']!=1) {
-                throw new \Exception('L\'identifiant de billet envoyé n\'existe pas.');
+                throw new \Exception('L\'identifiant du chapitre envoyé n\'existe pas.');
             }
+
             $postToModify=$postManager->getPostAdm($request['id']);
             require('view/backend/postRectifyFormView.php');
         }
@@ -70,25 +71,26 @@ class BackController {
     public function rectifyPost($request)
     {
         if (isset($request['id']) && $request['id'] > 0) { 
+            $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+            $test = $postManager->testId($request['id']);
+
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant du chapitre envoyé n\'existe pas.');
+            }
+
             $new_photoLink=$this->upload($_FILES['new_chapterPhoto']);
 
             if ($_FILES['new_chapterPhoto']['error']==1)
             {
-                $_SESSION['flash']='Taille du fichier de la nouvelle photo trop importante.';
-                
+                $_SESSION['flash']='Taille du fichier de la nouvelle photo trop importante.';  
             } 
             
             if(!empty($request['new_numChapter'])){
-                $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-                
                 $present=$postManager->getPresentItems($request['id']);
                 $test = $postManager->testNumChapter($request['new_numChapter']);
                
-
                 if ($test['COUNT(*)']==1) {
-           
                     if ($request['new_numChapter']== $present['numChapter']) {
-                  
                         $new_numChapter=$present['numChapter'];  
                     }
                     else {
@@ -100,29 +102,23 @@ class BackController {
                     $new_numChapter=$request['new_numChapter']; 
                 }  
             
-  
                 if (!empty($request['new_title']) && !empty($request['new_content']) && !empty($request['new_summary'])) {
-                    if(!isset($_FILES['new_chapterPhoto']) OR $_FILES['new_chapterPhoto']['error'] !== 0){
-                        $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-                        $present=$postManager->getPresentItems($request['id']);
+                        if(!isset($_FILES['new_chapterPhoto']) OR $_FILES['new_chapterPhoto']['error'] !== 0){
+                            $present=$postManager->getPresentItems($request['id']);
 
-                        $new_photoLink=$present['photoLink'];
+                            $new_photoLink=$present['photoLink'];
 
-                    }
+                        }
                 
-                    
                         if(!empty($request['new_publicationDateSimple'])){
                             $new_publicationDate=$request['new_publicationDateSimple'] . ' 00:00:00';
                         }
                         else {
-                            $postManager = new \OpenClassrooms\Blog\Model\PostManager();
                             $present=$postManager->getPresentItems($request['id']);
 
                             $new_publicationDate=$present['publicationDate'];  
                         }
                         
-
-                        $postManager = new \OpenClassrooms\Blog\Model\PostManager();
                         $modifiedPost=$postManager->modifyPost($new_numChapter, $request['new_title'], $request['new_content'], $request['new_summary'], $new_photoLink, $new_publicationDate, $request['id']);
                         if ($modifiedPost === false) {
                             throw new \Exception('Impossible de modifier le chapitre !');
@@ -149,6 +145,13 @@ class BackController {
     {
         if (isset($request['id']) && $request['id'] > 0) {
             $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+
+            $test = $postManager->testId($request['id']);
+          
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant du chapitre envoyé n\'existe pas.');
+            }
+
             $deletedPost = $postManager->deletePost($request['id']);
             header('Location: index.php?action=listPostsAdm');
         }
@@ -164,6 +167,7 @@ class BackController {
 
     public function addPost($request)
     {   
+        $postManager = new \OpenClassrooms\Blog\Model\PostManager();
         $photoLink=$this->upload($_FILES['chapterPhoto']);
 
         if ($_FILES['chapterPhoto']['error']==1)
@@ -175,16 +179,13 @@ class BackController {
         if (!empty($request['numChapter']) && !empty($request['title']) && !empty($request['summary']) && !empty($request['content']) && 
         (isset($_FILES['chapterPhoto']) AND $_FILES['chapterPhoto']['error'] == 0)  ) 
         {
-            $postManager = new \OpenClassrooms\Blog\Model\PostManager();
             $test = $postManager->testNumChapter($request['numChapter']);
 
             if ($test['COUNT(*)']==1) {
                 throw new \Exception('Ce numéro de chapitre existe déjà. Merci d\'en choisir un autre.');
             }
             else {
-
                 $publicationDate=!empty($request['publicationDateSimple']) ? $request['publicationDateSimple'] . ' 00:00:00' :  NULL;
-                $postManager = new \OpenClassrooms\Blog\Model\PostManager();
                 $post = $postManager->sendPost($request['numChapter'], $request['title'], $request['content'], $request['summary'], $photoLink, $publicationDate);
                 if ($post === false) {
                     throw new \Exception('Impossible d\'ajouter le chapitre !');
@@ -193,8 +194,6 @@ class BackController {
                     $lastpostadm=$postManager->getNbLastPostAdm();
                 
                     header('Location: index.php?action=viewPostAdm&id='.$lastpostadm['maxId']); 
-                
-                
                 }
             }
         }
@@ -245,6 +244,13 @@ class BackController {
     {
         if (isset($request['commentId']) && $request['commentId'] > 0) {
             $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+            $test = $commentManager->testCommentId($request['commentId']);
+          
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant de commentaire envoyé n\'existe pas.');
+            }
+
             $commentToModify=$commentManager->getCommentAdm($request['commentId']);
             require('view/backend/commentModerateFormView.php');
          }
@@ -256,9 +262,16 @@ class BackController {
     public function rectifyComment($request)
     {
         if (isset($request['commentId']) && $request['commentId'] > 0) {
+            $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+            $test = $commentManager->testCommentId($request['commentId']);
+          
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant de commentaire envoyé n\'existe pas.');
+            }
            
             if (!empty($request['new_author']) && !empty($request['new_comment'])) {
-                $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+                
                 $modifiedComment = $commentManager->modifyComment($request['commentId'], $request['new_author'], $request['new_comment']);
                 if ($modifiedComment === false) {
                     throw new \Exception('Impossible de modifier le commentaire !');
@@ -280,6 +293,13 @@ class BackController {
     {
         if (isset($request['commentId']) && $request['commentId'] > 0) {
             $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+            $test = $commentManager->testCommentId($request['commentId']);
+          
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant de commentaire envoyé n\'existe pas.');
+            }
+
             $deletedPublicComment = $commentManager->deletePublicComment($request['commentId']);
     
             header('Location: index.php?action=listCommentsAdm');
@@ -293,6 +313,13 @@ class BackController {
     {
         if (isset($request['commentId']) && $request['commentId'] > 0) {
             $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+            $test = $commentManager->testCommentId($request['commentId']);
+          
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('L\'identifiant de commentaire envoyé n\'existe pas.');
+            }
+
             $restoredPublicComment = $commentManager->restorePublicComment($request['commentId']);
             header('Location: index.php?action=listCommentsAdm');
         }
@@ -310,8 +337,8 @@ class BackController {
             if ($test['COUNT(*)']!=1) {
                 throw new \Exception('Le numéro de chapitre envoyé n\'existe pas.');
             }
-            else {
-            $numChapterforForm=$postManager->getNumChapter($request['numChapter']);  
+            else { 
+            $numChapterforForm=$request['numChapter'];
             require('view/backend/commentAddFormView.php');  
             }
         }
@@ -325,8 +352,17 @@ class BackController {
     {
         
         if (isset($request['numChapter']) && $request['numChapter'] > 0) {
+
+            $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+            $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+
+            $test = $postManager->testNumChapter($request['numChapter']);
+
+            if ($test['COUNT(*)']!=1) {
+                throw new \Exception('Le numéro de chapitre envoyé n\'existe pas.');
+            }
+
             if (!empty($request['author']) && !empty($request['comment'])) {
-                $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
                 $addedCommentAdm = $commentManager->postCommentAdm($request['author'], $request['comment'], $request['numChapter']);
                 if ($addedCommentAdm === false) {
                     throw new \Exception('Impossible d\'ajouter le commentaire !');

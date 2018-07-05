@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="numChapter">Numéro du chapitre concerné</label><br />   
                         <input type="number" min=1 id="numChapter" 
-                        value="<?php if (!empty($numChapterforForm['numChapter'])){?><?=htmlspecialchars($numChapterforForm['numChapter']);}?>"  name="numChapter" />
+                        value="<?php if (!empty($numChapterforForm)){?><?=htmlspecialchars($numChapterforForm);}?>"  name="numChapter" />
                     </div>
                     <div class="form-group">
                         <label for="comment">Votre commentaire</label><br />

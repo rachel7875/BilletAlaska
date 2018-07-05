@@ -1,3 +1,5 @@
+
+
 /* BASIC STYLES
 -------------------------------------------------- */
 
@@ -48,9 +50,7 @@ a{
   }
 
   #brand{
-    margin-top : 15px;
     color: #9FA16A;
-    font-size: 20px;
   }
 
   #logo  img {
@@ -82,14 +82,13 @@ a{
       color : #B94BDE!important;
     }
 
-    #publicMenu {
+    #publicMenu, .navbar-left  {
       position : relative;
     }
 
     #adminOnPublic {
       position : absolute;
       bottom :20px;
-      right : 35px;
     }
 
   /*Style for the navigation bar on administration pages*/
@@ -357,32 +356,115 @@ table {
   margin : 30px 0 30px 0;  
 }
 
+
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
-/* Styles for the smartphones*/
+
+
+  /*STYLE FOR THE HEADERS*/
+    /* Styles for the smartphones*/
+    @media (max-width: 767px) 
+    {
+        #brand{
+          position :absolute;
+          left : 30px;
+          font-size: 12px;
+        }
+
+        #logo  {
+          position : absolute;
+          left : 2px;
+          margin-left: 0px;
+        }
+
+        #logo img {
+          height: 25px;
+        }
+
+        #adminOnPublic .navbar-text {
+          display: none;
+        }
+
+        #adminOnPublic {
+            top: 27px;
+            right: 5px;
+            bottom :0px;
+        }
+    }
+
+    /* Styles for the tablets*/
+    @media (min-width: 768px) 
+    {
+      #brand{
+        position :absolute;
+        left : 66px;
+        top : 15px;
+        font-size: 16px;
+        width: 300px;
+      }
+
+      #logo  {
+        position : absolute;
+        top: 3px;
+        left : 2px;
+        margin-left: 0px;
+      }
+
+      #logo img {
+        height: 40px;
+      }
+
+      #adminOnPublic .navbar-text {
+        display: none;
+      }
+
+      #adminOnPublic {
+        top: 15px;
+        right: 20px;
+      }
+
+      .navbar-nav {
+        margin: 0px 0px 10px 365px;
+        font-size :12px;
+      }
 
 
 
-/* Styles for the tablets*/
-@media (min-width: 768px) 
-{
- 
 
-  #brandAdm
-  {
-      margin : 0 100px;
-  }
+      #brandAdm
+      {
+          margin : 0 100px;
+      }
 
-}
+    }
 
 
-/* Styles for the desktop computers*/
-@media (min-width: 992px) 
-{
-  
+    /* Styles for the desktop computers*/
+    @media (min-width: 992px) 
+    {
+      .navbar-nav {
+        margin: 0px 0px 10px 480px;
+        font-size :15px;
+      }
 
-  #brandAdm
-  {
-      margin : 0 200px;
-  }
-}
+      #brandAdm
+      {
+          margin : 0 200px;
+      }
+    }
+
+    /* Styles for the desktop computers with a large screen*/
+    @media (min-width: 1200px) 
+     {
+      .navbar-nav {
+        margin: 0px 0px 10px 730px;
+        font-size :17px;
+      }
+    
+      #brand{
+        font-size: 20px;
+        width: 500px;
+      }
+   
+        }
