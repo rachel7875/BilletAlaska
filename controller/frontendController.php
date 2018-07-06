@@ -42,7 +42,7 @@ class FrontController {
             if ($test['COUNT(*)']!=1) {
                 throw new \Exception('L\'identifiant de chapitre envoyé n\'existe pas.');
             }
-            $post = $postManager->getPost($request['id']);
+            $post = $postManager->getPostAdm($request['id']);
             $comments = $commentManager->getComments($request['id']);
             $nbComments = $commentManager->getNbComments($request['id']);
 

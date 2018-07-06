@@ -4,7 +4,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid" id="publicMenu">
         <div class="navbar-header " >
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" >
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarPublic" >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -16,7 +16,7 @@
           </div>  
         </div>
 
-        <div id="navbarPublic" class="collapse navbar-collapse">
+        <div  class="collapse navbar-collapse" id="navbarPublic">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"></span>  Accueil</a></li>
             <li><a href="index.php?action=listChapters">Les chapitres</a></li>

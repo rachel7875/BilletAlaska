@@ -18,6 +18,17 @@ class PostManager extends Manager
         return $result;
     }
     
+    public function getPostsAdm()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, numChapter, title, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr, DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, 
+        publicationDate, DATE_FORMAT(publicationDate, \'%d/%m/%Y à %Hh%i\') AS publicationDate_fr FROM posts ORDER BY numChapter');
+        $result=$req->fetchAll();
+        $req->closeCursor();
+        
+        return $result;
+    }
+
     //Methods for obtaining data about the comments for the administration homepage
 
     public function getNbChapters()
@@ -62,16 +73,7 @@ class PostManager extends Manager
     //End of Methods for obtaining data about the comments for the administration homepage
 
 
-    public function getPostsAdm()
-    {
-        $db = $this->dbConnect();
-        $req = $db->query('SELECT id, numChapter, title, DATE_FORMAT(creationDate, \'%d/%m/%Y à %Hh%i\') AS creationDate_fr, DATE_FORMAT(modifDate, \'%d/%m/%Y à %Hh%i\') AS modifDate_fr, 
-        publicationDate,DATE_FORMAT(publicationDate, \'%d/%m/%Y à %Hh%i\') AS publicationDate_fr FROM posts ORDER BY numChapter');
-        $result=$req->fetchAll();
-        $req->closeCursor();
-        
-        return $result;
-    }
+
     
     public function testId($id)
     {
@@ -81,18 +83,6 @@ class PostManager extends Manager
         $test = $req->fetch();
 
         return $test;
-    }
-
-
-    public function getPost($postId)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, numChapter, title, content, photoLink, DATE_FORMAT(publicationDate, \'%d/%m/%Y\') AS publicationDateSmall 
-        FROM posts WHERE id = ?');
-        $req->execute(array($postId));
-        $post = $req->fetch();
-
-        return $post;
     }
 
     public function getPostAdm($id)

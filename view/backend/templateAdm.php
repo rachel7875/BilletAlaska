@@ -25,6 +25,15 @@ if(!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])){
         <!-- Custom styles for this template -->
         <link href="public/css/style.css" rel="stylesheet">
 
+
+
+    </head>
+
+    <body>
+        <?php include("headerAdm.php"); ?>   
+
+        <?= $content ?>
+
         <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
         <script>
             tinymce.init({
@@ -36,14 +45,6 @@ if(!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])){
                 visualblocks_default_state: true
             });
         </script>
-
-    </head>
-
-    <body>
-        <?php include("headerAdm.php"); ?>   
-
-        <?= $content ?>
-
         <script src="public/js/jquery-3.3.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         
