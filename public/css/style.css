@@ -18,7 +18,8 @@ header {
 }
 
 #content{
-	padding-bottom: 150px;
+  min-height: 100%;
+  padding-bottom: 150px;
 }
 
 a{
@@ -363,6 +364,20 @@ table {
 
 .hidden{
   display : none ;
+}
+
+ /*STYLE FOR THE ERROR PAGE 
+-------------------------------------------------- */
+.message {
+  text-transform: uppercase;
+}
+
+#prevPageReturnBtn {
+  margin-top : 40px;
+}
+
+#errorJumbo {
+  margin-top : 60px;
 }
 
 /*STYLE FOR THE PAGE FORMULAIRE DE CONNEXION A L'ESPACE D'ADMINISTRATION

@@ -11,8 +11,8 @@ class LogController {
     public function login($request)
     {
       $adminManager = new \OpenClassrooms\Blog\Model\AdminManager();
-  
-        if (!isset($request['loginName']) OR !isset($request['pass'])) { 
+ 
+        if (!isset($request['loginName']) OR !isset($request['pass']) OR empty($request['loginName']) OR empty($request['pass'])) { 
             throw new \Exception('Vous n\'avez pas saisi votre identifiant ou votre mot de passe.');
         }
         else {

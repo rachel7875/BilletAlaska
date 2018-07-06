@@ -7,7 +7,7 @@
 
     <div class="jumbotron text-center entete">
         <div class="container">
-            <h1>Mentions légales</h1>
+            <h1>Mentions légales</h1>        
         </div>
     </div>  
 

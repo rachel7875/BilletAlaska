@@ -4,14 +4,14 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid" id="publicMenu">
         <div class="navbar-header " >
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarPublic" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarPublic" aria-expanded="false" >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <div class="navbar-left ">
-            <a class="navbar-text " id="logo" href="index.php"><img src="public/images/logo_jf_nn.png" alt="logo de Jean FORTEROCHE" /></p>
+            <a class="navbar-text " id="logo" href="index.php"><img src="public/images/logo_jf_nn.png" alt="logo de Jean FORTEROCHE" /></a>
             <a class="navbar-brand" id="brand"  href="index.php">BILLET SIMPLE POUR L'ALASKA </a>
           </div>  
         </div>

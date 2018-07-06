@@ -154,4 +154,11 @@ class FrontController {
         $message="Votre déconnexion a bien été effectuée.";
         require('view/frontend/adminLoginFormView.php');
     }
+    
+    public function adminLoginFormRequired()
+    {
+        $message="Veuillez vous connecter SVP.";
+        require('view/frontend/adminLoginFormView.php');
+    }
+
 }
