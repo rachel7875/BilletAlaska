@@ -4,10 +4,16 @@
 <?php ob_start(); ?>
 
 <div class="main_content">
+
+    <div class="jumbotron text-center entete">
+        <div class="container">
+            <h1>Mentions légales</h1>        
+        </div>
+    </div>  
+
     <div class="container text-center">
         
         <div class="mentions row">    
-            <h1>Mentions légales </h1>
             <p>Le présent site web est mis en ligne et opéré par les personnnes suivantes :</p>
         </div>
 

@@ -12,14 +12,11 @@ class BackController {
     
  public function __construct()
    {
-   
    session_start();
   
-        if (! isset($_SESSION['idUser']) OR ! isset($_SESSION['loginName'])) {
-            throw new \Exception('Non autorisé'); 
+        if (!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])) {
+            header('Location:index.php?action=adminLoginFormRequired');
         }
-     
-
     }
   
   
@@ -31,7 +28,7 @@ class BackController {
             $test = $postManager->testId($request['id']);
             
             if ($test['COUNT(*)']!=1) {
-                throw new \Exception('L\'identifiant de billet envoyé n\'existe pas.');
+                throw new \Exception('L\'identifiant de chapitre envoyé n\'existe pas.');
             }
 
             $message=$_SESSION['flash']??'';
@@ -55,7 +52,7 @@ class BackController {
             $test = $postManager->testId($request['id']);
           
             if ($test['COUNT(*)']!=1) {
-                throw new \Exception('L\'identifiant de billet envoyé n\'existe pas.');
+                throw new \Exception('L\'identifiant de chapitre envoyé n\'existe pas.');
             }
             $postToModify=$postManager->getPostAdm($request['id']);
             require('view/backend/postRectifyFormView.php');

@@ -49,6 +49,10 @@
         'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
         'action' => 'adminLoginFormOut'
       ], 
+      'adminLoginFormRequired' => [
+        'controller' => '\OpenClassrooms\Blog\Controller\FrontController',
+        'action' => 'adminLoginFormRequired'
+      ], 
       'administration' => [
         'controller' => '\OpenClassrooms\Blog\Controller\BackController',
         'action' => 'adm'

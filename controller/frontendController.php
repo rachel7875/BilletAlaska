@@ -40,7 +40,7 @@ class FrontController {
             $test = $postManager->testId($request['id']);
 
             if ($test['COUNT(*)']!=1) {
-                throw new \Exception('L\'identifiant de billet envoyé n\'existe pas.');
+                throw new \Exception('L\'identifiant de chapitre envoyé n\'existe pas.');
             }
             $post = $postManager->getPost($request['id']);
             $comments = $commentManager->getComments($request['id']);
@@ -67,7 +67,7 @@ class FrontController {
             require('view/frontend/chapterView.php');
         }
         else {
-            throw new \Exception('Aucun identifiant de billet envoyé');
+            throw new \Exception('Aucun identifiant de chapitre envoyé');
         }
     }
 
@@ -100,7 +100,7 @@ class FrontController {
             throw new \Exception('Tous les champs ne sont pas remplis !');
             }
         } else {
-         throw new \Exception('Aucun identifiant de billet envoyé'); 
+         throw new \Exception('Aucun identifiant de chapitre envoyé'); 
         }
     }
 
@@ -140,4 +140,11 @@ class FrontController {
         $message="Votre déconnexion a bien été effectuée.";
         require('view/frontend/adminLoginFormView.php');
     }
+    
+    public function adminLoginFormRequired()
+    {
+        $message="Veuillez vous connecter SVP.";
+        require('view/frontend/adminLoginFormView.php');
+    }
+
 }

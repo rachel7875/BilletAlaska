@@ -29,7 +29,7 @@
                             </div>
                         </div>    
                        
-                        <p><a href="index.php?action=listChapters">Retour à la liste des chapitres</a></p>
+                        <p><a href="index.php?action=listChapters">Retour vers la page d'accueil</a></p>
                     </div>
                 </div> 
             </aside>
