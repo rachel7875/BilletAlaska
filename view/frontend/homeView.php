@@ -104,7 +104,7 @@ vivez une réelle aventure, pleine de mystères, au pays des ours et des glacier
                         <div class="image" style="background-image:url(<?=$photoLastPost['photoLink']?> )"></div>
                         <div class="caption">
                             <div class="textcaption">
-                                <h2>Dernier chapitre paru ! </h2>
+                                <h2>Dernier chapitre paru</h2>
                                 <p>Retrouvez les dernières aventures de Lucas <br/></p>
                             </div>     
                             <p><a href="index.php?action=nbLastPost" class="btn btn-customTer" role="button">Lire &raquo;</a> </p>

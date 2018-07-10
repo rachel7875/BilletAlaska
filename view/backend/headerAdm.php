@@ -1,8 +1,8 @@
 <header>
 
     
-    <nav class="navbar navbar-default navbar-fixed-top" id="navbarInvAdm">
-      <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top" >
+      <div class="container-fluid" id="navbarInvAdm">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" >
             <span class="sr-only">Toggle navigation</span>
@@ -18,9 +18,9 @@
         </div>
         <div id="navbarAdm" class="collapse navbar-collapse text-center">
           <ul class="nav navbar-nav  ">
-            <li class="active"><a href="index.php?action=administration">ACCUEIL <br /> ADMINISTRATION</a></li>
-            <li><a href="index.php?action=listPostsAdm">Gestion des <br />CHAPITRES</a></li>
-            <li><a href="index.php?action=listCommentsAdm">Gestion des <br />COMMENTAIRES</a></li>
+            <li class="active"><a href="index.php?action=administration">Accueil <br /> Administration</a></li>
+            <li><a id="chapterMenuAdm" href="index.php?action=listPostsAdm">Gestion des <br />Chapitres</a></li>
+            <li><a href="index.php?action=listCommentsAdm">Gestion des <br />Commentaires</a></li>
           </ul>
         </div>
         

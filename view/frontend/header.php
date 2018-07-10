@@ -4,7 +4,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid" id="publicMenu">
         <div class="navbar-header " >
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarPublic" aria-expanded="false" >
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarPublic">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -16,7 +16,7 @@
           </div>  
         </div>
 
-        <div  class="collapse navbar-collapse" id="navbarPublic">
+        <div id="navbarPublic" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"></span>  Accueil</a></li>
             <li><a href="index.php?action=listChapters">Les chapitres</a></li>
@@ -25,10 +25,10 @@
         </div>
       
 
-        <div class="<?php if(!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])){?>hidden<?php }?> navbar-right" id="adminOnPublic">
-            <p class="navbar-text">Bonjour <?=$_SESSION['loginName'];?> </p>
+        <div class="<?php if(!isset($_SESSION['idUser']) OR !isset($_SESSION['loginName'])){?>hidden<?php }?> navbar-right " id="adminOnPublic">
             <a class="btn btn-danger btn-xs navbar-btn" href="index.php?action=logout"><span class="glyphicon glyphicon-off"></span> </a>
             <a class="btn btn-customTer btn-xs navbar-btn" id="text_admin" href="index.php?action=administration">Administration</a>
+            <p class="navbar-text">Bonjour <?=$_SESSION['loginName'];?> </p>
         </div>
 
       </div>

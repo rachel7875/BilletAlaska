@@ -42,84 +42,51 @@ a{
 
     
   /*STYLE FOR THE HEADERS*/
+
   #navbarPublic a, #navbarAdm a  {
     color : #DB6E71;
   }
 
   #navbarPublic a:hover, #navbarAdm a:hover, #navbarPublic a:focus, #navbarAdm a:focus {
     color :#BFC272 ;
-    border-bottom : 1px solid #BFC272;
   }
-
-  .navbar-fixed-top .navbar-collapse {
-    max-height: 20px !important;
-  }
-
+  
   #brand{
     color: #9FA16A;
+    position :absolute;
   }
 
-  #logo  img {
-    height: 50px;
+  #logo , #adminOnPublic, #menuRightAdm {
+    position : absolute;
   }
 
-  #logo  {
-    margin-left: 50px;
+  #publicMenu, #navbarInvAdm, .navbar-left  {
+    position : relative;
   }
-  
-  .navbar-nav {
-    margin-left: 400px;
-  }
-
-  
 
   /*Style for the navigation bar on public pages*/
 
-    #navbarPublic {
-      margin-top : 17px;
-      font-size: 17px;
-    }
-
     #navbarPublic .navbar-nav .active a {
-    background-color: #222222 !important;
+      background-color: #222222 !important;
     }
 
     #text_admin {
       color : #B94BDE!important;
     }
 
-    #publicMenu, .navbar-left  {
-      position : relative;
-    }
 
-    #adminOnPublic {
-      position : absolute;
-      bottom :20px;
-    }
 
   /*Style for the navigation bar on administration pages*/
-    
-    #navbarAdm {
-      margin-top : 10px;
-      font-size : 13px; 
-    }
- 
+
     #navbarInvAdm, #navbarAdm .navbar-nav .active a  {
       background-color: #584b6e;
       border-color: #584b6e;
     }
 
-    #menuRightAdm {
-      margin: 0px 30px 0px 0px;
-    }
-
-    #menuRightAdm .navbar-btn, #menuRightAdm .navbar-text {
-      margin-top : 3px;
-    }
-   
     .navbar-text {
       color: #9FA16A !important;
     }
+
 
   /*STYLE FOR THE CUSTOM BUTTONS AND FOR THE MAIN_CONTENT*/
 
@@ -213,6 +180,7 @@ a{
 
   #synopsis {
     margin-top: 30px;
+    padding-top: 55px;
   }
 
   #synopsis h2 {
@@ -224,46 +192,17 @@ a{
 
   .image {
     background-size: cover;
-    height: 200px;
     background-position: center center;
     }
-
-  .textcaption h2, .textcaption p{
-    min-height: 70px;
-  }  
 
   .caption{
     max-height: 230px;
   }  
 
 
-  @media only screen and (min-width : 767px){
-    .table-row-equal {
-        display: table;
-        width: 100%;
-        table-layout: fixed;
-        border-spacing: 30px 0px;
-        word-wrap: break-word;
-    }
-    .table-row-equal .thumbnail {
-        float: none;
-        display: table-cell;
-        vertical-align: top;
-        width: 1%;
-    }
-  }
-
 /* CUSTOMIZE THE CAROUSEL */
 
-  /* Carousel base class */
-  .carousel {
-      height: 900px;
-    }
-
-
-  /* Declare heights because of positioning of img element */
   .carousel .item {
-    height: 900px;
     min-width: 100%;
   }
   
@@ -272,7 +211,6 @@ a{
     top : 0;
     left: 0;
     min-width: 100% ;
-    height: 1200px;
   }
 
 
@@ -397,111 +335,137 @@ table {
     @media (max-width: 767px) 
     {
         #brand{
-          position :absolute;
           left : 30px;
           font-size: 12px;
         }
 
         #logo  {
-          position : absolute;
-          left : 2px;
-          margin-left: 0px;
+          left : 3px;
+          margin-top: 12px;
         }
 
         #logo img {
           height: 25px;
         }
 
-        #adminOnPublic .navbar-text {
-          display: none;
+        #adminOnPublic .navbar-text, #menuRightAdm .navbar-text {
+          visibility: hidden;
         }
 
-        #adminOnPublic {
-            top: 27px;
-            right: 5px;
-            bottom :0px;
+        #adminOnPublic, #menuRightAdm {
+          top: 30px;
+          right: 5px;
         }
 
-        #navbarPublic {
-          color :white !important;
-        }
     }
 
     /* Styles for the tablets*/
-    @media (min-width: 767px) 
+    @media (min-width: 768px) 
     {
+      #navbarPublic a:hover, #navbarAdm a:hover, #navbarPublic a:focus, #navbarAdm a:focus {
+        border-bottom : 1px solid #BFC272;
+      }
+
       #brand{
-        position :absolute;
-        left : 66px;
-        top : 15px;
+        left : 75px;
         font-size: 16px;
         width: 300px;
       }
 
       #logo  {
-        position : absolute;
-        top: 3px;
-        left : 2px;
-        margin-left: 0px;
+        margin-top: 8px;
+        left : 3px;
       }
 
       #logo img {
         height: 40px;
       }
 
-      #adminOnPublic .navbar-text {
-        display: none;
+      #adminOnPublic .navbar-text, #menuRightAdm .navbar-text {
+        visibility: visible;
+        float: none;
+        position: absolute;
+        top:20px;
+        right:0px;
+        font-size: 11px;
+        width: 100%;
+        margin-right: 0px;
       }
 
-      #adminOnPublic {
-        top: 15px;
+      #adminOnPublic, #menuRightAdm  {
+        top: 2px;
         right: 20px;
       }
 
-      .navbar-nav {
-        margin: 0px 0px 10px 365px;
+
+      #publicMenu .navbar-nav {
+        margin: 2px 0px 0px 360px;
         font-size :12px;
       }
+      
+     #navbarInvAdm .navbar-nav {
+        margin: 0px 0px 0px 325px;
+        font-size :12px;
+     }
 
-
-
-
-      #brandAdm
-      {
-          margin : 0 100px;
-      }
-
+     #chapterMenuAdm {
+       padding: 15px 0px 15px 0px;
+    }
+    
     }
 
-
-    /* Styles for the desktop computers*/
-    @media (min-width: 992px) 
-    {
-      .navbar-nav {
-        margin: 0px 0px 10px 480px;
-        font-size :15px;
-      }
-
-      #brandAdm
+      /* Styles for the tablets min-width: 950px*/
+      @media (min-width: 950px) 
       {
-          margin : 0 200px;
-      }
-    }
+        #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
+          margin: 0px 0px 0px 460px;
+          font-size :15px;
+        }
+      } 
+
+ 
+
 
     /* Styles for the desktop computers with a large screen*/
     @media (min-width: 1200px) 
-     {
-      .navbar-nav {
-        margin: 0px 0px 10px 730px;
+    {
+      #menuRightAdm  {
+        top: 6px;
+      }
+
+      #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
+        margin: 2px 0px 0px 650px;
         font-size :17px;
       }
     
       #brand{
+        top: 3px;
+        left : 150px;
         font-size: 20px;
         width: 500px;
       }
-   
+       
+      #logo  {
+        left : 60px;
+        margin-top: 3px;
+      }
+
+      #logo img {
+        height: 50px;
+      }
+
+    }
+         
+
+      /* Styles for the desktop computers with a large screen min-width: 1700px*/
+      @media (min-width: 1700px) 
+      {
+        #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
+          margin: 2px 0px 0px 900px;
+          font-size :17px;
         }
+      }  
+
 
     /*STYLE FOR THE PUBLIC HOMEPAGE-------------------------------------------------- */  
 
@@ -585,22 +549,29 @@ table {
 
     /*STYLE FOR THE CALLOUTS ON THE HOMEPAGE*/
 
-      /* Styles for screens of min-width : 767px*/
-      @media only screen and (min-width : 767px){
-        .table-row-equal {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-spacing: 30px 0px;
-            word-wrap: break-word;
-        }
-        .table-row-equal .thumbnail {
-            float: none;
-            display: table-cell;
-            vertical-align: top;
-            width: 1%;
-        }
+    /* Styles for screens of min-width : 620px*/
+    @media only screen and (min-width : 620px){
+      .table-row-equal {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+          border-spacing: 5px 0px;
+          word-wrap: break-word;
       }
+      .table-row-equal .thumbnail {
+          float: none;
+          display: table-cell;
+          vertical-align: top;
+  
+      }
+    }
+  
+    /* Styles for screens of min-width : 1200px*/
+    @media only screen and (min-width : 1200px){
+      .table-row-equal {
+          border-spacing: 30px 0px;
+      }
+    }
 
       /* Styles for the smartphones*/
       @media (max-width: 400px) 
@@ -613,35 +584,56 @@ table {
           height: 200px;
         }
 
-     
       }
 
-      @media (min-width: 400px) and (max-width:550px)
+      @media (min-width: 401px) and (max-width:619px)
       {
         .textcaption h2,  .textcaption p {
          min-height: 10px;
         } 
 
         .image {
-          height: 300px;
+          height: 320px;
         }
       }
 
-      @media (min-width: 551px) and (max-width:766px)
+      @media (min-width: 620px) and (max-width:767px)
       {
-        .textcaption h2,  .textcaption p {
-         min-height: 10px;
-        } 
-
-        .image {
-          height: 400px;
+        .textcaption  h2 {
+          font-size: 18px;
+          min-height: 40px;
         }
+      
+        .image {
+          height: 200px;
+          }
+      
+        .textcaption p{
+          min-height: 80px;
+        }  
+
       }
 
-      @media (min-width: 767px)
+      @media (min-width: 768px)
       {
         .textcaption  h2 {
           font-size: 20px;
+        }
+      
+        .image {
+          height: 200px;
+          }
+      
+        .textcaption p{
+          min-height: 70px;
+        }  
+   
+      } 
+
+      @media (min-width: 992px)
+      {
+        .textcaption  h2 {
+          font-size: 26px;
         }
       } 
 
@@ -773,4 +765,42 @@ table {
 
       }
 
+      /* Styles for the desktop computers 1199px <width <1401px*/
+      @media (min-width: 1200px) and (max-width: 1400px)
+      {
+        /* Carousel base class */
+        .carousel {
+          height: 700px;
+        }
+
+
+        /* Declare heights because of positioning of img element */
+        .carousel .item {
+          height: 700px;
+        }
+
+        .carousel-inner > .item > img{
+          height: 800px;
+        }
+      }
+
+      
+      /* Styles for the desktop computers min width 1401px*/
+      @media (min-width: 1401px) 
+      {
+        /* Carousel base class */
+        .carousel {
+          height: 900px;
+        }
+
+
+        /* Declare heights because of positioning of img element */
+        .carousel .item {
+          height: 900px;
+        }
+
+        .carousel-inner > .item > img{
+          height: 1200px;
+        }
+      }
     
