@@ -13,13 +13,13 @@
 
     <section class="container">
         <div class="row ">
-            <div class="col-sm-5 ">
-                <div class="text-center">
-                    <p><strong>Vous pouvez ajouter, modifier <br />et supprimer les chapitres.</strong> </p>
-                    <a class="btn btn-customTer navbar-btn btn-block" href="index.php?action=listPostsAdm"><strong>Gestion des <br />CHAPITRES </strong></a>
+            <div class="col-sm-6 ">
+                <div class="text-center dashboard">
+                    <p><strong>Vous pouvez ajouter, modifier et supprimer les chapitres.</strong> </p>
                 </div>
                 <div class="row">
-                    <div class="col-sm-offset-1 col-sm-10 ">
+                    <div class="col-xs-offset-1 col-xs-10 ">
+                        <a class="btn btn-customTer navbar-btn btn-block" href="index.php?action=listPostsAdm"><strong>Gestion des <br />CHAPITRES </strong></a>
                         <div class="panel panel-default stat">
                             <div class="panel-heading">
                                 <h3 class="panel-title text-center">Données sur les chapitres</h3>
@@ -40,13 +40,13 @@
                     </div>
                 </div>    
             </div>
-            <div class="col-sm-offset-1 col-sm-5">
-                <div class="text-center">
-                    <p><strong>Vous pouvez aussi ajouter ou modérer un commentaire, <br />le supprimer et le restaurer sur le site public. </strong></p>
-                    <a class="btn btn-custom navbar-btn btn-block" href="index.php?action=listCommentsAdm"><strong>Gestion des <br />COMMENTAIRES </strong></a>
+            <div class="col-sm-6">
+                <div class="text-center dashboard">
+                    <p><strong>Vous pouvez aussi ajouter ou modérer un commentaire, le supprimer et le restaurer sur le site public. </strong></p>
                 </div> 
                 <div class="row">
-                    <div class="col-sm-offset-1 col-sm-10 ">
+                    <div class="col-xs-offset-1 col-xs-10 ">
+                        <a class="btn btn-custom navbar-btn btn-block" href="index.php?action=listCommentsAdm"><strong>Gestion des <br />COMMENTAIRES </strong></a>
                         <div class="panel panel-default stat">
                             <div class="panel-heading ">
                                 <h3 class="panel-title text-center">Données sur les commentaires</h3>
@@ -64,8 +64,8 @@
                                             </ul>
                                         <li>Selon leurs auteurs :</li>
                                             <ul >
-                                                <li>Ecrits par J. Forteroche<span class="badge pull-right"><?=$nbVisibleAuthorComments ['nbVisibleAuthorComments'] ?></span></li>
-                                                <li>Ecrits par les visiteurs<span class="badge pull-right"><?=$nbVisibleComments['nbVisibleComments']-$nbVisibleAuthorComments ['nbVisibleAuthorComments']  ?></span> </li>
+                                                <li>J. Forteroche<span class="badge pull-right"><?=$nbVisibleAuthorComments ['nbVisibleAuthorComments'] ?></span></li>
+                                                <li>Les visiteurs<span class="badge pull-right"><?=$nbVisibleComments['nbVisibleComments']-$nbVisibleAuthorComments ['nbVisibleAuthorComments']  ?></span> </li>
                                             </ul>
                                     </ul>
                                 </li>

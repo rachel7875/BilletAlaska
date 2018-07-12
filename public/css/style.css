@@ -27,6 +27,118 @@ a{
 }
 
 
+  /*STYLE FOR THE CUSTOM BUTTONS AND FOR THE MAIN_CONTENT*/
+
+    /*Margin taking into account the navigation bar*/ 
+    .main_content {
+      padding-top: 60px;
+    }
+
+    /*Buttons*/ 
+    .btn-custom {
+      background-color: hsl(0, 69%, 22%) !important;
+      background-repeat: repeat-x;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#DB6E71", endColorstr="#d84145");
+      background-image: -khtml-gradient(linear, left top, left bottom, from(#DB6E71), to(#d84145));
+      background-image: -moz-linear-gradient(top, #DB6E71, #d84145);
+      background-image: -ms-linear-gradient(top, #DB6E71, #d84145);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #B090D1), color-stop(100%, #d84145));
+      background-image: -webkit-linear-gradient(top, #DB6E71, #d84145);
+      background-image: -o-linear-gradient(top, #DB6E71, #d84145);
+      background-image: linear-gradient(#DB6E71, #d84145);
+      border-color: #DB6E71 #d84145 hsl(0, 69%, 17%);
+      color: #fff !important;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .btn-customTer {
+      background-color: hsl(0, 69%, 22%) !important;
+      background-repeat: repeat-x;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#BFC272", endColorstr="#299CC2");
+      background-image: -khtml-gradient(linear, left top, left bottom, from(#BFC272), to(#9FA16A));
+      background-image: -moz-linear-gradient(top, #BFC272, #9FA16A);
+      background-image: -ms-linear-gradient(top, #BFC272, #9FA16A);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #BFC272), color-stop(100%, #9FA16A));
+      background-image: -webkit-linear-gradient(top, #BFC272, #9FA16A);
+      background-image: -o-linear-gradient(top, #BFC272, #9FA16A);
+      background-image: linear-gradient(#BFC272, #9FA16A);
+      border-color: #BFC272 #9FA16A hsl(0, 69%, 17%);
+      color: #fff !important;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /*Specific*/ 
+    .big {
+      font-size: 25px;
+    }
+
+    .main_content h1 {
+      color : #d84145;
+    }
+
+    .main_content h2, .main_content h3, .light_red {
+      color : #DB6E71;
+    }
+
+    .jumbotron.entete {
+      color:#d84145; 
+      background-image: url("nightauroran.jpg"); 
+      background-size: cover;
+    }
+    
+    .orange{
+      color : orangered !important;
+    }
+
+    .orange_back{
+      background-color: orangered !important;
+    }
+
+      /** RESPONSIVE CSS*/
+        /* Styles for the smartphones*/
+        @media (max-width: 767px) 
+        {
+          .jumbotron h1{
+            font-size: 33px;
+          }
+        }
+    
+        /* Styles for the tablets*/
+        @media (min-width: 768px) 
+        {
+          .jumbotron h1{
+            font-size: 40px;
+          }
+        }
+
+        /* Styles for the desktop computers */
+        @media (min-width: 992px) 
+        {
+          .jumbotron h1{
+            font-size: 43px;
+          }
+        }
+
+        /* Styles for the desktop computers with large screen*/
+        @media (min-width: 1200px) 
+        {
+          .jumbotron h1{
+            font-size: 53px;
+          }
+        }
+
+  /*MARGINS FOR THE SECTIONS*/
+  section {
+    margin-top : 60px ;
+  }
+
+  .welcome, .callouts, #sectionPageLog {
+    margin-top : 0px ;
+  }
+
+
   /*STYLE FOR THE FOOTER*/
   .footer{
       position: absolute;
@@ -64,6 +176,7 @@ a{
     position : relative;
   }
 
+
   /*Style for the navigation bar on public pages*/
 
     #navbarPublic .navbar-nav .active a {
@@ -73,7 +186,6 @@ a{
     #text_admin {
       color : #B94BDE!important;
     }
-
 
 
   /*Style for the navigation bar on administration pages*/
@@ -87,86 +199,137 @@ a{
       color: #9FA16A !important;
     }
 
+      /** RESPONSIVE CSS*/
+        /* Styles for the smartphones*/
+        @media (max-width: 767px) 
+        {
+            #brand{
+              left : 30px;
+              font-size: 12px;
+            }
 
-  /*STYLE FOR THE CUSTOM BUTTONS AND FOR THE MAIN_CONTENT*/
+            #logo  {
+              left : 3px;
+              margin-top: 12px;
+            }
 
-    /*Margin taking into account the navigation bar*/ 
-    .main_content {
-      padding-top: 60px;
-    }
+            #logo img {
+              height: 25px;
+            }
 
-  .btn-custom {
-    background-color: hsl(0, 69%, 22%) !important;
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#DB6E71", endColorstr="#d84145");
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#DB6E71), to(#d84145));
-    background-image: -moz-linear-gradient(top, #DB6E71, #d84145);
-    background-image: -ms-linear-gradient(top, #DB6E71, #d84145);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #B090D1), color-stop(100%, #d84145));
-    background-image: -webkit-linear-gradient(top, #DB6E71, #d84145);
-    background-image: -o-linear-gradient(top, #DB6E71, #d84145);
-    background-image: linear-gradient(#DB6E71, #d84145);
-    border-color: #DB6E71 #d84145 hsl(0, 69%, 17%);
-    color: #fff !important;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
-    -webkit-font-smoothing: antialiased;
-  }
+            #adminOnPublic .navbar-text, #menuRightAdm .navbar-text {
+              visibility: hidden;
+            }
 
-  .btn-customTer {
-    background-color: hsl(0, 69%, 22%) !important;
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#BFC272", endColorstr="#299CC2");
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#BFC272), to(#9FA16A));
-    background-image: -moz-linear-gradient(top, #BFC272, #9FA16A);
-    background-image: -ms-linear-gradient(top, #BFC272, #9FA16A);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #BFC272), color-stop(100%, #9FA16A));
-    background-image: -webkit-linear-gradient(top, #BFC272, #9FA16A);
-    background-image: -o-linear-gradient(top, #BFC272, #9FA16A);
-    background-image: linear-gradient(#BFC272, #9FA16A);
-    border-color: #BFC272 #9FA16A hsl(0, 69%, 17%);
-    color: #fff !important;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
-    -webkit-font-smoothing: antialiased;
-  }
+            #adminOnPublic, #menuRightAdm {
+              top: 30px;
+              right: 5px;
+            }
 
-  .big {
-    font-size: 25px;
-  }
+        }
 
-  .main_content h1 {
-    color : #d84145;
-  }
+        /* Styles for the tablets*/
+        @media (min-width: 768px) 
+        {
+          #navbarPublic a:hover, #navbarAdm a:hover, #navbarPublic a:focus, #navbarAdm a:focus {
+            border-bottom : 1px solid #BFC272;
+          }
 
-  .main_content h2, .main_content h3, .light_red {
-    color : #DB6E71;
-  }
+          #brand{
+            left : 75px;
+            font-size: 16px;
+            width: 300px;
+          }
 
-  .jumbotron.entete {
-    color:#d84145; 
-    background-image: url("nightauroran.jpg"); 
-    background-size: cover;
-  }
-  
-  .jumbotron.entete .jumbotron_adm {
-    font-size: 42px;
-  }
+          #logo  {
+            margin-top: 8px;
+            left : 3px;
+          }
 
-  .orange{
-    color : orangered !important;
-  }
+          #logo img {
+            height: 40px;
+          }
 
-  .orange_back{
-    background-color: orangered !important;
-  }
+          #adminOnPublic .navbar-text, #menuRightAdm .navbar-text {
+            visibility: visible;
+            float: none;
+            position: absolute;
+            top:20px;
+            right:0px;
+            font-size: 11px;
+            width: 100%;
+            margin-right: 0px;
+          }
 
-/*STYLE FOR THE ADMINISTRATION HOMEPAGE
--------------------------------------------------- */
+          #adminOnPublic, #menuRightAdm  {
+            top: 2px;
+            right: 20px;
+          }
 
-.stat {
-  position : relative;
-  margin-top: 50px;
-}
+          #publicMenu .navbar-nav {
+            margin: 2px 0px 0px 360px;
+            font-size :12px;
+          }
+          
+          #navbarInvAdm .navbar-nav {
+            margin: 0px 0px 0px 325px;
+            font-size :12px;
+          }
 
+          #chapterMenuAdm {
+          padding: 15px 0px 15px 0px;
+          }
+        
+        }
+
+          /* Styles for the tablets & the desktop computers min-width: 950px*/
+          @media (min-width: 950px) 
+          {
+            #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
+              margin: 0px 0px 0px 460px;
+              font-size :15px;
+            }
+          } 
+
+        /* Styles for the desktop computers with a large screen*/
+        @media (min-width: 1200px) 
+        {
+          #menuRightAdm  {
+            top: 6px;
+          }
+
+          #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
+            margin: 2px 0px 0px 650px;
+            font-size :17px;
+          }
+        
+          #brand{
+            top: 3px;
+            left : 150px;
+            font-size: 20px;
+            width: 500px;
+          }
+          
+          #logo  {
+            left : 60px;
+            margin-top: 3px;
+          }
+
+          #logo img {
+            height: 50px;
+          }
+
+        }
+            
+
+        /* Styles for the desktop computers with a large screen min-width: 1700px*/
+        @media (min-width: 1700px) 
+        {
+          #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
+            margin: 2px 0px 0px 900px;
+            font-size :17px;
+          }
+        }  
 
 
 /*STYLE FOR THE PUBLIC HOMEPAGE
@@ -175,310 +338,12 @@ a{
   blockquote {
     margin-top: 20px;
   }
-
-  /*STYLE FOR THE SYNOPSIS*/
-
-  #synopsis {
-    margin-top: 30px;
-    padding-top: 55px;
-  }
-
-  #synopsis h2 {
-    margin-bottom: 30px;
-  }
-
-
-  /*STYLE FOR THE CALLOUTS ON THE HOMEPAGE*/
-
-  .image {
-    background-size: cover;
-    background-position: center center;
-    }
-
-  .caption{
-    max-height: 230px;
-  }  
-
-
-/* CUSTOMIZE THE CAROUSEL */
-
-  .carousel .item {
-    min-width: 100%;
-  }
-  
-  .carousel-inner > .item > img{
-    position: absolute;
-    top : 0;
-    left: 0;
-    min-width: 100% ;
-  }
-
-
-/*STYLE FOR THE PAGE MENTIONS LEGALES
--------------------------------------------------- */
-.mentions {
-  margin-bottom: 30px;
-}
-
-
-/*STYLE FOR THE PAGES RELATING TO CHAPTERS : Liste des chapitres, Chapitre, Visualisation de chapitre, ajout de chapitre et modification de chapitre)
--------------------------------------------------- */
-
-  /*PAGE LISTE DES CHAPITRES*/
-  .summarychapter.row{
-    margin-bottom: 50px;
-  }
-
-  .summarychapter h2 {
-    margin-top: 0px;
-  }
-
-  /*PAGE CHAPITRE*/
-  .chaptercomments{
-    padding-top: 50px;
-  }
-
-  #comments_list, .chaptercomments .formulaire{
-    padding-top: 30px;
-  }
-
-  #comments_list h3{
-    padding-bottom: 15px;
-  }
-
-  .chaptercomments label{
-    padding-top: 15px;
-  }
-
-  .comment{
-    padding-bottom: 15px;
-  }
-
-  .comment a:visited{
-    color: grey;
-  }
-
-  /*STYLE FOR THE ASIDES*/
-  aside img{
-    margin : 30px 1px 30px 1px;
-  }
-
-  .public_aside {
-    line-height : 40px;
-    color : #DB6E71;
-  }
-
-  .adm_aside {
-    color : #DB6E71;
-    padding-top: 30px;
-  }
-
-  .adm_aside .glyphicon.glyphicon-time{
-  font-size: 1.5em;
-  }
-
-  /*FORMS FOR THE CHAPTERS*/
-  legend {
-    margin-top: 20px;
-  }
-
-  #col_photo label {
-    margin-top: 5px;
-  }
-  form .btn {
-    margin-top: 40px;
-  }
-
-  .help-block {
-    margin-top: 0px;
-  }
-  
-
-  /*STYLE FOR THE PAGES GESTION DES CHAPITRES & GESTION DES COMMENTAIRES 
--------------------------------------------------- */
-table {
-  margin : 50px 0 50px 0;
-} 
-
-.hidden{
-  display : none ;
-}
-
- /*STYLE FOR THE ERROR PAGE 
--------------------------------------------------- */
-.message {
-  text-transform: uppercase;
-}
-
-#prevPageReturnBtn {
-  margin-top : 40px;
-}
-
-#errorJumbo {
-  margin-top : 60px;
-}
-
-/*STYLE FOR THE PAGE FORMULAIRE DE CONNEXION A L'ESPACE D'ADMINISTRATION
--------------------------------------------------- */
-#message {
-  margin : 30px 0 30px 0;  
-}
-
-
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-
-  /*STYLE FOR THE HEADERS*/
-    /* Styles for the smartphones*/
-    @media (max-width: 767px) 
-    {
-        #brand{
-          left : 30px;
-          font-size: 12px;
-        }
-
-        #logo  {
-          left : 3px;
-          margin-top: 12px;
-        }
-
-        #logo img {
-          height: 25px;
-        }
-
-        #adminOnPublic .navbar-text, #menuRightAdm .navbar-text {
-          visibility: hidden;
-        }
-
-        #adminOnPublic, #menuRightAdm {
-          top: 30px;
-          right: 5px;
-        }
-
-    }
-
-    /* Styles for the tablets*/
-    @media (min-width: 768px) 
-    {
-      #navbarPublic a:hover, #navbarAdm a:hover, #navbarPublic a:focus, #navbarAdm a:focus {
-        border-bottom : 1px solid #BFC272;
-      }
-
-      #brand{
-        left : 75px;
-        font-size: 16px;
-        width: 300px;
-      }
-
-      #logo  {
-        margin-top: 8px;
-        left : 3px;
-      }
-
-      #logo img {
-        height: 40px;
-      }
-
-      #adminOnPublic .navbar-text, #menuRightAdm .navbar-text {
-        visibility: visible;
-        float: none;
-        position: absolute;
-        top:20px;
-        right:0px;
-        font-size: 11px;
-        width: 100%;
-        margin-right: 0px;
-      }
-
-      #adminOnPublic, #menuRightAdm  {
-        top: 2px;
-        right: 20px;
-      }
-
-
-      #publicMenu .navbar-nav {
-        margin: 2px 0px 0px 360px;
-        font-size :12px;
-      }
-      
-     #navbarInvAdm .navbar-nav {
-        margin: 0px 0px 0px 325px;
-        font-size :12px;
-     }
-
-     #chapterMenuAdm {
-       padding: 15px 0px 15px 0px;
-    }
-    
-    }
-
-      /* Styles for the tablets min-width: 950px*/
-      @media (min-width: 950px) 
-      {
-        #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
-          margin: 0px 0px 0px 460px;
-          font-size :15px;
-        }
-      } 
-
- 
-
-
-    /* Styles for the desktop computers with a large screen*/
-    @media (min-width: 1200px) 
-    {
-      #menuRightAdm  {
-        top: 6px;
-      }
-
-      #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
-        margin: 2px 0px 0px 650px;
-        font-size :17px;
-      }
-    
-      #brand{
-        top: 3px;
-        left : 150px;
-        font-size: 20px;
-        width: 500px;
-      }
-       
-      #logo  {
-        left : 60px;
-        margin-top: 3px;
-      }
-
-      #logo img {
-        height: 50px;
-      }
-
-    }
-         
-
-      /* Styles for the desktop computers with a large screen min-width: 1700px*/
-      @media (min-width: 1700px) 
-      {
-        #publicMenu .navbar-nav , #navbarInvAdm .navbar-nav {
-          margin: 2px 0px 0px 900px;
-          font-size :17px;
-        }
-      }  
-
-
-    /*STYLE FOR THE PUBLIC HOMEPAGE-------------------------------------------------- */  
-
-      /*STYLE FOR THE TITLES & THE BLOCKQUOTE*/
+     /** RESPONSIVE CSS - STYLE FOR THE TITLES & THE BLOCKQUOTE*/
         /* Styles for the smartphones*/
         @media (max-width: 767px) 
         {
-          h1 {
+          .welcome h1 {
             font-size: 26px;
-          }
-
-          h2 {
-            font-size: 24px;
           }
 
           blockquote {
@@ -494,14 +359,10 @@ table {
         }
 
         /* Styles for the tablets*/
-        @media (min-width: 767px) and (max-width: 991px)
+        @media (min-width: 768px) and (max-width: 991px)
         {
-          h1 {
+          .welcome h1 {
             font-size: 26px;
-          }
-
-          h2 {
-            font-size: 24px;
           }
 
           blockquote {
@@ -516,200 +377,214 @@ table {
           }
         }
 
-      /* Styles for the desktop computers max width 1199px*/
-      @media (min-width: 992px) and (max-width: 1199px)
-      {
-        h1 {
-          font-size: 30px;
-        }
-
-        h2 {
-          font-size: 28px;
-        }
-
-        blockquote {
-          position : relative;
-          text-align: justify;
-        }
-
-        blockquote small {
-          position : absolute;
-          right : 100px;
-        }
-
-      }
-
-      /* Styles for the desktop computers min width 1200px*/
-      @media (min-width: 1200px) 
-      {
-        blockquote small {
-          text-align: right;
-        }
-      }
-
-    /*STYLE FOR THE CALLOUTS ON THE HOMEPAGE*/
-
-    /* Styles for screens of min-width : 620px*/
-    @media only screen and (min-width : 620px){
-      .table-row-equal {
-          display: table;
-          width: 100%;
-          table-layout: fixed;
-          border-spacing: 5px 0px;
-          word-wrap: break-word;
-      }
-      .table-row-equal .thumbnail {
-          float: none;
-          display: table-cell;
-          vertical-align: top;
-  
-      }
-    }
-  
-    /* Styles for screens of min-width : 1200px*/
-    @media only screen and (min-width : 1200px){
-      .table-row-equal {
-          border-spacing: 30px 0px;
-      }
-    }
-
-      /* Styles for the smartphones*/
-      @media (max-width: 400px) 
-      {
-        .textcaption h2,  .textcaption p {
-         min-height: 10px;
-        } 
-
-        .image {
-          height: 200px;
-        }
-
-      }
-
-      @media (min-width: 401px) and (max-width:619px)
-      {
-        .textcaption h2,  .textcaption p {
-         min-height: 10px;
-        } 
-
-        .image {
-          height: 320px;
-        }
-      }
-
-      @media (min-width: 620px) and (max-width:767px)
-      {
-        .textcaption  h2 {
-          font-size: 18px;
-          min-height: 40px;
-        }
-      
-        .image {
-          height: 200px;
-          }
-      
-        .textcaption p{
-          min-height: 80px;
-        }  
-
-      }
-
-      @media (min-width: 768px)
-      {
-        .textcaption  h2 {
-          font-size: 20px;
-        }
-      
-        .image {
-          height: 200px;
-          }
-      
-        .textcaption p{
-          min-height: 70px;
-        }  
-   
-      } 
-
-      @media (min-width: 992px)
-      {
-        .textcaption  h2 {
-          font-size: 26px;
-        }
-      } 
-
-    /*STYLE FOR THE SYNOPSIS*/
-
-    /* Styles for the smartphones*/
-    @media (max-width: 767px) 
-    {
-      #synopsis p {
-        font-size: 17px;
-      }
-    }
-
-    /* Styles for the tablets*/
-    @media (min-width: 767px) and (max-width: 991px)
-    {
-      #synopsis p {
-        font-size: 19px;
-      }
-    }
-
-    /* Styles for the desktop computers max width 1199px*/
-    @media (min-width: 992px) and (max-width: 1199px)
-    {
-      #synopsis p {
-        font-size: 20px;
-      }
-    }
-
-
-
-
-    /* CUSTOMIZE THE CAROUSEL  */
-
-      /* Styles for the smartphones*/
-      @media (max-width: 767px) 
-      {
-            
-        /* Carousel base class */
-        .carousel {
-          height:400px;
-        }
-
-        .carousel h1 {
+        /* Styles for the desktop computers max width 1199px*/
+        @media (min-width: 992px) and (max-width: 1199px)
+        {
+          .welcome h1 {
             font-size: 30px;
+          }
+
+          blockquote {
+            position : relative;
+            text-align: justify;
+          }
+
+          blockquote small {
+            position : absolute;
+            right : 100px;
+          }
+
         }
 
-        .carousel p {
-          font-size: 12px;
+        /* Styles for the desktop computers min width 1200px*/
+        @media (min-width: 1200px) 
+        {
+          blockquote small {
+            text-align: right;
+          }
         }
 
-        .carousel .btn-lg {
-          font-size: 14px;
+
+  /*STYLE FOR THE SYNOPSIS*/
+
+  #synopsis {
+    margin-top: 30px;
+    padding-top: 55px;
+  }
+
+  #synopsis h2 {
+    margin-bottom: 30px;
+  }
+
+      /** RESPONSIVE CSS*/
+ 
+        /* Styles for the smartphones*/
+        @media (max-width: 767px) 
+        {
+          #synopsis h2 {
+            font-size: 24px;
+          }
+
+          #synopsis p {
+            font-size: 17px;
+          }
         }
 
-        /* Declare heights because of positioning of img element */
-        .carousel .item,  .carousel-inner > .item > img {
-          height: 400px;
+        /* Styles for the tablets*/
+        @media (min-width: 767px) and (max-width: 991px)
+        {
+          #synopsis h2 {
+            font-size: 24px;
+          }
+
+          #synopsis p {
+            font-size: 19px;
+          }
         }
 
-      } 
+        /* Styles for the desktop computers max width 1199px*/
+        @media (min-width: 992px) and (max-width: 1199px)
+        {
+          #synopsis h2 {
+            font-size: 28px;
+          }
 
-      /* Styles for the tablets*/
-      @media (min-width: 767px) and (max-width: 991px)
-      {
+          #synopsis p {
+            font-size: 20px;
+          }
+        }
+
+  /*STYLE FOR THE CALLOUTS ON THE HOMEPAGE*/
+
+  .image {
+    background-size: cover;
+    background-position: center center;
+    }
+
+  .caption{
+    max-height: 230px;
+  }  
+
+      /** RESPONSIVE CSS*/
+
+        /* Styles for screens of min-width : 620px*/
+        @media only screen and (min-width : 620px){
+          .table-row-equal {
+              display: table;
+              width: 100%;
+              table-layout: fixed;
+              border-spacing: 5px 0px;
+              word-wrap: break-word;
+          }
+          .table-row-equal .thumbnail {
+              float: none;
+              display: table-cell;
+              vertical-align: top;
+      
+          }
+        }
+  
+        /* Styles for screens of min-width : 1200px*/
+        @media only screen and (min-width : 1200px){
+          .table-row-equal {
+              border-spacing: 30px 0px;
+          }
+        }
+
+        /* Styles for the smartphones*/
+        @media (max-width: 400px) 
+        {
+          .textcaption h2,  .textcaption p {
+          min-height: 10px;
+          } 
+
+          .image {
+            height: 200px;
+          }
+        }
+
+        @media (min-width: 401px) and (max-width:619px)
+        {
+          .textcaption h2,  .textcaption p {
+          min-height: 10px;
+          } 
+
+          .image {
+            height: 320px;
+          }
+        }
+
+        @media (min-width: 620px) and (max-width:767px)
+        {
+          .textcaption  h2 {
+            font-size: 18px;
+            min-height: 40px;
+          }
+        
+          .image {
+            height: 200px;
+            }
+        
+          .textcaption p{
+            min-height: 80px;
+          }  
+
+        }
+
+        /* Styles for the tablets and desktop computers*/
+        @media (min-width: 768px)
+        {
+          .textcaption  h2 {
+            font-size: 20px;
+          }
+        
+          .image {
+            height: 200px;
+            }
+        
+          .textcaption p{
+            min-height: 70px;
+          }  
+    
+        } 
+
+        @media (min-width: 992px)
+        {
+          .textcaption  h2 {
+            font-size: 26px;
+          }
+        } 
+
+/* CUSTOMIZE THE CAROUSEL */
+
+  .carousel .item {
+    min-width: 100%;
+  }
+  
+  .carousel-inner > .item > img{
+    position: absolute;
+    top : 0;
+    left: 0;
+    min-width: 100% ;
+  }
+
+      /** RESPONSIVE CSS*/
+
+        /* Styles for the smartphones*/
+        @media (max-width: 767px) 
+        {
+              
           /* Carousel base class */
           .carousel {
-            height:500px;
+            height:400px;
           }
 
-          h1 {
-              font-size: 28px;
+          .carousel h1 {
+              font-size: 30px;
           }
 
           .carousel p {
-            font-size: 13px;
+            font-size: 12px;
           }
 
           .carousel .btn-lg {
@@ -717,90 +592,448 @@ table {
           }
 
           /* Declare heights because of positioning of img element */
-          .carousel .item  {
-            height: 500px;
+          .carousel .item,  .carousel-inner > .item > img {
+            height: 400px;
           }
 
-          .carousel-inner > .item > img {
+        } 
+
+        /* Styles for the tablets*/
+        @media (min-width: 767px) and (max-width: 991px)
+        {
+            /* Carousel base class */
+            .carousel {
+              height:500px;
+            }
+
+            .carousel h1 {
+              font-size: 31px;
+            }
+
+            .carousel p {
+              font-size: 13px;
+            }
+
+            .carousel .btn-lg {
+              font-size: 14px;
+            }
+
+            /* Declare heights because of positioning of img element */
+            .carousel .item  {
+              height: 500px;
+            }
+
+            .carousel-inner > .item > img {
+              height: 600px;
+            }
+
+            /*Adjustments  */
+            .carousel-caption {
+              padding-bottom: 10px;
+            }
+
+            .carousel-indicators {
+              bottom: 0px;
+          }
+        }
+
+        /* Styles for the desktop computers max width 1199px*/
+        @media (min-width: 992px) and (max-width: 1199px)
+        {
+          /* Carousel base class */
+          .carousel {
+            height:600px;
+          }
+
+          .carousel h1 {
+            font-size: 32px;
+          }
+
+          .carousel p {
+            font-size: 16px;
+          }
+
+          .carousel .btn-lg {
+            font-size: 17px;
+          }
+
+          /* Declare heights because of positioning of img element */
+          .carousel .item  {
             height: 600px;
           }
-
-          /*Adjustments  */
-          .carousel-caption {
-            padding-bottom: 10px;
+          .carousel-inner > .item > img {
+            height: 700px;
           }
 
-          .carousel-indicators {
-            bottom: 0px;
         }
-      }
 
-      /* Styles for the desktop computers max width 1199px*/
-      @media (min-width: 992px) and (max-width: 1199px)
+        /* Styles for the desktop computers 1199px <width <1401px*/
+        @media (min-width: 1200px) and (max-width: 1400px)
+        {
+          /* Carousel base class */
+          .carousel {
+            height: 700px;
+          }
+
+          /* Declare heights because of positioning of img element */
+          .carousel .item {
+            height: 700px;
+          }
+
+          .carousel-inner > .item > img{
+            height: 800px;
+          }
+        }
+
+        /* Styles for the desktop computers min width 1401px*/
+        @media (min-width: 1401px) 
+        {
+          /* Carousel base class */
+          .carousel {
+            height: 900px;
+          }
+
+
+          /* Declare heights because of positioning of img element */
+          .carousel .item {
+            height: 900px;
+          }
+
+          .carousel-inner > .item > img{
+            height: 1200px;
+          }
+        }
+
+
+
+/*STYLE FOR THE PAGE MENTIONS LEGALES
+-------------------------------------------------- */
+.mentions {
+  margin-bottom: 30px;
+}
+
+      /** RESPONSIVE CSS*/
+ 
+        /* Styles for the smartphones & tablets*/
+        @media (max-width: 991px) 
+        {
+          .mentions h2 {
+            font-size: 24px;
+          }
+        }
+
+        /* Styles for the desktop computers max width 1199px*/
+        @media (min-width: 992px) and (max-width: 1199px)
+        {
+          .mentions h2 {
+            font-size: 28px;
+          }
+        }
+
+ /*STYLE FOR THE ERROR PAGE 
+-------------------------------------------------- */
+.message {
+  text-transform: uppercase;
+}
+
+#prevPageReturnBtn {
+  margin-top : 40px;
+}
+
+      /** RESPONSIVE CSS*/
+
+        /* Styles for the desktop computers with a large screen min-width: 1300px*/
+        @media (min-width: 1300px) 
+        {
+          #errorJumbo {
+            margin-top: 35px;
+          }
+        }
+
+/*STYLE FOR THE PAGE FORMULAIRE DE CONNEXION A L'ESPACE D'ADMINISTRATION
+-------------------------------------------------- */
+#message {
+  margin : 30px 0 30px 0;  
+}
+
+
+
+/*STYLE FOR THE PAGES RELATING TO THE AUTHOR & THE CHAPTERS : Liste des chapitres, Chapitre, Visualisation de chapitre, ajout de chapitre et modification de chapitre)
+-------------------------------------------------- */
+
+  /*PAGE CHAPITRE*/
+  .chaptercomments{
+    padding-top: 50px;
+  }
+
+  #comments_list {
+    padding-top: 30px;
+  }
+
+  .chaptercomments .formulaire{
+    padding-top: 20px;
+  }
+
+  #comments_list h3{
+    padding-bottom: 15px;
+  }
+
+  .chaptercomments label{
+    padding-top: 15px;
+  }
+
+  .comment{
+    padding-bottom: 25px;
+  }
+
+  .comment a:visited{
+    color: grey;
+  }
+
+  .resume h3, .wholechapter h3 {
+    text-align: center;
+  }
+
+  /*STYLE FOR THE ASIDES*/
+  aside img{
+    margin : 5px 1px 30px 1px;
+  }
+
+  .public_aside, .adm_aside {
+    color : #DB6E71;
+  }
+
+  .adm_aside .glyphicon.glyphicon-time{
+  font-size: 1.5em;
+  }
+
+  .adm_aside .btn-sm {
+    margin-top: 3px;
+  }
+
+      /** RESPONSIVE CSS - PAGES LISTE DES CHAPITRES, CHAPITRE & AUTEUR*/
+
+            /* Styles for the smartphones */
+            @media (max-width: 767px) 
+            {
+              .summarychapter.row{
+                margin-bottom: 40px;
+                text-align: center;
+              }
+
+              .summarychapter h2 {
+                margin-top: 20px;
+                font-size: 20px;
+              }
+
+              .summarychapter img, #sectionChapterPage img, #chapterAdmSection img {
+                width:310px;
+                height:220px;
+              }
+
+              #sectionPageAuthor img{
+                width:220px;
+                height:auto;
+              }
+
+              #sectionChapterPage {
+                margin-top: 0px;
+              }
+
+              .public_aside p {
+                line-height: 20px;
+              }
+
+              .pager li > a, .pager li > span {
+                padding: 5px 6px;
+              }
+            }
+
+            /* Styles for the tablets and desktop computers */
+            @media (min-width: 768px) 
+            {
+              .summarychapter.row{
+                margin-bottom: 50px;
+                text-align: justify;
+              }
+
+              .summarychapter h2 {
+                margin-top: 0px;
+                font-size: 22px;
+              }
+
+              #sectionChapterPage img, #chapterAdmSection img {
+                width:500px;
+                height:320px;
+              }
+
+              #sectionChapterPage {
+                margin-top: 0px;
+              }
+
+              #sectionChapterPage p {
+                line-height: 20px;
+              }
+            }
+          
+            /* Styles for the desktop computers */
+            @media (min-width: 992px) 
+            {
+              .public_aside {
+                line-height : 40px;
+              }
+
+              .summarychapter.row{
+                margin-bottom: 70px;
+              }
+
+              .summarychapter p {
+                font-size: 17px;
+              }
+
+              .summarychapter h2 {
+                font-size: 24px;
+              }
+      
+            }
+
+            /* Styles for the desktop computers with a large screen */
+            @media (min-width: 1200px) 
+            {
+              .summarychapter p {
+                font-size: 18px;
+              }
+
+              .summarychapter h2 {
+                font-size: 26px;
+              }
+      
+            }
+
+  /*FORMS FOR THE CHAPTERS*/
+  legend, form .btn  {
+    margin-top: 20px;
+  }
+
+  #col_photo label {
+    margin-top: 5px;
+  }
+
+  .help-block {
+    margin-top: 0px;
+  }
+
+
+
+/*STYLE FOR THE ADMINISTRATION HOMEPAGE
+-------------------------------------------------- */
+
+.stat {
+  
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+      /** RESPONSIVE CSS */
+
+            /* Styles for the tablets & the desktop computers */
+            @media (min-width: 768px) 
+            {
+              .dashboard {
+                height:60px;
+              }
+            }
+
+  /*STYLE FOR THE PAGES GESTION DES CHAPITRES & GESTION DES COMMENTAIRES 
+-------------------------------------------------- */
+table {
+  margin : 50px 0 50px 0;
+} 
+
+#commentTable th:nth-of-type(6){
+  min-width : 200px;
+}
+
+#actions a {
+  display:inline-block;
+}
+
+.hidden{
+  display : none ;
+}
+
+
+      /** RESPONSIVE CSS */
+      /* Styles for the smartphones and the tablets */
+      @media (max-width: 991px) 
       {
-        /* Carousel base class */
-        .carousel {
-          height:600px;
+        th, td {
+          display: block;
         }
 
-        .carousel h1 {
-          font-size: 32px;
+        th {
+          display: none;
         }
 
-        .carousel p {
-          font-size: 16px;
+        tr { 
+          border: 1px solid #9FA16A; 
         }
-
-        .carousel .btn-lg {
-          font-size: 17px;
-        }
-
-        /* Declare heights because of positioning of img element */
-        .carousel .item  {
-          height: 600px;
-        }
-        .carousel-inner > .item > img {
-          height: 700px;
-        }
-
-      }
-
-      /* Styles for the desktop computers 1199px <width <1401px*/
-      @media (min-width: 1200px) and (max-width: 1400px)
-      {
-        /* Carousel base class */
-        .carousel {
-          height: 700px;
-        }
-
-
-        /* Declare heights because of positioning of img element */
-        .carousel .item {
-          height: 700px;
-        }
-
-        .carousel-inner > .item > img{
-          height: 800px;
-        }
-      }
 
       
-      /* Styles for the desktop computers min width 1401px*/
-      @media (min-width: 1401px) 
-      {
-        /* Carousel base class */
-        .carousel {
-          height: 900px;
+        td { 
+          white-space: normal;
+          /* Behave  like a "row" */
+          
+          border-bottom: 1px solid rgb(134, 132, 132); 
+          position: relative;
+          padding-left: 50%; 
+          padding-top: 15px !important;
         }
+        
 
 
-        /* Declare heights because of positioning of img element */
-        .carousel .item {
-          height: 900px;
+        td:before { 
+          /* Now like a table header */
+          position: absolute;
+          /* Top/left values mimic padding */
+          top: 0px;
+          left:6px;
+          width: 45%; 
+          padding-right: 100px; 
+          white-space: nowrap;
+          color: #9FA16A;
+          font-size:10px;
+          font-style: italic;
         }
+        
+        /*Label the data for the table on page Gestion des chapitres*/
+        #chapterTable td:nth-of-type(1):before { content: "Numéro et titre du chapitre"; }
+        #chapterTable td:nth-of-type(2):before { content: "Date de création"; }
+        #chapterTable td:nth-of-type(3):before { content: "Dernière modification"; }
+        #chapterTable td:nth-of-type(4):before { content: "Date de publication"; }
+        #chapterTable td:nth-of-type(5):before { content: "Visualiser le chapitre"; }
+        #chapterTable td:nth-of-type(6):before { content: "Modifier le chapitre"; }
+        #chapterTable td:nth-of-type(7):before { content: "Supprimer le chapitre"; }
 
-        .carousel-inner > .item > img{
-          height: 1200px;
-        }
+        /*Label the data*/
+        #commentTable td:nth-of-type(1):before { content: "Chapitre concerné"; }
+        #commentTable td:nth-of-type(2):before { content: "Auteur"; }
+        #commentTable td:nth-of-type(3):before { content: "Date de création"; }
+        #commentTable td:nth-of-type(4):before { content: "Statut"; }
+        #commentTable td:nth-of-type(5):before { content: "Date de modération"; }
+        #commentTable td:nth-of-type(6):before { content: "Texte du commentaire"; }
+        #commentTable td:nth-of-type(7):before { content: "Actions possibles"; }
+
+  
       }
-    
+
+
+
+                
+
+
+        
+
+  
+
+

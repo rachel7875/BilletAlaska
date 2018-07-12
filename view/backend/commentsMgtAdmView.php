@@ -32,19 +32,15 @@
                 <p><a class="btn btn-customTer" href="index.php?action=addFormComment"><strong>
                     <span class="glyphicon glyphicon-pencil big"></span>Envoyer un commentaire</strong></a></p>
             
-                <table class="table table-bordered table-striped text-center">
+                <table class="table table-bordered table-striped text-center" id="commentTable">
                     <tr>
                         <th class="text-center" >Chapitre concerné</th>
                         <th class="text-center">Auteur</th>
                         <th class="text-center">Date de création</th>
                         <th class="text-center">Statut</th>
                         <th class="text-center">Date de modération</th>
-                        <th class="text-center">Texte du commentaire </th>
-                        <th class="text-center">Modérer le commentaire</th>
-                        <th class="text-center"> Effacer le commentaire du site web public </th>
-                        <th class="text-center">Restaurer le commentaire sur le site web public </th>
-                        <th class="text-center">Modérer et Restaurer sur le site web public </th>
-                        <th class="text-center">Envoyer votre commentaire pour ce chapitre </th>
+                        <th class="text-center">Texte du commentaire</th>
+                        <th class="text-center">Actions possibles</th>
                     </tr>    
                     <?php
                     foreach ($commentsAdm as $data)
@@ -60,16 +56,16 @@
                         <td class="<?= ($data['stage']=="signalé")?'orange':' ' ?>" ><em> <?= htmlspecialchars($data['stage']) ?></em> </td>
                         <td><em><?php if ($data['stage']=="modéré"){?> <?= $data['moderationDate_fr']; }?></em> </td>
                         <td class="<?= ($data['stage']=="signalé")?'orange':' ' ?>" ><em><?= nl2br(htmlspecialchars($data['comment'])) ?></em> </td>
-                        <td><em><a class="<?= ($data['visibility']==0)?'hidden':'' ?>" 
-                            href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer</a></em> </td>
-                        <td><em><a class="<?php if ($data['visibility']==0){?>hidden<?php }?>" 
-                            href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">Effacer</a></em> </td>
-                        <td><em><a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
-                            href="index.php?action=restorePublicComment&amp;commentId=<?= $data['commentId'] ?>">Restaurer</a></em> </td>
-                        <td><em><a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
-                            href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer et Restaurer</a></em> </td>
-                        <td><em><a class="<?php if ($data['visibility']==0){?>hidden<?php }?>"
-                            href="index.php?action=addFormComment&amp;numChapter=<?= $data['numChapter'] ?>">Envoyer votre commentaire </a></em> </td>
+                        <td id="actions"><em><a class="<?= ($data['visibility']==0)?'hidden':'' ?>" 
+                            href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer</a></em> 
+                            <em><a class="<?php if ($data['visibility']==0){?>hidden<?php }?>" 
+                            href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">* Effacer</a></em> 
+                            <em><a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
+                            href="index.php?action=restorePublicComment&amp;commentId=<?= $data['commentId'] ?>">* Restaurer</a></em> 
+                            <em><a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
+                            href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">* Modérer et Restaurer</a></em> 
+                            <em><a class="<?php if ($data['visibility']==0){?>hidden<?php }?>"
+                            href="index.php?action=addFormComment&amp;numChapter=<?= $data['numChapter'] ?>">* Envoyer votre commentaire </a></em> </td>
                     </tr>
                     <?php
                     }

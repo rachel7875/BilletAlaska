@@ -11,7 +11,7 @@
         </div>
     </div>  
 
-    <div class="container text-center">
+    <section class="container text-center">
         
         <div class="mentions row">  
             <div class="col-sm-12 " >  
@@ -35,7 +35,7 @@
 
         <div class="mentions row">
             <div class="col-sm-12 " > 
-                <h2>Design & développement </h2>
+                <h2>Design & <br/>Développement</h2>
                 <address>
                     <p><strong>DIGITALIZER</strong><br />   
                     21, rue Léonard de Vinci<br />    
@@ -57,7 +57,7 @@
             </div>
         </div>
         
-    </div>
+    </section>
 </div>
 
 <?php $content = ob_get_clean(); ?>

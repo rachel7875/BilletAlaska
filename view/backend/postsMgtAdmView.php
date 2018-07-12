@@ -23,12 +23,12 @@
                         
                 <p><a class="btn btn-customTer" href="index.php?action=addFormPost"><strong><span class="glyphicon glyphicon-pencil big"></span>Ajouter un chapitre</strong></a></p>
 
-                <table class="table table-bordered table-striped text-center">
+                <table class="table table-bordered table-striped text-center" id="chapterTable">
                     <tr>
                         <th class="text-center" >Numéro et Titre du chapitre</th>
-                        <th class="text-center">Date de création :</th>
-                        <th class="text-center">Dernière modification : </th>
-                        <th class="text-center">Date de publication : </th>
+                        <th class="text-center">Date de création</th>
+                        <th class="text-center">Dernière modification</th>
+                        <th class="text-center">Date de publication</th>
                         <th class="text-center">Visualiser le chapitre</th>
                         <th class="text-center">Modifier le chapitre</th>
                         <th class="text-center">Supprimer le chapitre</th>
@@ -51,7 +51,9 @@
                     }
                     ?>
                 </table>
+                
             </div>
+            
         </div>  
     </section>
 </div> 

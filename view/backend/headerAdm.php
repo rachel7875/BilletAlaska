@@ -4,7 +4,7 @@
     <nav class="navbar navbar-default navbar-fixed-top" >
       <div class="container-fluid" id="navbarInvAdm">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" >
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarAdm" >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -12,7 +12,7 @@
           </button>
           
           <div class="navbar-left ">
-            <a class="navbar-text " id="logo" title="Accès au site public" href="index.php"><img src="public/images/logo_jf_nn.png" alt="logo de Jean FORTEROCHE" /></p>
+            <a class="navbar-text " id="logo" title="Accès au site public" href="index.php"><img src="public/images/logo_jf_nn.png" alt="logo de Jean FORTEROCHE" /></a>
             <a class="navbar-brand" id="brand" title="Accès au site public"  href="index.php">BILLET SIMPLE POUR L'ALASKA </a>
           </div>
         </div>
@@ -25,9 +25,10 @@
         </div>
         
         <div class="navbar-right" id="menuRightAdm">
-          <p class="navbar-text">Bonjour <?=$_SESSION['loginName'];?> </p>
+          
           <a class="btn btn-danger btn-xs navbar-btn" href="index.php?action=logout"><span class="glyphicon glyphicon-off"></span> </a>
           <a class="btn btn-customTer btn-xs navbar-btn" href="index.php">SITE PUBLIC</a>
+          <p class="navbar-text">Bonjour <?=$_SESSION['loginName'];?> </p>
           
         </div>
 

@@ -8,10 +8,7 @@
     <div class="jumbotron text-center entete">
         <div class="container">
             <h1>Liste des chapitres</h1>
-            <p>Retrouvez tous les chapitres et leurs résumés
-                <br/>
-                <br/>
-            </p>        
+            <p>Retrouvez tous les chapitres et leurs résumés</p>        
         </div>
     </div>  
 
@@ -24,9 +21,9 @@
             <div class="summarychapter row">
 
                 
-                        <div class="col-sm-5 text-center"> 
-                          <a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><img src="<?= $data['photoLink']?> " 
-                            alt="photo du chapitre correspondant" width="310" height="190"></a>
+                        <div class="col-sm-5 "> 
+                          <a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><img src="<?= $data['photoLink']?>" class="img-responsive center-block"
+                            alt="photo du chapitre correspondant"></a>
                         </div> 
 
                         <div class="col-sm-7">

@@ -12,24 +12,20 @@
         </div>
     </div>  
 
-    <section class="container-fluid">
+    <section class="container-fluid" id="sectionPageAuthor">
         <div class="row">
     
             <aside class="public_aside col-sm-offset-1 col-sm-3 text-center " >
                 <div class="row">
-                    <div class="col-xs-10 " >
-                        <div class="row">
-                            <div class="col-xs-12">   
-                                <img src="public/images/author_portraitc.jpg" class="img-responsive">
-                            </div>
-                        </div>    
-                    </div>
+                    <div class="col-sm-12">   
+                        <img src="public/images/author_portraitc.jpg" class="img-responsive center-block">
+                    </div> 
                 </div> 
             </aside>
 
-            <article class="col-xs-7 " >
+            <article class="col-sm-7 " >
                 <div class="row text-justify">    
-                    <div class="col-xs-12" > 
+                    <div class="col-sm-12" > 
                         <p>Nec vox accusatoris ulla licet subditicii in his malorum quaerebatur acervis ut saltem specie tenus crimina praescriptis 
                             legum committerentur, quod aliquotiens fecere principes saevi: sed quicquid Caesaris implacabilitati sedisset, id velut fas 
                             iusque perpensum confestim urgebatur impleri.  </p>

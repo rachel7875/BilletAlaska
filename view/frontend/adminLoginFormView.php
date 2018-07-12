@@ -12,7 +12,7 @@
         </div>
     </div>  
 
-    <section class="container">
+    <section class="container" id="sectionPageLog">
         <div class="row">
             <div class="col-sm-offset-3 col-sm-6">
                 <div class="orange text-center" id="message" >

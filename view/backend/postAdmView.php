@@ -11,27 +11,26 @@
         </div>
     </div>  
 
-    <section class="container-fluid">
+    <section class="container" id="chapterAdmSection">
 
         <div class="chapterAdm row">
-            <aside  class="adm_aside col-sm-3 text-center ">
-                <div class="row">
-                    <div class="col-sm-offset-1 col-sm-10 " >
-                        
+            <aside  class="adm_aside col-sm-12  ">
+
+                    <div class="text-center">    
                         <p> <strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span></strong> <br />
                         <em>Créé le : <?= htmlspecialchars($postAdm['creationDate_fr'])?></em> </p>
                         <p> <em>Dernière modification le : <?= htmlspecialchars($postAdm['modifDate_fr'])?></em> </p>
                         <p> <em>Date de publication : <?= htmlspecialchars($postAdm['publicationDateSmall_fr']) ?></em> </p>
                         <p>
-                            <em><a class="btn btn-customTer" href="index.php?action=rectifyFormPost&amp;id=<?= $postAdm['id'] ?>">
-                            <span class="glyphicon glyphicon-pencil"></span> Modifier le chapitre</a></em>
-                            <em><a class="btn btn-custom" href="index.php?action=deletePost&amp;id=<?= $postAdm['id'] ?>">
+                            <em><a class="btn btn-sm btn-customTer" href="index.php?action=rectifyFormPost&amp;id=<?= $postAdm['id'] ?>">
+                            <span class="glyphicon glyphicon-pencil"></span> Modifier le chapitre</a></em>   
+                            <em><a class="btn btn-sm btn-custom" href="index.php?action=deletePost&amp;id=<?= $postAdm['id'] ?>">
                             <span class="glyphicon glyphicon-remove-sign"></span> Supprimer le chapitre</a></em>
                         </p>
                       
                         <div class="row">
                             <div class="col-sm-12">   
-                                <img src="<?= $postAdm['photoLink'] ?>" class="img-responsive">
+                                <img src="<?= $postAdm['photoLink'] ?>" class="img-responsive center-block">
                             </div>
                             <div class="col-sm-offset-1 col-sm-10 " >
                                 <div class="<?= (!empty($message))?' ':'hidden' ?>" >
@@ -43,21 +42,21 @@
                                 </div>
                             </div>    
                         </div> 
+                    </div>
                     
-                        <div class="resume">
-                            <h3> Résumé du chapitre </h3>
+                        <div class="resume text-justify">
+                            <h3  > Résumé du chapitre </h3>
                             <p>
                             <?= $postAdm['summary'] ?>
                                 <br />
                             </p>
                         </div>
-                    </div>    
-                </div>
+     
             </aside>
 
-            <article class="col-sm-7 " >
+            <article class="col-sm-12 " >
                 <div class="wholechapter  text-justify"> 
-                    <h3> Contenu du chapitre </h3>           
+                    <h3 > Contenu du chapitre </h3>           
                     <p>
                     <?= $postAdm['content'] ?>
                         <br />

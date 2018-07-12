@@ -5,36 +5,35 @@
 
 <div class="main_content">
 
-    <div class="jumbotron text-center entete">
+    <div class="jumbotron text-center entete" >
         <div class="container">
             <h1>Chapitre <?= htmlspecialchars($post['numChapter']) ?>  <br/>
             <?= htmlspecialchars($post['title']) ?> </h1>
         </div>
     </div>  
 
-    <section class="container-fluid">
+    <section class="container" id="sectionChapterPage">
         <div class="row">
     
-            <aside class="public_aside col-sm-3 text-center " >
+            <aside class="public_aside col-sm-12 text-center " >
                 <div class="row">
-                    <div class="col-sm-offset-1 col-sm-10 " >
+                    <div class="col-sm-12 " >
                         <p>
-                        <strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Publié le <?= $post['publicationDateSmall'] ?></strong> </br>
-                       
-                        <?= $nbComments['nbComments'] ?> <span class="glyphicon glyphicon-comment" aria-hidden="true">
+                            <strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Publié le <?= $post['publicationDateSmall'] ?></strong> </br>
+                            <?= $nbComments['nbComments'] ?> <span class="glyphicon glyphicon-comment" aria-hidden="true">
                         </p>
+   
                         <div class="row">
                             <div class="col-sm-12">   
-                                <img src="<?= $post['photoLink']?> " class="img-responsive">
+                                <img src="<?= $post['photoLink']?> " class="img-responsive center-block">
                             </div>
                         </div>    
                        
-                        <p><a href="index.php?action=listChapters">Retour vers la page d'accueil</a></p>
                     </div>
                 </div> 
             </aside>
 
-            <article class="col-sm-7 " >
+            <article class="col-sm-12 " >
                 <div class="text-justify">            
                     <p>
                         <?=$post['content']?>
@@ -78,8 +77,7 @@
                         {
                             ?>
                             <div class="comment">
-                                <p> <strong><?= htmlspecialchars($data['author']) ?></strong> - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['commentDate_fr'] ?> </p>
-
+                                <p class="light_red "> <strong ><?= htmlspecialchars($data['author']) ?></strong> - <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['commentDate_fr'] ?> </p>
                                 <p> <?= nl2br(htmlspecialchars($data['comment'])) ?> </p>
                                 <p> <?php if($data['stage']=="modéré"){?><em>Modéré par l'auteur    -   </em><?php }
                                             if($data['stage']=="signalé") 
