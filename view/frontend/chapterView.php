@@ -25,7 +25,8 @@
    
                         <div class="row">
                             <div class="col-sm-12">   
-                                <img src="<?= $post['photoLink']?> " class="img-responsive center-block">
+                                <img src="<?= $post['photoLink']?> " 
+                                alt="Photo du chapitre <?= htmlspecialchars($post['numChapter']) ?> <?= htmlspecialchars($post['title']) ?> du roman Billet simple pour l'Alaska" class="img-responsive center-block">
                             </div>
                         </div>    
                        

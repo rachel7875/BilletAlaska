@@ -10,15 +10,17 @@
             <h1>L'auteur</br>
                 <span class="light_red">Jean Forteroche </span> </h1>
         </div>
-    </div>  
+    </div> 
+
 
     <section class="container-fluid" id="sectionPageAuthor">
         <div class="row">
+
     
             <aside class="public_aside col-sm-offset-1 col-sm-3 text-center " >
                 <div class="row">
                     <div class="col-sm-12">   
-                        <img src="public/images/author_portraitc.jpg" class="img-responsive center-block">
+                        <img src="public/images/author_portraitc.jpg" alt="Photo de Jean FORTEROCHE acteur et auteur notamment de Billet simple pour l'Alaska"class="img-responsive center-block">
                     </div> 
                 </div> 
             </aside>

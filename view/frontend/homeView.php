@@ -16,7 +16,8 @@ vivez une réelle aventure, pleine de mystères, au pays des ours et des glacier
         </ol>
         <div class="carousel-inner" >
             <div class="item active">
-                <img class="first-slide " src="public/images/mountain_lucas.jpg"  alt="Photo de Lucas la nuit dans les montagnes">
+                <img class="first-slide " src="public/images/mountain_lucas.jpg"  
+                alt="Photo de Lucas la nuit dans les montagnes (roman : Billet simple pour l'Alaska)">
                 <div class="container">
                     <div class="carousel-caption text-left">
                         <h1>BILLET SIMPLE POUR L'ALASKA.</h1>
@@ -27,7 +28,7 @@ vivez une réelle aventure, pleine de mystères, au pays des ours et des glacier
                 </div>
             </div>
             <div class="item">
-                <img class="second-slide " src="public/images/elias_landscape_men.jpg"  alt="Photo de Lucas et de son guide à Elias ">
+                <img class="second-slide " src="public/images/elias_landscape_men.jpg"  alt="Photo de Lucas et de son guide à Elias (roman : Billet simple pour l'Alaska) ">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>BILLET SIMPLE POUR L'ALASKA.</h1>
@@ -112,7 +113,7 @@ vivez une réelle aventure, pleine de mystères, au pays des ours et des glacier
                     </div>    
                    
                     <div class="thumbnail">
-                        <div class="image" style="background-image:url(public/images/glacier_bay.jpg)"></div>
+                        <div class="image" style="background-image:url(public/images/chapters_list.jpg)"></div>
                         <div class="caption">
                             <div class="textcaption">
                                 <h2>Liste des chapitres</h2>

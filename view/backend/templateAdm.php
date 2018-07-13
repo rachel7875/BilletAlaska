@@ -39,6 +39,11 @@
                 visualblocks_default_state: true
             });
         </script>
+        <script>
+            $(function (){
+            $('a').tooltip();
+            });
+        </script>    
         <script src="public/js/jquery-3.3.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         

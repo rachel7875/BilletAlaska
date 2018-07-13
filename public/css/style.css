@@ -887,7 +887,7 @@ a{
                 margin-bottom: 70px;
               }
 
-              .summarychapter p {
+              .summarychapter p, #summary {
                 font-size: 17px;
               }
 
@@ -900,7 +900,7 @@ a{
             /* Styles for the desktop computers with a large screen */
             @media (min-width: 1200px) 
             {
-              .summarychapter p {
+              .summarychapter p, #summary {
                 font-size: 18px;
               }
 

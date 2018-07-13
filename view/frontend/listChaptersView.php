@@ -23,20 +23,20 @@
                 
                         <div class="col-sm-5 "> 
                           <a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><img src="<?= $data['photoLink']?>" class="img-responsive center-block"
-                            alt="photo du chapitre correspondant"></a>
+                            alt="photo du chapitre <?= htmlspecialchars($data['numChapter']) ?> : <?= htmlspecialchars($data['title']) ?> de Billet simple pour l'Alaska"></a>
                         </div> 
 
                         <div class="col-sm-7">
                             <h2> Chapitre <?= htmlspecialchars($data['numChapter']) ?> : <?= htmlspecialchars($data['title']) ?> </h2>
                             <p> <em><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['publicationDateSmall'] ?></em> </p>
-                            <p>
+                            <div id="summary">
                                 <?= $data['summary']?>
                                 <br />
                                 <br />
                                 <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire le chapitre</a></em>
                                 <br />
                                 <br />
-                            </p>
+                            </div>
                         </div>  
                          
             </div>

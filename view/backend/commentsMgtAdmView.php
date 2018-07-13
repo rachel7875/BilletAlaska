@@ -59,13 +59,13 @@
                         <td id="actions"><em><a class="<?= ($data['visibility']==0)?'hidden':'' ?>" 
                             href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">Modérer</a></em> 
                             <em><a class="<?php if ($data['visibility']==0){?>hidden<?php }?>" 
-                            href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>">* Effacer</a></em> 
+                            data-toggle="tooltip" href="index.php?action=deletePublicComment&amp;commentId=<?= $data['commentId'] ?>" title="Effacer du site web public">* Effacer</a></em> 
                             <em><a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
-                            href="index.php?action=restorePublicComment&amp;commentId=<?= $data['commentId'] ?>">* Restaurer</a></em> 
+                            data-toggle="tooltip" href="index.php?action=restorePublicComment&amp;commentId=<?= $data['commentId'] ?>" title="Restaurer sur le site web public">* Restaurer</a></em> 
                             <em><a class="<?php if ($data['visibility']==1){?>hidden<?php }?>"
-                            href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>">* Modérer et Restaurer</a></em> 
+                            data-toggle="tooltip" href="index.php?action=moderateFormComment&amp;commentId=<?= $data['commentId'] ?>" title="Modérer et Restaurer sur le site web public">* Modérer et Restaurer</a></em> 
                             <em><a class="<?php if ($data['visibility']==0){?>hidden<?php }?>"
-                            href="index.php?action=addFormComment&amp;numChapter=<?= $data['numChapter'] ?>">* Envoyer votre commentaire </a></em> </td>
+                            data-toggle="tooltip" href="index.php?action=addFormComment&amp;numChapter=<?= $data['numChapter'] ?>" title="Envoyer votre commentaire pour ce chapitre">* Envoyer votre commentaire </a></em> </td>
                     </tr>
                     <?php
                     }
