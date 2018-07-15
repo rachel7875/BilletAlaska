@@ -1,15 +1,20 @@
-<?php $title = 'Mentions légales'; ?>
-<?php $metaDescription ='Mentions légales du site du dernier roman en ligne de Jean Forteroche Billet simple pour l\'Alaska' ?> 
+<?php $title = 'Mentions légales - Site Billet simple pour l\'Alaska'; ?>
+<?php $metaDescription ='Mentions légales du site du roman en ligne de Jean Forteroche Billet simple pour l\'Alaska : éditeur, design & développement et hébergement ' ?> 
 
 <?php ob_start(); ?>
 
 <div class="main_content">
 
-    <div class="jumbotron text-center entete">
+    <div class="jumbotron text-center enteteBis">
         <div class="container">
             <h1>Mentions légales</h1>        
         </div>
-    </div>  
+    </div> 
+    
+    <ol class="container breadcrumb text-center">
+        <li><a href="index.php">Accueil</a></li>
+        <li class="active">Mentions légales </li>
+    </ol>
 
     <section class="container text-center">
         

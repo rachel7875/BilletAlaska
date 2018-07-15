@@ -25,7 +25,7 @@
                         <textarea id="new_comment"  name="new_comment" rows="8"  class="mceNoEditor form-control"> <?= htmlspecialchars($commentToModify['comment']);?> </textarea>
                     </div>
                     <div class="form-group">
-                        <input class="btn btn-lg btn-custom" type="submit" />
+                        <input class="btn btn-lg btn-custom" type="submit" value="Valider" />
                     </div>
                 </form>
 

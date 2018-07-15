@@ -1,16 +1,22 @@
-<?php $title = 'L\'auteur Jean FORTEROCHE'; ?>
-<?php $metaDescription ='Jean Forteroche, auteur de Billet simple pour l\'Alaska, roman à lire en ligne !' ?> 
+<?php $title = 'Jean FORTEROCHE, l\'auteur de Billet simple pour l\'Alaska '; ?>
+<?php $metaDescription ='Pour tout savoir ou presque sur Jean Forteroche, acteur  et auteur de nombreux romans : 
+sa vie, ses passions, ses oeuvres, ses actions  et ses projets !' ?> 
 
 <?php ob_start(); ?>
 
 <div class="main_content">
 
-    <div class="jumbotron text-center entete">
+    <div class="jumbotron text-center enteteBis">
         <div class="container">
-            <h1>L'auteur</br>
+            <h1>L'auteur<br/>
                 <span class="light_red">Jean Forteroche </span> </h1>
         </div>
     </div> 
+
+    <ol class="container breadcrumb text-center">
+        <li><a href="index.php">Accueil</a></li>
+        <li class="active">L'auteur</li>
+    </ol>
 
 
     <section class="container-fluid" id="sectionPageAuthor">
@@ -20,7 +26,7 @@
             <aside class="public_aside col-sm-offset-1 col-sm-3 text-center " >
                 <div class="row">
                     <div class="col-sm-12">   
-                        <img src="public/images/author_portraitc.jpg" alt="Photo de Jean FORTEROCHE acteur et auteur notamment de Billet simple pour l'Alaska"class="img-responsive center-block">
+                        <img src="public/images/author_portraitc.jpg" alt="Photo de Jean FORTEROCHE acteur et auteur notamment de Billet simple pour l'Alaska" class="img-responsive center-block">
                     </div> 
                 </div> 
             </aside>
@@ -57,6 +63,7 @@
                     </div>
                 </div>
             </article>
+        </div>
     </section>
 </div>
 

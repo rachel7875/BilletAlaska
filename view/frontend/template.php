@@ -13,23 +13,6 @@
         <title><?= $title ?></title>
         <meta name="description" content="<?= $metaDescription ?>" />
 
-        <!--  Essential social META Tags -->
-
-        <meta property="og:title" content="<?= $title ?>">
-        <meta property="og:type" content="website"/>
-        <meta property="og:description" content="<?= $metaDescription ?>">
-        <meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
-        <meta property="og:url" content="__DIR__ .'/../public">
-        <meta name="twitter:card" content="summary_large_image">
-
-
-        <!--  Non-Essential, But Recommended -->
-
-        <meta property="og:site_name" content="Billet simple pour l Alaska, le dernier roman de Jean Forteroche à lire en ligne.">
-        <meta name="twitter:image:alt" content="Alt text for image">
-
-
-
         <!-- Bootstrap core CSS -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -56,8 +39,8 @@
                     <p><a href="index.php?action=adminLoginForm">Administration du site</a> </p>
                     <p>Sité réalisé par Rachel Mabire dans le cadre <br />
                     de la formation "Chef de projet - Développement" </p>
-                <div/>
-            <div/>
+                </div>
+            </div>
         </footer>
 
 

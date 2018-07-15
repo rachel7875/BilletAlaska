@@ -1,5 +1,5 @@
 <?php $title = "Accès à l'interface d'administration"; ?>
-<?php $metaDescription ='Connexion' ?> 
+<?php $metaDescription ='Page de connexion' ?> 
 
 <?php ob_start(); ?>
 

@@ -82,10 +82,19 @@ a{
       color : #DB6E71;
     }
 
-    .jumbotron.entete {
+    .jumbotron.entete, .jumbotron.enteteBis {
       color:#d84145; 
       background-image: url("nightauroran.jpg"); 
       background-size: cover;
+    }
+
+    .jumbotron.enteteBis {
+      margin-bottom: 0px;
+    }
+
+    .breadcrumb {
+      padding: 0px;
+      background-color: white;
     }
     
     .orange{
@@ -201,7 +210,7 @@ a{
 
       /** RESPONSIVE CSS*/
         /* Styles for the smartphones*/
-        @media (max-width: 767px) 
+        @media (max-width: 768px) 
         {
             #brand{
               left : 30px;
@@ -262,8 +271,8 @@ a{
           }
 
           #adminOnPublic, #menuRightAdm  {
-            top: 2px;
-            right: 20px;
+            top: 2px ;
+            right: 20px ;
           }
 
           #publicMenu .navbar-nav {
@@ -887,7 +896,7 @@ a{
                 margin-bottom: 70px;
               }
 
-              .summarychapter p, #summary {
+              .summarychapter p, .summary {
                 font-size: 17px;
               }
 
@@ -900,7 +909,7 @@ a{
             /* Styles for the desktop computers with a large screen */
             @media (min-width: 1200px) 
             {
-              .summarychapter p, #summary {
+              .summarychapter p, .summary {
                 font-size: 18px;
               }
 

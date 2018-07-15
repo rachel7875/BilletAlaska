@@ -60,7 +60,7 @@
                     </fieldset>
 
                     <div class="form-group">
-                        <input class="btn btn-lg btn-custom" type="submit" />
+                        <input class="btn btn-lg btn-custom" type="submit" value="Valider"/>
                     </div>
                 </form>
             </div>

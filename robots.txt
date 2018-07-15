@@ -1,2 +1,4 @@
 User-Agent: *
-Disallow: view/frontend/exceptionView.php
+Disallow: /view/frontend/exceptionView.php
+Disallow: /view/frontend/adminLoginFormView.php
+Dsallow: /view/backend/

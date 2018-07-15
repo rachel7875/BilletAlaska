@@ -1,16 +1,22 @@
-<?php $title = htmlspecialchars($post['title']); ?>
-<?php $metaDescription ='Chapitre ' . htmlspecialchars($post['numChapter']) . ': ' . htmlspecialchars($post['title']) . 'de Billet simple pour l\'Alaska'  ?>
+<?php $title = 'Billet simple pour l\'Alaska - Chapitre ' . htmlspecialchars($post['numChapter']) ; ?>
+<?php $metaDescription = htmlspecialchars($post['title']) . ': ' . strstr ('">', ' ', strip_tags($post['summary']))  ?>
 
 <?php ob_start(); ?>
 
 <div class="main_content">
 
-    <div class="jumbotron text-center entete" >
+    <div class="jumbotron text-center enteteBis" >
         <div class="container">
             <h1>Chapitre <?= htmlspecialchars($post['numChapter']) ?>  <br/>
             <?= htmlspecialchars($post['title']) ?> </h1>
         </div>
     </div>  
+
+    <ol class="container breadcrumb text-center">
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="index.php?action=listChapters">Liste des chapitres</a></li>
+        <li class="active">Chapitre <?= htmlspecialchars($post['numChapter']) ?> </li>
+    </ol>
 
     <section class="container" id="sectionChapterPage">
         <div class="row">
@@ -19,8 +25,8 @@
                 <div class="row">
                     <div class="col-sm-12 " >
                         <p>
-                            <strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Publié le <?= $post['publicationDateSmall'] ?></strong> </br>
-                            <?= $nbComments['nbComments'] ?> <span class="glyphicon glyphicon-comment" aria-hidden="true">
+                            <strong><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Publié le <?= $post['publicationDateSmall'] ?></strong> <br/>
+                            <?= $nbComments['nbComments'] ?> <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                         </p>
    
                         <div class="row">

@@ -71,13 +71,13 @@
                         <legend>Publication </legend>
                         <div class="form-group">
                             <label for="new_publicationDateSimple">Date de publication : </label>
-                            <p class="help-block">Le chapitre est publié le jour de cette date. Ne remplir ce champ que si vous êtes sûr. </p> 
+                            <p class="help-block">Le chapitre est publié le jour de cette date. Ne remplir ce champ que si vous êtes sûr. Il n'est pas possible de supprimer une date. </p> 
                             <input type="date" name="new_publicationDateSimple" id="new_publicationDateSimple" value="<?=htmlspecialchars($postToModify['publicationDateSmall']);?>" />
                         </div>
                     </fieldset>
 
                 <div class="form-group">
-                    <input class="btn btn-lg btn-custom" type="submit"  />
+                    <input class="btn btn-lg btn-custom" type="submit" value="Valider" />
                 </div>
             </form>
         </div>

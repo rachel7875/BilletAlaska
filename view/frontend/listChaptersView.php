@@ -1,16 +1,22 @@
-<?php $title = 'Liste des chapitres'; ?>
-<?php $metaDescription ='Liste des chapitres du dernier roman en ligne de Jean Forteroche Billet simple pour l\'Alaska' ?> 
+<?php $title = 'Liste des chapitres de Billet simple pour l\'Alaska'; ?>
+<?php $metaDescription ='Retrouvez les résumés et photos de chaque chapitre du dernier roman de Jean Forteroche pour vous donner envie de lire en ligne
+les aventures de Lucas !' ?> 
 
 <?php ob_start(); ?>
 
 <div class="main_content">
     
-    <div class="jumbotron text-center entete">
+    <div class="jumbotron text-center enteteBis">
         <div class="container">
             <h1>Liste des chapitres</h1>
             <p>Retrouvez tous les chapitres et leurs résumés</p>        
         </div>
     </div>  
+
+    <ol class="container breadcrumb text-center">
+        <li><a href="index.php">Accueil</a></li>
+        <li class="active">Liste des chapitres</li>
+    </ol>
 
 
     <section class="container">
@@ -29,7 +35,7 @@
                         <div class="col-sm-7">
                             <h2> Chapitre <?= htmlspecialchars($data['numChapter']) ?> : <?= htmlspecialchars($data['title']) ?> </h2>
                             <p> <em><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?= $data['publicationDateSmall'] ?></em> </p>
-                            <div id="summary">
+                            <div class="summary">
                                 <?= $data['summary']?>
                                 <br />
                                 <br />
